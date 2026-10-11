@@ -11,102 +11,115 @@
 :root{
   --ink:#0f1226; --muted:#7a82a6; --soft:#9aa1c0;
   --accent:#4f46ff; --accent-2:#6aa8ff;
-  --glass:rgba(255,255,255,.55); --glass-strong:rgba(255,255,255,.78);
+  --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.82);
   --line:rgba(255,255,255,.85);
   --shadow:0 20px 50px -20px rgba(70,80,160,.28);
   --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --hand:"Caveat","Segoe Script",cursive;
 }
 *{box-sizing:border-box;margin:0}
-html,body{min-height:100%}
-body{
-  font-family:var(--font);color:var(--ink);padding:44px 24px;
+html,body{
+  width:100%;height:100%;min-height:100%;margin:0;padding:0;overflow:hidden;
+  font-family:var(--font);color:var(--ink);-webkit-font-smoothing:antialiased;
+  background:transparent;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+}
+::-webkit-scrollbar{width:0!important;height:0!important;display:none!important}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- Çerçeve (Konteynere Birebir Oturan Kusursuz Düzen) ---------- */
+.shell{
+  position:relative;width:100%;height:100%;max-width:100%;min-height:100%;margin:0;overflow:hidden;
+  display:grid;grid-template-columns:230px 1fr;
   background:
     radial-gradient(60% 50% at 8% 8%,#dfe6fb 0,transparent 70%),
     radial-gradient(50% 50% at 95% 12%,#e4e8fb 0,transparent 70%),
     radial-gradient(50% 45% at 100% 100%,#d9dcfa 0,transparent 70%),
     radial-gradient(40% 40% at 0% 95%,#f3e4ee 0,transparent 70%),
     #eef1fc;
-  -webkit-font-smoothing:antialiased;
-}
-svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
-
-/* ---------- Çerçeve ---------- */
-.shell{
-  position:relative;max-width:1120px;min-height:710px;margin:0 auto;overflow:hidden;
-  display:grid;grid-template-columns:240px 1fr;
-  background:var(--glass);border:1px solid var(--line);border-radius:36px;
   backdrop-filter:blur(30px) saturate(1.3);-webkit-backdrop-filter:blur(30px) saturate(1.3);
-  box-shadow:var(--shadow),inset 0 1px 0 #fff;
-  transition:all .3s ease;
+  border-radius:0;border:0;box-shadow:none;
 }
 
-/* ---------- Kenar çubuğu ---------- */
+/* ---------- Kenar Çubuğu ---------- */
 .side{
-  display:flex;flex-direction:column;padding:32px 16px 28px;
-  background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.12));
-  border-right:1px solid rgba(255,255,255,.6);
+  display:flex;flex-direction:column;padding:26px 14px 22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.18));
+  border-right:1px solid rgba(255,255,255,.7);user-select:none;
 }
-.brand{display:flex;align-items:center;gap:14px;padding:0 14px;margin-bottom:34px}
+.brand{display:flex;align-items:center;gap:12px;padding:0 10px;margin-bottom:28px}
 .logo{
-  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:18px;
+  width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;font-size:17px;
   background:linear-gradient(135deg,#6aa8ff,#8b6bff 60%,#e08bff);
-  box-shadow:0 8px 18px -6px rgba(110,100,255,.6);
-  flex-shrink:0;
+  box-shadow:0 8px 18px -6px rgba(110,100,255,.6);flex-shrink:0;
 }
-.brand-info b{font-size:13.5px;font-weight:700;display:block;line-height:1.2}
-.brand-info small{font-size:11px;color:var(--muted);font-weight:500}
-.nav{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0}
-.nav a{
-  display:flex;align-items:center;gap:14px;height:42px;padding:0 14px;border-radius:14px;
-  color:var(--muted);font-size:13px;font-weight:500;text-decoration:none;transition:all .2s;
-  cursor:pointer;
+.brand-info b{font-size:13px;font-weight:700;display:block;line-height:1.2;color:var(--ink)}
+.brand-info small{font-size:10.5px;color:var(--muted);font-weight:500}
+.nav{display:flex;flex-direction:column;gap:5px;list-style:none;padding:0}
+.nav button, .nav a{
+  display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:12px;
+  color:var(--muted);font-size:12.5px;font-weight:500;text-decoration:none;transition:all .18s;
+  cursor:pointer;background:none;border:0;width:100%;text-align:left;font-family:inherit;
 }
-.nav a svg{font-size:17px}
-.nav a:hover{background:rgba(255,255,255,.55);color:var(--ink);transform:translateX(3px)}
-.nav a[aria-current]{
-  color:var(--accent);font-weight:600;background:rgba(214,225,255,.7);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 6px 16px -10px rgba(79,70,255,.5);
+.nav button svg, .nav a svg{font-size:16px}
+.nav button:hover, .nav a:hover{background:rgba(255,255,255,.65);color:var(--ink);transform:translateX(3px)}
+.nav button.active, .nav a[aria-current]{
+  color:var(--accent);font-weight:600;background:rgba(214,225,255,.8);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 6px 16px -10px rgba(79,70,255,.5);
 }
-.side-foot{margin-top:auto;padding:0 14px;color:var(--soft);font-size:11.5px;line-height:1.5}
-.side-foot hr{width:16px;border:0;border-top:1.5px solid var(--soft);margin-bottom:10px}
-.side-foot .i{font-size:16px;margin-top:24px;display:block;color:var(--accent-2)}
+.side-foot{margin-top:auto;padding:0 10px;color:var(--soft);font-size:11px;line-height:1.45}
+.side-foot hr{width:16px;border:0;border-top:1.5px solid var(--soft);margin-bottom:8px}
+.side-foot .i{font-size:15px;margin-top:18px;display:block;color:var(--accent-2)}
 
-/* ---------- Ana alan ---------- */
-.main{position:relative;padding:34px 32px 40px 36px;min-width:0}
-.top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
-.titles{flex:1 1 260px}
-.eyebrow{font-size:10.5px;letter-spacing:.14em;color:var(--soft);font-weight:700;text-transform:uppercase}
-h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
-.sub{font-size:13.5px;color:var(--muted)}
-.tools{display:flex;gap:12px;align-items:center}
-.search{
-  display:flex;align-items:center;gap:10px;width:230px;height:40px;padding:0 14px;border-radius:20px;
-  background:var(--glass-strong);box-shadow:0 8px 22px -14px rgba(70,80,160,.45);color:var(--muted);
-  transition:all .2s;
+/* ---------- Ana Alan ---------- */
+.main{
+  position:relative;padding:26px 28px 30px 30px;min-width:0;
+  display:flex;flex-direction:column;height:100%;overflow-y:auto;overflow-x:hidden;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
 }
-.search input{border:0;outline:0;background:none;font:inherit;font-size:12.5px;width:100%;color:var(--ink)}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;flex-shrink:0}
+.titles{flex:1 1 240px}
+.eyebrow{font-size:10px;letter-spacing:.14em;color:var(--soft);font-weight:700;text-transform:uppercase}
+h1{font-size:28px;font-weight:800;letter-spacing:-.025em;margin:3px 0 6px;color:var(--ink)}
+.sub{font-size:12.5px;color:var(--muted)}
+.tools{display:flex;gap:9px;align-items:center;flex-shrink:0}
+.search{
+  display:flex;align-items:center;gap:8px;width:210px;height:38px;padding:0 12px;border-radius:19px;
+  background:var(--glass-strong);box-shadow:0 8px 22px -14px rgba(70,80,160,.45);color:var(--muted);
+  transition:all .2s;position:relative;
+}
+.search input{border:0;outline:0;background:none;font:inherit;font-size:12px;width:100%;color:var(--ink)}
 .search input::placeholder{color:var(--soft)}
-.search:focus-within{box-shadow:0 0 0 2px rgba(79,70,255,.35);width:260px;background:#fff}
+.search:focus-within{box-shadow:0 0 0 2px rgba(79,70,255,.35);width:235px;background:#fff}
+.search-clear{background:none;border:0;color:var(--muted);cursor:pointer;font-size:15px;padding:0 4px;display:none}
+.search-clear:hover{color:var(--ink)}
 .btn{
-  width:40px;height:40px;border-radius:14px;border:0;display:grid;place-items:center;cursor:pointer;
-  background:var(--glass-strong);color:var(--ink);font-size:17px;
-  box-shadow:0 8px 22px -14px rgba(70,80,160,.45);transition:all .2s;
+  width:38px;height:38px;border-radius:13px;border:0;display:grid;place-items:center;cursor:pointer;
+  background:var(--glass-strong);color:var(--ink);font-size:16px;
+  box-shadow:0 8px 22px -14px rgba(70,80,160,.45);transition:all .2s;position:relative;
 }
 .btn:hover{transform:translateY(-2px);background:#fff}
 .btn:active{transform:scale(.95)}
-.btn.round{border-radius:20px}
+.btn.round{border-radius:19px}
+.btn.close-btn{
+  color:#555c80;background:rgba(255,255,255,.85);
+  box-shadow:0 8px 20px -10px rgba(0,0,0,.25);
+}
+.btn.close-btn:hover{
+  background:#ff4757;color:#fff;transform:scale(1.06) rotate(90deg);
+  box-shadow:0 8px 20px -6px rgba(255,71,87,.6);
+}
 
-/* ---------- Filtreler ---------- */
-.tabs{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 24px}
+/* ---------- Filtre Sekmeleri ---------- */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 20px;flex-shrink:0}
 .tab{
-  display:flex;align-items:center;gap:10px;height:36px;padding:0 16px;border-radius:18px;border:0;cursor:pointer;
-  font:inherit;font-size:12.5px;font-weight:600;color:#555c80;background:var(--glass-strong);
+  display:flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:17px;border:0;cursor:pointer;
+  font:inherit;font-size:12px;font-weight:600;color:#555c80;background:var(--glass-strong);
   box-shadow:0 8px 20px -14px rgba(70,80,160,.5);transition:all .25s;
 }
 .tab .n{
-  min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;
-  font-size:10.5px;background:rgba(150,160,200,.16);color:var(--muted);padding:0 6px;
+  min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;
+  font-size:10px;background:rgba(150,160,200,.16);color:var(--muted);padding:0 5px;
   font-weight:700;
 }
 .tab:hover{background:#fff;transform:translateY(-1px)}
@@ -115,23 +128,23 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
   box-shadow:0 10px 22px -8px rgba(79,70,255,.65);
 }
 .tab[aria-pressed="true"] .n{background:rgba(255,255,255,.3);color:#fff}
-.tab:focus-visible,.btn:focus-visible,.dl:focus-visible,.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-/* ---------- Kartlar ---------- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,280px));gap:24px;position:relative;z-index:2}
+/* ---------- Kartlar Izgarası ---------- */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,275px));gap:20px;
+  position:relative;z-index:2;padding-bottom:20px;
+}
 .card{
-  position:relative;padding:12px 12px 16px;border-radius:26px;background:rgba(255,255,255,.65);
-  border:1px solid rgba(255,255,255,.95);box-shadow:0 18px 40px -26px rgba(70,80,160,.45);
-  cursor:pointer;transition:all .3s cubic-bezier(.2,.8,.2,1);
+  position:relative;padding:11px 11px 15px;border-radius:24px;background:rgba(255,255,255,.68);
+  border:1px solid rgba(255,255,255,.95);box-shadow:0 16px 36px -24px rgba(70,80,160,.4);
+  cursor:pointer;transition:all .28s cubic-bezier(.2,.8,.2,1);
 }
 .card:hover{
-  transform:translateY(-6px);
-  background:rgba(255,255,255,.88);
-  box-shadow:0 24px 50px -20px rgba(70,80,160,.55);
-  border-color:#fff;
+  transform:translateY(-5px);background:rgba(255,255,255,.92);
+  box-shadow:0 22px 46px -18px rgba(70,80,160,.5);border-color:#fff;
 }
 .thumb{
-  position:relative;height:164px;border-radius:18px;overflow:hidden;
+  position:relative;height:152px;border-radius:17px;overflow:hidden;
   background:
     radial-gradient(70% 70% at 15% 10%,#7fc0ff 0,transparent 70%),
     radial-gradient(55% 60% at 90% 45%,#ffc9d6 0,transparent 70%),
@@ -159,22 +172,21 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
 }
 .thumb-overlay{
   position:absolute;inset:0;background:rgba(15,18,38,.25);backdrop-filter:blur(2px);
-  display:grid;place-items:center;opacity:0;transition:opacity .25s ease;z-index:3;
+  display:grid;place-items:center;opacity:0;transition:opacity .22s ease;z-index:3;
 }
 .card:hover .thumb-overlay{opacity:1}
 .play-btn-circle{
-  width:50px;height:50px;border-radius:50%;background:#fff;color:var(--accent);
+  width:46px;height:46px;border-radius:50%;background:#fff;color:var(--accent);
   display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);
-  transform:scale(.8);transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+  transform:scale(.85);transition:transform .25s cubic-bezier(.34,1.56,.64,1);
 }
 .card:hover .play-btn-circle{transform:scale(1)}
 .type{
-  position:absolute;z-index:2;top:10px;left:10px;width:30px;height:30px;border-radius:50%;
-  display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;
+  position:absolute;z-index:2;top:10px;left:10px;width:28px;height:28px;border-radius:50%;
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px;
   background:linear-gradient(135deg,#ff7a3d,#d9381e);box-shadow:0 6px 14px -4px rgba(217,56,30,.6);
 }
 .type.pdf{background:linear-gradient(135deg,#ff5a6a,#d11f3b);font-size:10px}
-.type.interactive{background:linear-gradient(135deg,#9b51e0,#6a4fe0);font-size:11px}
 .more{
   position:absolute;z-index:4;top:10px;right:10px;width:28px;height:28px;border-radius:50%;border:0;
   display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.32);backdrop-filter:blur(8px);
@@ -182,28 +194,28 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
 }
 .more:hover{background:#fff;color:var(--ink);transform:scale(1.1)}
 .size{
-  position:absolute;z-index:2;left:10px;bottom:10px;padding:5px 10px;border-radius:12px;
-  font-size:11px;font-weight:600;color:#fff;background:rgba(20,24,55,.65);backdrop-filter:blur(8px);
+  position:absolute;z-index:2;left:10px;bottom:10px;padding:4px 8px;border-radius:10px;
+  font-size:10.5px;font-weight:600;color:#fff;background:rgba(20,24,55,.65);backdrop-filter:blur(8px);
 }
-.info{position:relative;padding:16px 6px 0}
-.info h2{font-size:15px;font-weight:700;line-height:1.35;letter-spacing:-.015em;padding-right:48px;color:var(--ink)}
-.info p.desc{font-size:11.5px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:48px}
-.meta{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11.5px;color:var(--muted);font-weight:500}
+.info{position:relative;padding:14px 4px 0}
+.info h2{font-size:14.5px;font-weight:700;line-height:1.35;letter-spacing:-.015em;padding-right:44px;color:var(--ink)}
+.info p.desc{font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:44px}
+.meta{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:11px;color:var(--muted);font-weight:500}
 .dl{
-  position:absolute;right:2px;bottom:-2px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
-  color:var(--ink);background:rgba(225,230,248,.8);font-size:16px;text-decoration:none;transition:all .2s;
+  position:absolute;right:2px;bottom:-2px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  color:var(--ink);background:rgba(225,230,248,.85);font-size:15px;text-decoration:none;transition:all .2s;
   z-index:4;border:0;cursor:pointer;
 }
 .dl:hover{background:#fff;color:var(--accent);transform:scale(1.1);box-shadow:0 6px 16px -4px rgba(70,80,160,.4)}
-.empty{grid-column:1/-1;color:var(--muted);font-size:14px;padding:40px 10px;text-align:center}
+.empty{grid-column:1/-1;color:var(--muted);font-size:13.5px;padding:40px 10px;text-align:center}
 
 /* ---------- El Yazısı Notu & Cam Efektleri ---------- */
 .note{
-  position:absolute;right:56px;top:128px;width:120px;font-family:var(--hand);font-size:20px;line-height:1.1;
-  color:#8a92b8;transform:rotate(-12deg);pointer-events:none;z-index:3;
+  position:absolute;right:48px;top:118px;width:120px;font-family:var(--hand);font-size:19px;line-height:1.1;
+  color:#8a92b8;transform:rotate(-12deg);pointer-events:none;z-index:1;
 }
-.note svg{position:absolute;left:-10px;top:44px;width:46px;height:48px;stroke:#8a92b8;fill:none;stroke-width:1.2;transform:rotate(12deg)}
-.glass{position:absolute;right:-120px;bottom:-90px;width:520px;height:420px;pointer-events:none;z-index:1}
+.note svg{position:absolute;left:-10px;top:40px;width:44px;height:46px;stroke:#8a92b8;fill:none;stroke-width:1.2;transform:rotate(12deg)}
+.glass{position:absolute;right:-120px;bottom:-90px;width:480px;height:380px;pointer-events:none;z-index:1}
 .glass i{position:absolute;display:block;border-radius:48px;border:1.5px solid rgba(255,255,255,.9)}
 .glass i:nth-child(1){
   inset:70px 90px 40px 0;transform:rotate(-24deg) skewX(-10deg);
@@ -217,69 +229,154 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
   box-shadow:inset 0 0 40px rgba(255,255,255,.6);
 }
 
-/* ---------- Açılır Menü (Context Menu) ---------- */
+/* ---------- Açılır Menüler (Popovers) ---------- */
 .menu-popover{
-  position:fixed;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.8);
-  border-radius:18px;padding:6px;box-shadow:0 16px 36px -10px rgba(20,24,60,.35);
+  position:fixed;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.8);
+  border-radius:16px;padding:6px;box-shadow:0 16px 36px -10px rgba(20,24,60,.32);
   backdrop-filter:blur(20px);z-index:100;min-width:170px;display:none;flex-direction:column;gap:3px;
 }
-.menu-popover.show{display:flex;animation:popIn .2s cubic-bezier(.2,.8,.2,1)}
+.menu-popover.show{display:flex;animation:popIn .18s cubic-bezier(.2,.8,.2,1)}
 @keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
 .menu-item{
-  display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;
-  background:none;border:0;font:inherit;font-size:12.5px;font-weight:600;color:var(--ink);
+  display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;
+  background:none;border:0;font:inherit;font-size:12px;font-weight:600;color:var(--ink);
   cursor:pointer;text-align:left;transition:background .15s;
 }
 .menu-item:hover{background:rgba(79,70,255,.08);color:var(--accent)}
-.menu-item svg{font-size:16px}
+.menu-item.active{background:rgba(79,70,255,.12);color:var(--accent)}
+.popover-header{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:4px 10px 6px}
 
-/* ---------- Dahili Tam Ekran Sunum Görüntüleyici Modalı ---------- */
+/* ---------- Geliştirici Profil Kartı Popover ---------- */
+.profile-card-popover{
+  position:fixed;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.85);
+  border-radius:20px;padding:16px;box-shadow:0 20px 48px -12px rgba(20,24,60,.35);
+  backdrop-filter:blur(24px);z-index:100;width:260px;display:none;flex-direction:column;gap:12px;
+}
+.profile-card-popover.show{display:flex;animation:popIn .18s cubic-bezier(.2,.8,.2,1)}
+.p-card-top{display:flex;align-items:center;gap:12px}
+.p-avatar{
+  width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#4f46ff,#9061f9);
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:16px;
+  box-shadow:0 8px 18px -4px rgba(79,70,255,.45);flex-shrink:0;
+}
+.p-names b{font-size:13.5px;color:var(--ink);display:block;line-height:1.2}
+.p-badge{
+  font-size:10px;color:var(--accent);font-weight:700;background:rgba(79,70,255,.1);
+  padding:2px 6px;border-radius:6px;display:inline-block;margin-top:3px;
+}
+.p-details{border-top:1px solid rgba(0,0,0,.06);padding-top:10px;display:flex;flex-direction:column;gap:6px}
+.p-row{display:flex;justify-content:space-between;align-items:center;font-size:11.5px}
+.p-lbl{color:var(--muted)}
+.p-val{color:var(--ink);font-weight:600}
+.p-val.status-online{color:#10b981}
+.p-link{color:var(--accent);text-decoration:none;font-weight:600}
+.p-link:hover{text-decoration:underline}
+
+/* ---------- Ayarlar Modalı ---------- */
+.settings-modal-backdrop{
+  position:fixed;inset:0;background:rgba(10,12,28,.45);backdrop-filter:blur(8px);
+  z-index:250;display:none;place-items:center;opacity:0;transition:opacity .2s ease;
+}
+.settings-modal-backdrop.open{display:grid;opacity:1}
+.settings-modal-card{
+  width:92%;max-width:390px;background:rgba(255,255,255,.95);border-radius:24px;
+  padding:20px;box-shadow:0 24px 60px -15px rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.9);backdrop-filter:blur(20px);
+}
+.settings-modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.settings-head-title{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--ink)}
+.btn-close-sm{
+  width:30px;height:30px;border-radius:50%;border:0;background:rgba(0,0,0,.05);
+  display:grid;place-items:center;cursor:pointer;color:var(--muted);transition:all .15s;
+}
+.btn-close-sm:hover{background:#ff4757;color:#fff}
+.settings-modal-body{display:flex;flex-direction:column;gap:14px}
+.setting-item{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.setting-info b{font-size:12.5px;color:var(--ink);display:block;line-height:1.2}
+.setting-info small{font-size:11px;color:var(--muted)}
+.switch{position:relative;display:inline-block;width:38px;height:22px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.slider{
+  position:absolute;cursor:pointer;inset:0;background-color:#cbd5e1;
+  transition:.25s;border-radius:22px;
+}
+.slider:before{
+  position:absolute;content:"";height:16px;width:16px;left:3px;bottom:3px;
+  background-color:#fff;transition:.25s;border-radius:50%;
+}
+input:checked + .slider{background-color:var(--accent)}
+input:checked + .slider:before{transform:translateX(16px)}
+.setting-select{
+  padding:6px 10px;border-radius:10px;border:1px solid rgba(0,0,0,.1);
+  font:inherit;font-size:11.5px;color:var(--ink);background:#fff;outline:0;
+}
+.settings-modal-foot{margin-top:20px}
+.settings-save-btn{
+  width:100%;height:38px;border-radius:12px;border:0;background:var(--accent);
+  color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.settings-save-btn:hover{background:#3d34e6;transform:translateY(-1px)}
+
+/* ---------- ZARİF, KOMPAKT SUNUM GÖRÜNTÜLEYİCİ (3. FOTOĞRAF KÜÇÜLTME DÜZELTMESİ) ---------- */
 .viewer-modal{
-  position:fixed;inset:0;background:rgba(8,10,24,.92);backdrop-filter:blur(24px);
-  z-index:200;display:none;flex-direction:column;opacity:0;transition:opacity .3s ease;
+  position:absolute;inset:0;background:#090b1a;z-index:200;display:none;flex-direction:column;
+  opacity:0;transition:opacity .25s cubic-bezier(.2,.8,.2,1);
 }
 .viewer-modal.open{display:flex;opacity:1}
 .viewer-topbar{
-  display:flex;align-items:center;justify-content:space-between;padding:14px 24px;
-  background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.1);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;height:40px;padding:0 14px;
+  background:rgba(12,15,34,.95);border-bottom:1px solid rgba(255,255,255,.09);color:#fff;
+  z-index:10;user-select:none;flex-shrink:0;
 }
+.viewer-left{display:flex;align-items:center;gap:12px;min-width:0}
 .viewer-back-btn{
-  display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;
-  transition:all .2s;
+  display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:13px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+  color:#e2e8f0;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
+  transition:all .18s;flex-shrink:0;
 }
-.viewer-back-btn:hover{background:rgba(255,255,255,.2);transform:translateX(-2px)}
-.viewer-title-info{text-align:center}
-.viewer-title-info h3{font-size:16px;font-weight:700;color:#fff;letter-spacing:-.01em}
-.viewer-title-info span{font-size:11.5px;color:#a0a6cc}
-.viewer-actions{display:flex;gap:10px;align-items:center}
+.viewer-back-btn:hover{background:rgba(255,255,255,.2);color:#fff;transform:translateX(-2px)}
+.viewer-title-info{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden}
+.viewer-status-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 8px #10b981;flex-shrink:0}
+.viewer-title-text{font-size:12.5px;font-weight:700;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewer-meta-tag{
+  font-size:10.5px;color:#94a3b8;background:rgba(255,255,255,.08);padding:2px 8px;
+  border-radius:6px;font-weight:500;white-space:nowrap;flex-shrink:0;
+}
+.viewer-actions{display:flex;gap:7px;align-items:center;flex-shrink:0}
 .viewer-btn{
-  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;font-size:17px;
-  cursor:pointer;text-decoration:none;transition:all .2s;
+  width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.08);color:#cbd5e1;display:grid;place-items:center;font-size:13px;
+  cursor:pointer;text-decoration:none;transition:all .18s;
 }
-.viewer-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.08)}
-.viewer-frame-wrap{flex:1;position:relative;width:100%;height:100%;overflow:hidden}
-.viewer-frame-wrap iframe{width:100%;height:100%;border:0;background:#0a0c1b}
+.viewer-btn:hover{background:rgba(255,255,255,.22);color:#fff;transform:scale(1.08)}
+.viewer-btn.close-viewer-btn:hover{background:#ff4757;border-color:#ff4757;color:#fff}
+.viewer-frame-wrap{
+  flex:1;position:relative;width:100%;height:calc(100% - 40px);overflow:hidden;background:#0a0c1b;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+}
+.viewer-frame-wrap iframe{
+  width:100%;height:100%;border:0;display:block;background:#0a0c1b;
+  scrollbar-width:none!important;-ms-overflow-style:none!important;
+}
 
 /* ---------- Bildirim (Toast) ---------- */
 .toast{
-  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
-  background:rgba(15,18,38,.92);color:#fff;padding:12px 24px;border-radius:99px;
-  font-size:13px;font-weight:600;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.2,.8,.2,1);
-  z-index:300;display:flex;align-items:center;gap:10px;
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(15,18,38,.92);color:#fff;padding:10px 20px;border-radius:99px;
+  font-size:12px;font-weight:600;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:all .25s cubic-bezier(.2,.8,.2,1);
+  z-index:300;display:flex;align-items:center;gap:8px;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ---------- Mobil Uyum ---------- */
 @media (max-width:860px){
-  body{padding:14px}
-  .shell{grid-template-columns:1fr;border-radius:28px}
-  .side{flex-direction:row;align-items:center;padding:14px;border-right:0;border-bottom:1px solid rgba(255,255,255,.6);overflow-x:auto;gap:8px}
+  .shell{grid-template-columns:1fr}
+  .side{flex-direction:row;align-items:center;padding:12px;border-right:0;border-bottom:1px solid rgba(255,255,255,.6);overflow-x:auto;gap:8px}
   .brand{margin:0 8px 0 0;padding:0}.brand-info,.side-foot{display:none}
-  .nav{flex-direction:row}.nav a{padding:0 12px;white-space:nowrap}
-  .main{padding:24px 18px 32px}.tools{width:100%}.search{flex:1;width:auto}
+  .nav{flex-direction:row}.nav button, .nav a{padding:0 10px;white-space:nowrap}
+  .main{padding:18px 14px 24px}.tools{width:100%;justify-content:space-between}.search{flex:1;width:auto}
   .note{display:none}
   .grid{grid-template-columns:1fr}
 }
@@ -287,7 +384,7 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
 </head>
 <body>
 
-<!-- İkon Kütüphanesi -->
+<!-- SVG İkon Kütüphanesi -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
   <symbol id="grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
@@ -306,6 +403,8 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
   <symbol id="fullscreen" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></symbol>
   <symbol id="external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></symbol>
   <symbol id="close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+  <symbol id="copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></symbol>
+  <symbol id="info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
 </svg>
 
 <div class="shell">
@@ -319,11 +418,11 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
       </div>
     </div>
     <ul class="nav">
-      <li><a href="index.html"><svg class="i"><use href="#home"/></svg>Ana Sayfa</a></li>
-      <li><a href="index.html#apps"><svg class="i"><use href="#grid"/></svg>Projeler</a></li>
-      <li><a href="#" aria-current="page"><svg class="i"><use href="#book"/></svg>Sunumlar</a></li>
-      <li><a href="#" data-nav="pdf"><svg class="i"><use href="#file"/></svg>Belgeler</a></li>
-      <li><a href="#" data-nav="settings"><svg class="i"><use href="#cog"/></svg>Ayarlar</a></li>
+      <li><button type="button" id="navHomeBtn"><svg class="i"><use href="#home"/></svg>Ana Sayfa</button></li>
+      <li><button type="button" id="navProjectsBtn"><svg class="i"><use href="#grid"/></svg>Projeler</button></li>
+      <li><button type="button" id="navPresBtn" class="active"><svg class="i"><use href="#book"/></svg>Sunumlar</button></li>
+      <li><button type="button" id="navDocsBtn"><svg class="i"><use href="#file"/></svg>Belgeler</button></li>
+      <li><button type="button" id="navSettingsBtn"><svg class="i"><use href="#cog"/></svg>Ayarlar</button></li>
     </ul>
     <div class="side-foot">
       <hr>Daha iyi projeler,<br>daha büyük hayaller.
@@ -337,15 +436,17 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
       <div class="titles">
         <div class="eyebrow">DOSYALARIN</div>
         <h1>Sunumlar</h1>
-        <p class="sub">Projelerine ait tüm sunumlarını burada görüntüleyebilirsin.</p>
+        <p class="sub">Projelerine ait tüm sunumlarını ve belgelerini burada yönetebilirsin.</p>
       </div>
       <div class="tools">
-        <label class="search">
+        <label class="search" id="searchWrap">
           <svg class="i"><use href="#search"/></svg>
-          <input id="q" type="search" placeholder="Sunum ara..." aria-label="Sunum ara">
+          <input id="q" type="search" placeholder="Sunum ara..." aria-label="Sunum ara" autocomplete="off">
+          <button type="button" class="search-clear" id="searchClearBtn" title="Aramayı Temizle">&times;</button>
         </label>
-        <button class="btn" id="sortBtn" aria-label="Sırala" title="Sıralamayı Değiştir"><svg class="i"><use href="#sliders"/></svg></button>
-        <button class="btn round" id="profileBtn" aria-label="Profil" title="Ozan Sarsılmaz Profil"><svg class="i"><use href="#user"/></svg></button>
+        <button class="btn" id="sortBtn" aria-label="Sırala" title="Sıralama Seçenekleri"><svg class="i"><use href="#sliders"/></svg></button>
+        <button class="btn round" id="profileBtn" aria-label="Profil" title="Ozan Sarsılmaz Profili"><svg class="i"><use href="#user"/></svg></button>
+        <button class="btn round close-btn" id="portalCloseBtn" aria-label="Portalı Kapat" title="Kapat (Esc)"><svg class="i"><use href="#close"/></svg></button>
       </div>
     </header>
 
@@ -362,40 +463,114 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
 
     <!-- Kullanıcının El Yazısı Notu -->
     <div class="note">İyi işler biriktirir...
-      <svg viewBox="0 0 46 48"><path d="M40 4C30 10 22 22 18 40M18 40l-1-10M18 40l9-5"/></svg>
+      <svg viewBox="0 0 44 46"><path d="M38 4C28 10 20 22 16 38M16 38l-1-10M16 38l9-5"/></svg>
     </div>
     <div class="glass" aria-hidden="true"><i></i><i></i></div>
   </main>
 </div>
 
-<!-- Seçenekler Menüsü (Popover) -->
+<!-- Kart Seçenekleri Menüsü (Popover) -->
 <div class="menu-popover" id="menuPopover">
-  <button class="menu-item" id="menuOpenBtn"><svg class="i"><use href="#play"/></svg>Sunumu Başlat</button>
-  <button class="menu-item" id="menuNewTabBtn"><svg class="i"><use href="#external"/></svg>Yeni Sekmede Aç</button>
-  <button class="menu-item" id="menuDownloadBtn"><svg class="i"><use href="#down"/></svg>Dosyayı İndir</button>
+  <button class="menu-item" id="menuOpenBtn"><svg class="i"><use href="#play"/></svg><span>Sunumu Başlat</span></button>
+  <button class="menu-item" id="menuNewTabBtn"><svg class="i"><use href="#external"/></svg><span>Yeni Sekmede Aç</span></button>
+  <button class="menu-item" id="menuCopyLinkBtn"><svg class="i"><use href="#copy"/></svg><span>Bağlantıyı Kopyala</span></button>
+  <button class="menu-item" id="menuDownloadBtn"><svg class="i"><use href="#down"/></svg><span>Dosyayı İndir</span></button>
 </div>
 
-<!-- Dahili Tam Ekran Sunum Görüntüleyici -->
+<!-- Sıralama Menüsü (Popover) -->
+<div class="menu-popover" id="sortPopover">
+  <div class="popover-header">Sıralama Ölçütü</div>
+  <button class="menu-item active" data-sort="default"><svg class="i"><use href="#spark"/></svg><span>Varsayılan Öneri</span></button>
+  <button class="menu-item" data-sort="alpha-asc"><svg class="i"><use href="#book"/></svg><span>İsme Göre (A &rarr; Z)</span></button>
+  <button class="menu-item" data-sort="alpha-desc"><svg class="i"><use href="#book"/></svg><span>İsme Göre (Z &rarr; A)</span></button>
+  <button class="menu-item" data-sort="size"><svg class="i"><use href="#down"/></svg><span>Boyuta Göre</span></button>
+</div>
+
+<!-- Geliştirici Profil Kartı (Popover) -->
+<div class="profile-card-popover" id="profilePopover">
+  <div class="p-card-top">
+    <div class="p-avatar">OS</div>
+    <div class="p-names">
+      <b>Ozan Sarsılmaz</b>
+      <span class="p-badge">Kurfa Core Architect</span>
+    </div>
+  </div>
+  <div class="p-details">
+    <div class="p-row">
+      <span class="p-lbl">E-Posta</span>
+      <span class="p-val">ozansarsilmaz02@gmail.com</span>
+    </div>
+    <div class="p-row">
+      <span class="p-lbl">GitHub</span>
+      <a href="https://github.com/KurfaCode" target="_blank" rel="noopener noreferrer" class="p-link">@KurfaCode &rarr;</a>
+    </div>
+    <div class="p-row">
+      <span class="p-lbl">Sunucu Durumu</span>
+      <span class="p-val status-online">Aktif • 3x Mesh Node</span>
+    </div>
+  </div>
+</div>
+
+<!-- Portal Ayarları Modalı -->
+<div class="settings-modal-backdrop" id="settingsModal" aria-hidden="true">
+  <div class="settings-modal-card">
+    <div class="settings-modal-head">
+      <div class="settings-head-title">
+        <svg class="i"><use href="#cog"/></svg>
+        <h3>Portal Ayarları</h3>
+      </div>
+      <button type="button" class="btn-close-sm" id="closeSettingsBtn"><svg class="i"><use href="#close"/></svg></button>
+    </div>
+    <div class="settings-modal-body">
+      <div class="setting-item">
+        <div class="setting-info">
+          <b>Sunum Geçiş Efektleri</b>
+          <small>Akıcı 3D animasyonlar ve yumuşak geçişler</small>
+        </div>
+        <label class="switch"><input type="checkbox" id="settingAnim" checked><span class="slider"></span></label>
+      </div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <b>Ses & Ambiyans Efektleri</b>
+          <small>Şiir dinletisi arka plan müzik desteği</small>
+        </div>
+        <label class="switch"><input type="checkbox" id="settingSound" checked><span class="slider"></span></label>
+      </div>
+      <div class="setting-item">
+        <div class="setting-info">
+          <b>Görünüm Teması</b>
+          <small>Portal arayüzü renk paleti</small>
+        </div>
+        <select id="settingTheme" class="setting-select">
+          <option value="light">Açık Cam Modu (Varsayılan)</option>
+          <option value="auto">Sistem Tercihi</option>
+        </select>
+      </div>
+    </div>
+    <div class="settings-modal-foot">
+      <button type="button" class="settings-save-btn" id="saveSettingsBtn">Ayarları Kaydet</button>
+    </div>
+  </div>
+</div>
+
+<!-- ZARİF, KOMPAKT SUNUM GÖRÜNTÜLEYİCİ -->
 <div id="viewerModal" class="viewer-modal" aria-hidden="true">
   <div class="viewer-topbar">
-    <button class="viewer-back-btn" id="viewerBackBtn">
-      <svg class="i"><use href="#back"/></svg>
-      <span>Geri Dön</span>
-    </button>
-    <div class="viewer-title-info">
-      <h3 id="modalTitle">Sunum Başlığı</h3>
-      <span id="modalMeta">2026 • Kurfa Core Sunum Portalı</span>
+    <div class="viewer-left">
+      <button class="viewer-back-btn" id="viewerBackBtn" title="Listeye Geri Dön">
+        <svg class="i"><use href="#back"/></svg>
+        <span>Geri</span>
+      </button>
+      <div class="viewer-title-info">
+        <span class="viewer-status-dot"></span>
+        <span class="viewer-title-text" id="modalTitle">Şiir Dinletisi · Dostluk</span>
+        <span class="viewer-meta-tag" id="modalMeta">2026 • 5 Okuyucu</span>
+      </div>
     </div>
     <div class="viewer-actions">
-      <button class="viewer-btn" id="viewerFullscreenBtn" title="Tam Ekran">
-        <svg class="i"><use href="#fullscreen"/></svg>
-      </button>
-      <a class="viewer-btn" id="viewerNewTabBtn" target="_blank" title="Yeni Sekmede Aç">
-        <svg class="i"><use href="#external"/></svg>
-      </a>
-      <button class="viewer-btn" id="viewerCloseBtn" title="Kapat (Esc)">
-        <svg class="i"><use href="#close"/></svg>
-      </button>
+      <button class="viewer-btn" id="viewerFullscreenBtn" title="Tam Ekran (F)"><svg class="i"><use href="#fullscreen"/></svg></button>
+      <a class="viewer-btn" id="viewerNewTabBtn" target="_blank" rel="noopener noreferrer" title="Yeni Sekmede Aç"><svg class="i"><use href="#external"/></svg></a>
+      <button class="viewer-btn close-viewer-btn" id="viewerCloseBtn" title="Kapat (Esc)"><svg class="i"><use href="#close"/></svg></button>
     </div>
   </div>
   <div class="viewer-frame-wrap" id="viewerFrameWrap">
@@ -403,7 +578,7 @@ h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
   </div>
 </div>
 
-<!-- Bilgi Bildirimi -->
+<!-- Bilgi Bildirimi (Toast) -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -418,6 +593,7 @@ const ITEMS = [
     thumbClass: "poem-thumb",
     year: 2026,
     size: "280 KB",
+    sizeBytes: 286720,
     url: "siir-dinletisi-v19.html",
     downloadUrl: "siir-dinletisi-v19.html"
   },
@@ -430,6 +606,7 @@ const ITEMS = [
     thumbClass: "",
     year: 2026,
     size: "1.2 MB",
+    sizeBytes: 1258291,
     url: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf",
     downloadUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
   }
@@ -438,11 +615,16 @@ const ITEMS = [
 const $ = s => document.querySelector(s);
 const list = $("#list"), tabs = [...document.querySelectorAll(".tab")];
 const menuPopover = $("#menuPopover");
+const sortPopover = $("#sortPopover");
+const profilePopover = $("#profilePopover");
+const settingsModal = $("#settingsModal");
 const viewerModal = $("#viewerModal");
 const presentationFrame = $("#presentationFrame");
 const toast = $("#toast");
+const searchInput = $("#q");
+const searchClearBtn = $("#searchClearBtn");
 
-let filter = "all", query = "", sortAsc = false, selectedItem = null;
+let filter = "all", query = "", sortMode = "default", selectedItem = null;
 
 const match = (it, f) => f === "all" || f === "files" || it.type === f;
 
@@ -452,7 +634,7 @@ function showToast(msg){
   toast.textContent = msg;
   toast.classList.add("show");
   clearTimeout(window._t);
-  window._t = setTimeout(() => toast.classList.remove("show"), 2800);
+  window._t = setTimeout(() => toast.classList.remove("show"), 2600);
 }
 
 function render(){
@@ -465,8 +647,12 @@ function render(){
     i.desc.toLocaleLowerCase("tr").includes(query)
   ));
 
-  if (sortAsc) {
+  if (sortMode === "alpha-asc") {
     rows.sort((a,b) => a.title.localeCompare(b.title, "tr"));
+  } else if (sortMode === "alpha-desc") {
+    rows.sort((a,b) => b.title.localeCompare(a.title, "tr"));
+  } else if (sortMode === "size") {
+    rows.sort((a,b) => (a.sizeBytes || 0) - (b.sizeBytes || 0));
   }
 
   list.innerHTML = "";
@@ -496,7 +682,7 @@ function render(){
         <button type="button" class="dl" aria-label="İndir" title="Dosyayı İndir">${icon("down")}</button>
       </div>`;
 
-    // Kart Tıklaması -> Sunumu Aç
+    // Kart Tıklaması -> Sunumu Başlat
     el.addEventListener("click", e => {
       if(e.target.closest(".more") || e.target.closest(".dl")) return;
       openPresentation(it);
@@ -528,7 +714,7 @@ function render(){
   });
 }
 
-/* Sunumu Dahili Oynatıcıda Aç */
+/* Sunumu Dahili Kompakt Oynatıcıda Aç */
 function openPresentation(it){
   selectedItem = it;
   $("#modalTitle").textContent = it.title;
@@ -537,7 +723,6 @@ function openPresentation(it){
   presentationFrame.src = it.url;
   viewerModal.classList.add("open");
   viewerModal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
   showToast(`"${it.title}" açılıyor…`);
 }
 
@@ -546,7 +731,6 @@ function closePresentation(){
   viewerModal.classList.remove("open");
   viewerModal.setAttribute("aria-hidden", "true");
   presentationFrame.src = "";
-  document.body.style.overflow = "";
   if(document.fullscreenElement){
     document.exitFullscreen().catch(()=>{});
   }
@@ -561,104 +745,194 @@ function downloadFile(it){
   a.target = "_blank";
   document.body.appendChild(a);
   a.click();
-  setTimeout(() => document.body.removeChild(a), 1000);
+  setTimeout(() => { if (a.parentNode) a.parentNode.removeChild(a); }, 1000);
 }
 
-/* Seçenekler Menüsü */
+/* Kart Seçenekler Menüsü */
 function openMenu(it, btn){
   selectedItem = it;
+  closeAllPopovers();
   const rect = btn.getBoundingClientRect();
-  menuPopover.style.top = `${rect.bottom + 8}px`;
+  menuPopover.style.top = `${rect.bottom + 6}px`;
   menuPopover.style.left = `${Math.min(window.innerWidth - 180, rect.left - 130)}px`;
   menuPopover.classList.add("show");
 }
 
-function closeMenu(){
+function closeAllPopovers(){
   menuPopover.classList.remove("show");
+  sortPopover.classList.remove("show");
+  profilePopover.classList.remove("show");
 }
 
-// Menü Butonları
+// Kart Menü Butonları
 $("#menuOpenBtn").addEventListener("click", () => {
-  closeMenu();
+  closeAllPopovers();
   if(selectedItem) openPresentation(selectedItem);
 });
 $("#menuNewTabBtn").addEventListener("click", () => {
-  closeMenu();
+  closeAllPopovers();
   if(selectedItem) window.open(selectedItem.url, "_blank");
 });
+$("#menuCopyLinkBtn").addEventListener("click", () => {
+  closeAllPopovers();
+  if(selectedItem) {
+    const fullUrl = new URL(selectedItem.url, window.location.href).href;
+    navigator.clipboard.writeText(fullUrl).then(() => {
+      showToast("Bağlantı panoya kopyalandı!");
+    }).catch(() => {
+      showToast(fullUrl);
+    });
+  }
+});
 $("#menuDownloadBtn").addEventListener("click", () => {
-  closeMenu();
+  closeAllPopovers();
   if(selectedItem) downloadFile(selectedItem);
 });
 
-// Modal Kapatma
+// Modal Kapatma Kontrolleri
 $("#viewerBackBtn").addEventListener("click", closePresentation);
 $("#viewerCloseBtn").addEventListener("click", closePresentation);
 $("#viewerFullscreenBtn").addEventListener("click", () => {
   if(!document.fullscreenElement){
-    viewerModal.requestFullscreen().catch(()=>{});
+    if (viewerModal.requestFullscreen) viewerModal.requestFullscreen().catch(()=>{});
   } else {
-    document.exitFullscreen().catch(()=>{});
+    if (document.exitFullscreen) document.exitFullscreen().catch(()=>{});
   }
 });
+
+// Ana Portalı Kapatma Butonu (Sağ Üst Araç Çubuğu)
+function closePortalWindow(){
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage("close-portal", "*");
+    if (typeof window.parent.closeKurfaPortal === "function") {
+      window.parent.closeKurfaPortal();
+    }
+  } else {
+    showToast("Portal ana sayfada çalışıyor");
+  }
+}
+$("#portalCloseBtn").addEventListener("click", closePortalWindow);
 
 // Sekme Filtreleme
 tabs.forEach(t => t.addEventListener("click", () => {
   filter = t.dataset.f;
   tabs.forEach(x => x.setAttribute("aria-pressed", x === t));
+  updateSidebarActive();
   render();
 }));
 
-// Arama
-$("#q").addEventListener("input", e => {
+function updateSidebarActive(){
+  $("#navPresBtn").classList.toggle("active", filter === "all" || filter === "ppt");
+  $("#navDocsBtn").classList.toggle("active", filter === "pdf");
+}
+
+// Arama Girişi
+searchInput.addEventListener("input", e => {
   query = e.target.value.trim().toLocaleLowerCase("tr");
+  searchClearBtn.style.display = query ? "block" : "none";
+  render();
+});
+searchClearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  query = "";
+  searchClearBtn.style.display = "none";
+  searchInput.focus();
   render();
 });
 
-// Sıralama
-$("#sortBtn").addEventListener("click", () => {
-  sortAsc = !sortAsc;
-  showToast(sortAsc ? "A'dan Z'ye sıralandı" : "Varsayılan sıralama");
-  render();
+// Sıralama Menüsü Kontrolleri
+$("#sortBtn").addEventListener("click", e => {
+  e.stopPropagation();
+  const isOpen = sortPopover.classList.contains("show");
+  closeAllPopovers();
+  if(!isOpen){
+    const rect = $("#sortBtn").getBoundingClientRect();
+    sortPopover.style.top = `${rect.bottom + 8}px`;
+    sortPopover.style.left = `${Math.max(10, rect.left - 130)}px`;
+    sortPopover.classList.add("show");
+  }
 });
 
-// Profil Butonu
-$("#profileBtn").addEventListener("click", () => {
-  showToast("Ozan Sarsılmaz · Kurfa Core Geliştirici");
-});
-
-// Kenar Çubuğu "Belgeler" Tıklaması
-document.querySelector('[data-nav="pdf"]').addEventListener("click", e => {
-  e.preventDefault();
-  filter = "pdf";
-  tabs.forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "pdf"));
-  render();
-  showToast("PDF belgeleri filtrelendi");
-});
-
-// Kenar Çubuğu "Ayarlar" Tıklaması
-document.querySelector('[data-nav="settings"]').addEventListener("click", e => {
-  e.preventDefault();
-  showToast("Kurfa Portal Ayarları hazır");
-});
-
-// Kenar Çubuğu "Ana Sayfa" Tıklaması
-document.querySelectorAll('a[href="index.html"]').forEach(a => {
-  a.addEventListener("click", e => {
-    if (window.parent && window.parent !== window) {
-      e.preventDefault();
-      window.parent.postMessage("close-portal", "*");
-      if (typeof window.parent.closeKurfaPortal === "function") {
-        window.parent.closeKurfaPortal();
-      }
-    }
+sortPopover.querySelectorAll(".menu-item").forEach(btn => {
+  btn.addEventListener("click", () => {
+    sortMode = btn.dataset.sort;
+    sortPopover.querySelectorAll(".menu-item").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    closeAllPopovers();
+    showToast(`Sıralama güncellendi: ${btn.querySelector("span").textContent}`);
+    render();
   });
 });
 
-// Sayfa Tıklamalarında Menü Kapatma
+// Profil Popover Kontrolleri
+$("#profileBtn").addEventListener("click", e => {
+  e.stopPropagation();
+  const isOpen = profilePopover.classList.contains("show");
+  closeAllPopovers();
+  if(!isOpen){
+    const rect = $("#profileBtn").getBoundingClientRect();
+    profilePopover.style.top = `${rect.bottom + 8}px`;
+    profilePopover.style.left = `${Math.max(10, rect.left - 180)}px`;
+    profilePopover.classList.add("show");
+  }
+});
+
+// Kenar Çubuğu Butonları
+$("#navHomeBtn").addEventListener("click", () => {
+  closePortalWindow();
+});
+$("#navProjectsBtn").addEventListener("click", () => {
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({ type: "nav-portal", target: "#apps" }, "*");
+  } else {
+    window.location.href = "index.html#apps";
+  }
+});
+$("#navPresBtn").addEventListener("click", () => {
+  filter = "all";
+  tabs.forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "all"));
+  updateSidebarActive();
+  render();
+  showToast("Tüm sunumlar listelendi");
+});
+$("#navDocsBtn").addEventListener("click", () => {
+  filter = "pdf";
+  tabs.forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "pdf"));
+  updateSidebarActive();
+  render();
+  showToast("Belgeler filtrelendi");
+});
+
+// Ayarlar Modalı Kontrolleri
+$("#navSettingsBtn").addEventListener("click", () => {
+  closeAllPopovers();
+  settingsModal.classList.add("open");
+  settingsModal.setAttribute("aria-hidden", "false");
+});
+$("#closeSettingsBtn").addEventListener("click", () => {
+  settingsModal.classList.remove("open");
+  settingsModal.setAttribute("aria-hidden", "true");
+});
+settingsModal.addEventListener("click", e => {
+  if(e.target === settingsModal){
+    settingsModal.classList.remove("open");
+    settingsModal.setAttribute("aria-hidden", "true");
+  }
+});
+$("#saveSettingsBtn").addEventListener("click", () => {
+  const anim = $("#settingAnim").checked;
+  const sound = $("#settingSound").checked;
+  const theme = $("#settingTheme").value;
+  localStorage.setItem("kf_portal_settings", JSON.stringify({ anim, sound, theme }));
+  settingsModal.classList.remove("open");
+  settingsModal.setAttribute("aria-hidden", "true");
+  showToast("Ayarlar başarıyla kaydedildi!");
+});
+
+// Dış Tıklamalarda Popover Kapatma
 window.addEventListener("click", e => {
-  if(!e.target.closest("#menuPopover") && !e.target.closest(".more")){
-    closeMenu();
+  if(!e.target.closest("#menuPopover") && !e.target.closest("#sortPopover") && !e.target.closest("#profilePopover")){
+    closeAllPopovers();
   }
 });
 
@@ -667,12 +941,24 @@ window.addEventListener("keydown", e => {
   if(e.key === "Escape"){
     if(viewerModal.classList.contains("open")){
       closePresentation();
+    } else if(settingsModal.classList.contains("open")){
+      settingsModal.classList.remove("open");
+      settingsModal.setAttribute("aria-hidden", "true");
+    } else {
+      closeAllPopovers();
+      closePortalWindow();
     }
-    closeMenu();
   }
 });
 
-// İlk Çalıştırma
+// Başlangıç Ayarlarını Yükle ve Çalıştır
+try {
+  const saved = JSON.parse(localStorage.getItem("kf_portal_settings") || "{}");
+  if(saved.anim !== undefined) $("#settingAnim").checked = saved.anim;
+  if(saved.sound !== undefined) $("#settingSound").checked = saved.sound;
+  if(saved.theme) $("#settingTheme").value = saved.theme;
+} catch(_) {}
+
 render();
 </script>
 </body>
