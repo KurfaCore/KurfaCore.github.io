@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunumlar — Kurfa Core</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0f1226; --muted:#7a82a6; --soft:#9aa1c0;
+  --accent:#4f46ff; --accent-2:#6aa8ff;
+  --glass:rgba(255,255,255,.55); --glass-strong:rgba(255,255,255,.78);
+  --line:rgba(255,255,255,.85);
+  --shadow:0 20px 50px -20px rgba(70,80,160,.28);
+  --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hand:"Caveat","Segoe Script",cursive;
+}
+*{box-sizing:border-box;margin:0}
+html,body{min-height:100%}
+body{
+  font-family:var(--font);color:var(--ink);padding:44px 24px;
+  background:
+    radial-gradient(60% 50% at 8% 8%,#dfe6fb 0,transparent 70%),
+    radial-gradient(50% 50% at 95% 12%,#e4e8fb 0,transparent 70%),
+    radial-gradient(50% 45% at 100% 100%,#d9dcfa 0,transparent 70%),
+    radial-gradient(40% 40% at 0% 95%,#f3e4ee 0,transparent 70%),
+    #eef1fc;
+  -webkit-font-smoothing:antialiased;
+}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- Çerçeve ---------- */
+.shell{
+  position:relative;max-width:1120px;min-height:710px;margin:0 auto;overflow:hidden;
+  display:grid;grid-template-columns:240px 1fr;
+  background:var(--glass);border:1px solid var(--line);border-radius:36px;
+  backdrop-filter:blur(30px) saturate(1.3);-webkit-backdrop-filter:blur(30px) saturate(1.3);
+  box-shadow:var(--shadow),inset 0 1px 0 #fff;
+  transition:all .3s ease;
+}
+
+/* ---------- Kenar çubuğu ---------- */
+.side{
+  display:flex;flex-direction:column;padding:32px 16px 28px;
+  background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.12));
+  border-right:1px solid rgba(255,255,255,.6);
+}
+.brand{display:flex;align-items:center;gap:14px;padding:0 14px;margin-bottom:34px}
+.logo{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:18px;
+  background:linear-gradient(135deg,#6aa8ff,#8b6bff 60%,#e08bff);
+  box-shadow:0 8px 18px -6px rgba(110,100,255,.6);
+  flex-shrink:0;
+}
+.brand-info b{font-size:13.5px;font-weight:700;display:block;line-height:1.2}
+.brand-info small{font-size:11px;color:var(--muted);font-weight:500}
+.nav{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0}
+.nav a{
+  display:flex;align-items:center;gap:14px;height:42px;padding:0 14px;border-radius:14px;
+  color:var(--muted);font-size:13px;font-weight:500;text-decoration:none;transition:all .2s;
+  cursor:pointer;
+}
+.nav a svg{font-size:17px}
+.nav a:hover{background:rgba(255,255,255,.55);color:var(--ink);transform:translateX(3px)}
+.nav a[aria-current]{
+  color:var(--accent);font-weight:600;background:rgba(214,225,255,.7);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 6px 16px -10px rgba(79,70,255,.5);
+}
+.side-foot{margin-top:auto;padding:0 14px;color:var(--soft);font-size:11.5px;line-height:1.5}
+.side-foot hr{width:16px;border:0;border-top:1.5px solid var(--soft);margin-bottom:10px}
+.side-foot .i{font-size:16px;margin-top:24px;display:block;color:var(--accent-2)}
+
+/* ---------- Ana alan ---------- */
+.main{position:relative;padding:34px 32px 40px 36px;min-width:0}
+.top{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.titles{flex:1 1 260px}
+.eyebrow{font-size:10.5px;letter-spacing:.14em;color:var(--soft);font-weight:700;text-transform:uppercase}
+h1{font-size:32px;font-weight:800;letter-spacing:-.025em;margin:4px 0 8px}
+.sub{font-size:13.5px;color:var(--muted)}
+.tools{display:flex;gap:12px;align-items:center}
+.search{
+  display:flex;align-items:center;gap:10px;width:230px;height:40px;padding:0 14px;border-radius:20px;
+  background:var(--glass-strong);box-shadow:0 8px 22px -14px rgba(70,80,160,.45);color:var(--muted);
+  transition:all .2s;
+}
+.search input{border:0;outline:0;background:none;font:inherit;font-size:12.5px;width:100%;color:var(--ink)}
+.search input::placeholder{color:var(--soft)}
+.search:focus-within{box-shadow:0 0 0 2px rgba(79,70,255,.35);width:260px;background:#fff}
+.btn{
+  width:40px;height:40px;border-radius:14px;border:0;display:grid;place-items:center;cursor:pointer;
+  background:var(--glass-strong);color:var(--ink);font-size:17px;
+  box-shadow:0 8px 22px -14px rgba(70,80,160,.45);transition:all .2s;
+}
+.btn:hover{transform:translateY(-2px);background:#fff}
+.btn:active{transform:scale(.95)}
+.btn.round{border-radius:20px}
+
+/* ---------- Filtreler ---------- */
+.tabs{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 24px}
+.tab{
+  display:flex;align-items:center;gap:10px;height:36px;padding:0 16px;border-radius:18px;border:0;cursor:pointer;
+  font:inherit;font-size:12.5px;font-weight:600;color:#555c80;background:var(--glass-strong);
+  box-shadow:0 8px 20px -14px rgba(70,80,160,.5);transition:all .25s;
+}
+.tab .n{
+  min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;
+  font-size:10.5px;background:rgba(150,160,200,.16);color:var(--muted);padding:0 6px;
+  font-weight:700;
+}
+.tab:hover{background:#fff;transform:translateY(-1px)}
+.tab[aria-pressed="true"]{
+  color:#fff;background:linear-gradient(100deg,#3b82ff,#6d5cff 60%,#8a63ff);
+  box-shadow:0 10px 22px -8px rgba(79,70,255,.65);
+}
+.tab[aria-pressed="true"] .n{background:rgba(255,255,255,.3);color:#fff}
+.tab:focus-visible,.btn:focus-visible,.dl:focus-visible,.nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- Kartlar ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,280px));gap:24px;position:relative;z-index:2}
+.card{
+  position:relative;padding:12px 12px 16px;border-radius:26px;background:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.95);box-shadow:0 18px 40px -26px rgba(70,80,160,.45);
+  cursor:pointer;transition:all .3s cubic-bezier(.2,.8,.2,1);
+}
+.card:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,.88);
+  box-shadow:0 24px 50px -20px rgba(70,80,160,.55);
+  border-color:#fff;
+}
+.thumb{
+  position:relative;height:164px;border-radius:18px;overflow:hidden;
+  background:
+    radial-gradient(70% 70% at 15% 10%,#7fc0ff 0,transparent 70%),
+    radial-gradient(55% 60% at 90% 45%,#ffc9d6 0,transparent 70%),
+    radial-gradient(70% 70% at 60% 110%,#5a4bff 0,transparent 70%),
+    linear-gradient(160deg,#6fb4ff,#9db7ff 50%,#b9a8ff);
+}
+.thumb.poem-thumb{
+  background:
+    radial-gradient(70% 70% at 15% 10%,#ff9a7a 0,transparent 70%),
+    radial-gradient(55% 60% at 90% 45%,#f0709a 0,transparent 70%),
+    radial-gradient(70% 70% at 60% 110%,#6a4fe0 0,transparent 70%),
+    linear-gradient(160deg,#ff8a5c,#c586d6 50%,#8f7dff);
+}
+.thumb::before{
+  content:"";position:absolute;left:-10%;right:-10%;bottom:-38%;height:75%;border-radius:50%;
+  background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,0) 70%);
+  transform:rotate(-8deg);filter:blur(1px);
+}
+.thumb::after{
+  content:"";position:absolute;left:25%;width:70%;bottom:-45%;height:80%;border-radius:50%;
+  background:radial-gradient(circle at 50% 20%,#7d6bff,#4b3fe0 70%);opacity:.9;
+}
+.thumb.poem-thumb::after{
+  background:radial-gradient(circle at 50% 20%,#e0521f,#6a4fe0 70%);
+}
+.thumb-overlay{
+  position:absolute;inset:0;background:rgba(15,18,38,.25);backdrop-filter:blur(2px);
+  display:grid;place-items:center;opacity:0;transition:opacity .25s ease;z-index:3;
+}
+.card:hover .thumb-overlay{opacity:1}
+.play-btn-circle{
+  width:50px;height:50px;border-radius:50%;background:#fff;color:var(--accent);
+  display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transform:scale(.8);transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.card:hover .play-btn-circle{transform:scale(1)}
+.type{
+  position:absolute;z-index:2;top:10px;left:10px;width:30px;height:30px;border-radius:50%;
+  display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;
+  background:linear-gradient(135deg,#ff7a3d,#d9381e);box-shadow:0 6px 14px -4px rgba(217,56,30,.6);
+}
+.type.pdf{background:linear-gradient(135deg,#ff5a6a,#d11f3b);font-size:10px}
+.type.interactive{background:linear-gradient(135deg,#9b51e0,#6a4fe0);font-size:11px}
+.more{
+  position:absolute;z-index:4;top:10px;right:10px;width:28px;height:28px;border-radius:50%;border:0;
+  display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.32);backdrop-filter:blur(8px);
+  cursor:pointer;transition:all .2s;
+}
+.more:hover{background:#fff;color:var(--ink);transform:scale(1.1)}
+.size{
+  position:absolute;z-index:2;left:10px;bottom:10px;padding:5px 10px;border-radius:12px;
+  font-size:11px;font-weight:600;color:#fff;background:rgba(20,24,55,.65);backdrop-filter:blur(8px);
+}
+.info{position:relative;padding:16px 6px 0}
+.info h2{font-size:15px;font-weight:700;line-height:1.35;letter-spacing:-.015em;padding-right:48px;color:var(--ink)}
+.info p.desc{font-size:11.5px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:48px}
+.meta{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:11.5px;color:var(--muted);font-weight:500}
+.dl{
+  position:absolute;right:2px;bottom:-2px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  color:var(--ink);background:rgba(225,230,248,.8);font-size:16px;text-decoration:none;transition:all .2s;
+  z-index:4;border:0;cursor:pointer;
+}
+.dl:hover{background:#fff;color:var(--accent);transform:scale(1.1);box-shadow:0 6px 16px -4px rgba(70,80,160,.4)}
+.empty{grid-column:1/-1;color:var(--muted);font-size:14px;padding:40px 10px;text-align:center}
+
+/* ---------- El Yazısı Notu & Cam Efektleri ---------- */
+.note{
+  position:absolute;right:56px;top:128px;width:120px;font-family:var(--hand);font-size:20px;line-height:1.1;
+  color:#8a92b8;transform:rotate(-12deg);pointer-events:none;z-index:3;
+}
+.note svg{position:absolute;left:-10px;top:44px;width:46px;height:48px;stroke:#8a92b8;fill:none;stroke-width:1.2;transform:rotate(12deg)}
+.glass{position:absolute;right:-120px;bottom:-90px;width:520px;height:420px;pointer-events:none;z-index:1}
+.glass i{position:absolute;display:block;border-radius:48px;border:1.5px solid rgba(255,255,255,.9)}
+.glass i:nth-child(1){
+  inset:70px 90px 40px 0;transform:rotate(-24deg) skewX(-10deg);
+  background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(170,200,255,.45) 55%,rgba(255,255,255,.25));
+  box-shadow:inset 0 0 40px rgba(255,255,255,.7),0 30px 60px -30px rgba(80,100,200,.5);
+}
+.glass i:nth-child(2){
+  inset:120px 0 0 190px;transform:rotate(-18deg) skewX(-8deg);
+  background:radial-gradient(60% 60% at 70% 40%,rgba(190,150,255,.45),transparent 70%),
+             linear-gradient(135deg,rgba(255,255,255,.55),rgba(160,190,255,.3));
+  box-shadow:inset 0 0 40px rgba(255,255,255,.6);
+}
+
+/* ---------- Açılır Menü (Context Menu) ---------- */
+.menu-popover{
+  position:fixed;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.8);
+  border-radius:18px;padding:6px;box-shadow:0 16px 36px -10px rgba(20,24,60,.35);
+  backdrop-filter:blur(20px);z-index:100;min-width:170px;display:none;flex-direction:column;gap:3px;
+}
+.menu-popover.show{display:flex;animation:popIn .2s cubic-bezier(.2,.8,.2,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.menu-item{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;
+  background:none;border:0;font:inherit;font-size:12.5px;font-weight:600;color:var(--ink);
+  cursor:pointer;text-align:left;transition:background .15s;
+}
+.menu-item:hover{background:rgba(79,70,255,.08);color:var(--accent)}
+.menu-item svg{font-size:16px}
+
+/* ---------- Dahili Tam Ekran Sunum Görüntüleyici Modalı ---------- */
+.viewer-modal{
+  position:fixed;inset:0;background:rgba(8,10,24,.92);backdrop-filter:blur(24px);
+  z-index:200;display:none;flex-direction:column;opacity:0;transition:opacity .3s ease;
+}
+.viewer-modal.open{display:flex;opacity:1}
+.viewer-topbar{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 24px;
+  background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.1);color:#fff;
+}
+.viewer-back-btn{
+  display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  transition:all .2s;
+}
+.viewer-back-btn:hover{background:rgba(255,255,255,.2);transform:translateX(-2px)}
+.viewer-title-info{text-align:center}
+.viewer-title-info h3{font-size:16px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.viewer-title-info span{font-size:11.5px;color:#a0a6cc}
+.viewer-actions{display:flex;gap:10px;align-items:center}
+.viewer-btn{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;font-size:17px;
+  cursor:pointer;text-decoration:none;transition:all .2s;
+}
+.viewer-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.08)}
+.viewer-frame-wrap{flex:1;position:relative;width:100%;height:100%;overflow:hidden}
+.viewer-frame-wrap iframe{width:100%;height:100%;border:0;background:#0a0c1b}
+
+/* ---------- Bildirim (Toast) ---------- */
+.toast{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:rgba(15,18,38,.92);color:#fff;padding:12px 24px;border-radius:99px;
+  font-size:13px;font-weight:600;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.2,.8,.2,1);
+  z-index:300;display:flex;align-items:center;gap:10px;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ---------- Mobil Uyum ---------- */
+@media (max-width:860px){
+  body{padding:14px}
+  .shell{grid-template-columns:1fr;border-radius:28px}
+  .side{flex-direction:row;align-items:center;padding:14px;border-right:0;border-bottom:1px solid rgba(255,255,255,.6);overflow-x:auto;gap:8px}
+  .brand{margin:0 8px 0 0;padding:0}.brand-info,.side-foot{display:none}
+  .nav{flex-direction:row}.nav a{padding:0 12px;white-space:nowrap}
+  .main{padding:24px 18px 32px}.tools{width:100%}.search{flex:1;width:auto}
+  .note{display:none}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- İkon Kütüphanesi -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+  <symbol id="grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M8 16h8M8 20.5"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M14 3H7.5A2.5 2.5 0 005 5.5v13A2.5 2.5 0 007.5 21h9a2.5 2.5 0 002.5-2.5V8z"/><path d="M14 3v5h5"/></symbol>
+  <symbol id="cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1a1.7 1.7 0 00-1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1a1.7 1.7 0 001.5-1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.8.3h0a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5h0a1.7 1.7 0 001.8-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8v0a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="sliders" viewBox="0 0 24 24"><path d="M5 8h14M5 16h14"/><circle cx="9" cy="8" r="1.8" fill="#fff"/><circle cx="15" cy="16" r="1.8" fill="#fff"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.8"/><path d="M4.5 20c.8-3.8 3.8-5.5 7.5-5.5s6.7 1.7 7.5 5.5"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M12 4v11M7.5 11l4.5 4.5 4.5-4.5M5 20h14"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="3"/><path d="M4 10.5h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3c.6 4.8 2.2 6.4 7 7-4.8.6-6.4 2.2-7 7-.6-4.8-2.2-6.4-7-7 4.8-.6 6.4-2.2 7-7z"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3" fill="currentColor"/></symbol>
+  <symbol id="dots" viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="18" r="1.8" fill="currentColor"/></symbol>
+  <symbol id="back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></symbol>
+  <symbol id="fullscreen" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></symbol>
+  <symbol id="external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+</svg>
+
+<div class="shell">
+  <!-- Sol Kenar Menüsü -->
+  <aside class="side">
+    <div class="brand">
+      <div class="logo"><svg class="i"><use href="#file"/></svg></div>
+      <div class="brand-info">
+        <b>Ozan Sarsılmaz</b>
+        <small>Kurfa Core Portal</small>
+      </div>
+    </div>
+    <ul class="nav">
+      <li><a href="index.html"><svg class="i"><use href="#home"/></svg>Ana Sayfa</a></li>
+      <li><a href="index.html#apps"><svg class="i"><use href="#grid"/></svg>Projeler</a></li>
+      <li><a href="#" aria-current="page"><svg class="i"><use href="#book"/></svg>Sunumlar</a></li>
+      <li><a href="#" data-nav="pdf"><svg class="i"><use href="#file"/></svg>Belgeler</a></li>
+      <li><a href="#" data-nav="settings"><svg class="i"><use href="#cog"/></svg>Ayarlar</a></li>
+    </ul>
+    <div class="side-foot">
+      <hr>Daha iyi projeler,<br>daha büyük hayaller.
+      <svg class="i"><use href="#spark"/></svg>
+    </div>
+  </aside>
+
+  <!-- Ana İçerik Alanı -->
+  <main class="main">
+    <header class="top">
+      <div class="titles">
+        <div class="eyebrow">DOSYALARIN</div>
+        <h1>Sunumlar</h1>
+        <p class="sub">Projelerine ait tüm sunumlarını burada görüntüleyebilirsin.</p>
+      </div>
+      <div class="tools">
+        <label class="search">
+          <svg class="i"><use href="#search"/></svg>
+          <input id="q" type="search" placeholder="Sunum ara..." aria-label="Sunum ara">
+        </label>
+        <button class="btn" id="sortBtn" aria-label="Sırala" title="Sıralamayı Değiştir"><svg class="i"><use href="#sliders"/></svg></button>
+        <button class="btn round" id="profileBtn" aria-label="Profil" title="Ozan Sarsılmaz Profil"><svg class="i"><use href="#user"/></svg></button>
+      </div>
+    </header>
+
+    <!-- Kategori Filtre Sekmeleri -->
+    <div class="tabs" id="tabs" role="group" aria-label="Dosya türü">
+      <button class="tab" data-f="all" aria-pressed="true">Tümü <span class="n">0</span></button>
+      <button class="tab" data-f="files" aria-pressed="false">Dosyalar <span class="n">0</span></button>
+      <button class="tab" data-f="ppt" aria-pressed="false">PowerPoint <span class="n">0</span></button>
+      <button class="tab" data-f="pdf" aria-pressed="false">PDF <span class="n">0</span></button>
+    </div>
+
+    <!-- Sunum Kartları Izgarası -->
+    <section class="grid" id="list" aria-live="polite"></section>
+
+    <!-- Kullanıcının El Yazısı Notu -->
+    <div class="note">İyi işler biriktirir...
+      <svg viewBox="0 0 46 48"><path d="M40 4C30 10 22 22 18 40M18 40l-1-10M18 40l9-5"/></svg>
+    </div>
+    <div class="glass" aria-hidden="true"><i></i><i></i></div>
+  </main>
+</div>
+
+<!-- Seçenekler Menüsü (Popover) -->
+<div class="menu-popover" id="menuPopover">
+  <button class="menu-item" id="menuOpenBtn"><svg class="i"><use href="#play"/></svg>Sunumu Başlat</button>
+  <button class="menu-item" id="menuNewTabBtn"><svg class="i"><use href="#external"/></svg>Yeni Sekmede Aç</button>
+  <button class="menu-item" id="menuDownloadBtn"><svg class="i"><use href="#down"/></svg>Dosyayı İndir</button>
+</div>
+
+<!-- Dahili Tam Ekran Sunum Görüntüleyici -->
+<div id="viewerModal" class="viewer-modal" aria-hidden="true">
+  <div class="viewer-topbar">
+    <button class="viewer-back-btn" id="viewerBackBtn">
+      <svg class="i"><use href="#back"/></svg>
+      <span>Geri Dön</span>
+    </button>
+    <div class="viewer-title-info">
+      <h3 id="modalTitle">Sunum Başlığı</h3>
+      <span id="modalMeta">2026 • Kurfa Core Sunum Portalı</span>
+    </div>
+    <div class="viewer-actions">
+      <button class="viewer-btn" id="viewerFullscreenBtn" title="Tam Ekran">
+        <svg class="i"><use href="#fullscreen"/></svg>
+      </button>
+      <a class="viewer-btn" id="viewerNewTabBtn" target="_blank" title="Yeni Sekmede Aç">
+        <svg class="i"><use href="#external"/></svg>
+      </a>
+      <button class="viewer-btn" id="viewerCloseBtn" title="Kapat (Esc)">
+        <svg class="i"><use href="#close"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="viewer-frame-wrap" id="viewerFrameWrap">
+    <iframe id="presentationFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- Bilgi Bildirimi -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* Sunum Veri Listesi */
+const ITEMS = [
+  {
+    id: "pres_siir_dinletisi",
+    title: "Şiir Dinletisi · Dostluk",
+    desc: "5 Okuyucu · İnteraktif Edebiyat ve Sahne Sunumu",
+    type: "ppt",
+    badge: "P",
+    thumbClass: "poem-thumb",
+    year: 2026,
+    size: "280 KB",
+    url: "siir-dinletisi-v19.html",
+    downloadUrl: "siir-dinletisi-v19.html"
+  },
+  {
+    id: "pres_kurfa_hello",
+    title: "Hello World — Kurfa Core Belge Görüntüleyici",
+    desc: "Resmi Kurfa Dokümanı ve Başlangıç Kılavuzu",
+    type: "pdf",
+    badge: "PDF",
+    thumbClass: "",
+    year: 2026,
+    size: "1.2 MB",
+    url: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf",
+    downloadUrl: "https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf"
+  }
+];
+
+const $ = s => document.querySelector(s);
+const list = $("#list"), tabs = [...document.querySelectorAll(".tab")];
+const menuPopover = $("#menuPopover");
+const viewerModal = $("#viewerModal");
+const presentationFrame = $("#presentationFrame");
+const toast = $("#toast");
+
+let filter = "all", query = "", sortAsc = false, selectedItem = null;
+
+const match = (it, f) => f === "all" || f === "files" || it.type === f;
+
+function icon(id){ return `<svg class="i"><use href="#${id}"/></svg>`; }
+
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(window._t);
+  window._t = setTimeout(() => toast.classList.remove("show"), 2800);
+}
+
+function render(){
+  tabs.forEach(t => {
+    t.querySelector(".n").textContent = ITEMS.filter(i => match(i, t.dataset.f)).length;
+  });
+  
+  let rows = ITEMS.filter(i => match(i, filter) && (
+    i.title.toLocaleLowerCase("tr").includes(query) ||
+    i.desc.toLocaleLowerCase("tr").includes(query)
+  ));
+
+  if (sortAsc) {
+    rows.sort((a,b) => a.title.localeCompare(b.title, "tr"));
+  }
+
+  list.innerHTML = "";
+  if(!rows.length){
+    list.innerHTML = '<p class="empty">Sonuç bulunamadı. Aramayı veya filtreyi değiştirmeyi deneyin.</p>';
+    return;
+  }
+
+  rows.forEach(it => {
+    const el = document.createElement("article");
+    el.className = "card";
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.innerHTML = `
+      <div class="thumb ${it.thumbClass || ""}">
+        <span class="type ${it.type}">${it.badge}</span>
+        <button class="more" aria-label="Seçenekler" title="Seçenekler">${icon("dots")}</button>
+        <span class="size">${it.size}</span>
+        <div class="thumb-overlay">
+          <div class="play-btn-circle">${icon("play")}</div>
+        </div>
+      </div>
+      <div class="info">
+        <h2>${it.title}</h2>
+        <p class="desc">${it.desc || ""}</p>
+        <div class="meta">${icon("cal")}<span>${it.year} • ${it.size}</span></div>
+        <button type="button" class="dl" aria-label="İndir" title="Dosyayı İndir">${icon("down")}</button>
+      </div>`;
+
+    // Kart Tıklaması -> Sunumu Aç
+    el.addEventListener("click", e => {
+      if(e.target.closest(".more") || e.target.closest(".dl")) return;
+      openPresentation(it);
+    });
+
+    // Enter tuşu ile erişilebilirlik
+    el.addEventListener("keydown", e => {
+      if(e.key === "Enter" || e.key === " "){
+        if(e.target.closest(".more") || e.target.closest(".dl")) return;
+        e.preventDefault();
+        openPresentation(it);
+      }
+    });
+
+    // İndirme Butonu
+    el.querySelector(".dl").addEventListener("click", e => {
+      e.stopPropagation();
+      downloadFile(it);
+    });
+
+    // Üç Nokta Seçenekler Butonu
+    const moreBtn = el.querySelector(".more");
+    moreBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      openMenu(it, moreBtn);
+    });
+
+    list.appendChild(el);
+  });
+}
+
+/* Sunumu Dahili Oynatıcıda Aç */
+function openPresentation(it){
+  selectedItem = it;
+  $("#modalTitle").textContent = it.title;
+  $("#modalMeta").textContent = `${it.year} • ${it.desc || "Kurfa Core"}`;
+  $("#viewerNewTabBtn").href = it.url;
+  presentationFrame.src = it.url;
+  viewerModal.classList.add("open");
+  viewerModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  showToast(`"${it.title}" açılıyor…`);
+}
+
+/* Sunumu Kapat */
+function closePresentation(){
+  viewerModal.classList.remove("open");
+  viewerModal.setAttribute("aria-hidden", "true");
+  presentationFrame.src = "";
+  document.body.style.overflow = "";
+  if(document.fullscreenElement){
+    document.exitFullscreen().catch(()=>{});
+  }
+}
+
+/* Dosyayı İndir */
+function downloadFile(it){
+  showToast(`"${it.title}" indiriliyor…`);
+  const a = document.createElement("a");
+  a.href = it.downloadUrl || it.url;
+  a.download = it.title;
+  a.target = "_blank";
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => document.body.removeChild(a), 1000);
+}
+
+/* Seçenekler Menüsü */
+function openMenu(it, btn){
+  selectedItem = it;
+  const rect = btn.getBoundingClientRect();
+  menuPopover.style.top = `${rect.bottom + 8}px`;
+  menuPopover.style.left = `${Math.min(window.innerWidth - 180, rect.left - 130)}px`;
+  menuPopover.classList.add("show");
+}
+
+function closeMenu(){
+  menuPopover.classList.remove("show");
+}
+
+// Menü Butonları
+$("#menuOpenBtn").addEventListener("click", () => {
+  closeMenu();
+  if(selectedItem) openPresentation(selectedItem);
+});
+$("#menuNewTabBtn").addEventListener("click", () => {
+  closeMenu();
+  if(selectedItem) window.open(selectedItem.url, "_blank");
+});
+$("#menuDownloadBtn").addEventListener("click", () => {
+  closeMenu();
+  if(selectedItem) downloadFile(selectedItem);
+});
+
+// Modal Kapatma
+$("#viewerBackBtn").addEventListener("click", closePresentation);
+$("#viewerCloseBtn").addEventListener("click", closePresentation);
+$("#viewerFullscreenBtn").addEventListener("click", () => {
+  if(!document.fullscreenElement){
+    viewerModal.requestFullscreen().catch(()=>{});
+  } else {
+    document.exitFullscreen().catch(()=>{});
+  }
+});
+
+// Sekme Filtreleme
+tabs.forEach(t => t.addEventListener("click", () => {
+  filter = t.dataset.f;
+  tabs.forEach(x => x.setAttribute("aria-pressed", x === t));
+  render();
+}));
+
+// Arama
+$("#q").addEventListener("input", e => {
+  query = e.target.value.trim().toLocaleLowerCase("tr");
+  render();
+});
+
+// Sıralama
+$("#sortBtn").addEventListener("click", () => {
+  sortAsc = !sortAsc;
+  showToast(sortAsc ? "A'dan Z'ye sıralandı" : "Varsayılan sıralama");
+  render();
+});
+
+// Profil Butonu
+$("#profileBtn").addEventListener("click", () => {
+  showToast("Ozan Sarsılmaz · Kurfa Core Geliştirici");
+});
+
+// Kenar Çubuğu "Belgeler" Tıklaması
+document.querySelector('[data-nav="pdf"]').addEventListener("click", e => {
+  e.preventDefault();
+  filter = "pdf";
+  tabs.forEach(x => x.setAttribute("aria-pressed", x.dataset.f === "pdf"));
+  render();
+  showToast("PDF belgeleri filtrelendi");
+});
+
+// Kenar Çubuğu "Ayarlar" Tıklaması
+document.querySelector('[data-nav="settings"]').addEventListener("click", e => {
+  e.preventDefault();
+  showToast("Kurfa Portal Ayarları hazır");
+});
+
+// Kenar Çubuğu "Ana Sayfa" Tıklaması
+document.querySelectorAll('a[href="index.html"]').forEach(a => {
+  a.addEventListener("click", e => {
+    if (window.parent && window.parent !== window) {
+      e.preventDefault();
+      window.parent.postMessage("close-portal", "*");
+      if (typeof window.parent.closeKurfaPortal === "function") {
+        window.parent.closeKurfaPortal();
+      }
+    }
+  });
+});
+
+// Sayfa Tıklamalarında Menü Kapatma
+window.addEventListener("click", e => {
+  if(!e.target.closest("#menuPopover") && !e.target.closest(".more")){
+    closeMenu();
+  }
+});
+
+// ESC Tuşu Kontrolleri
+window.addEventListener("keydown", e => {
+  if(e.key === "Escape"){
+    if(viewerModal.classList.contains("open")){
+      closePresentation();
+    }
+    closeMenu();
+  }
+});
+
+// İlk Çalıştırma
+render();
+</script>
+</body>
+</html>
