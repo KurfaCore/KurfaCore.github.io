@@ -808,24 +808,65 @@ let lt=0;function fr(t){if(t-lt<30){requestAnimationFrame(fr);return}lt=t||0;
  requestAnimationFrame(fr)}
 nrgb();rs();if(low)cv.style.display="none";else fr();
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>setTimeout(nrgb,60));
+</script>
 
+<!-- GÜVENLİK PIN KALKANI (DOĞRUDAN ERİŞİM ENGELİ) -->
+<div id="pinGateModal" class="pin-gate-overlay" style="display:none;">
+  <div class="pin-gate-card">
+    <div class="pin-gate-emblem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h2>GÜVENLİK KONTROLÜ</h2>
+    <p>Bu sunum Kurfa Core güvenliği altındadır. Lütfen erişim PIN kodunu girin.</p>
+    <div class="pin-dots" id="pinDots">
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+    </div>
+    <div class="pin-numpad" id="pinNumpad">
+      <button type="button" class="nkey" data-k="1">1</button>
+      <button type="button" class="nkey" data-k="2">2</button>
+      <button type="button" class="nkey" data-k="3">3</button>
+      <button type="button" class="nkey" data-k="4">4</button>
+      <button type="button" class="nkey" data-k="5">5</button>
+      <button type="button" class="nkey" data-k="6">6</button>
+      <button type="button" class="nkey" data-k="7">7</button>
+      <button type="button" class="nkey" data-k="8">8</button>
+      <button type="button" class="nkey" data-k="9">9</button>
+      <button type="button" class="nkey nkey-fn" data-k="clear">C</button>
+      <button type="button" class="nkey" data-k="0">0</button>
+      <button type="button" class="nkey nkey-fn" data-k="backspace">⌫</button>
+    </div>
+    <div class="pin-gate-foot">
+      <a href="https://kurfacore.github.io/" class="pin-back-home">&larr; Kurfa Core Ana Sayfası</a>
+    </div>
+  </div>
+</div>
+
+<script>
 /* ================= DOĞRUDAN ERİŞİM PIN GÜVENLİK KALKANI ================= */
 const VALID_PINS = ["2156", "2580", "4380"];
 let enteredPin = "";
-const pinGateModal = document.getElementById("pinGateModal");
 
 function checkAuthGate() {
   const isInsideIframe = window.parent && window.parent !== window;
   const hasToken = sessionStorage.getItem("kf_sec_tok_portal") || document.cookie.includes("kf_token_portal=1");
+  const gate = document.getElementById("pinGateModal");
+  const preloader = document.getElementById("pl");
 
   if (hasToken || isInsideIframe) {
-    if (pinGateModal) pinGateModal.style.display = "none";
+    if (gate) gate.style.display = "none";
     return true;
   }
 
-  // Doğrudan anonim giriş -> Kalkanı aç
-  if (pinGateModal) {
-    pinGateModal.style.display = "flex";
+  // Doğrudan anonim giriş -> Preloader'ı kaldırıp PIN kalkanını aç
+  if (preloader) {
+    preloader.classList.add("done");
+    preloader.style.display = "none";
+  }
+  if (gate) {
+    gate.style.display = "flex";
     enteredPin = "";
     updatePinDots();
   }
@@ -863,9 +904,8 @@ function handlePinKey(key) {
       if (VALID_PINS.includes(enteredPin)) {
         sessionStorage.setItem("kf_sec_tok_portal", "valid_" + Date.now());
         document.cookie = "kf_token_portal=1; path=/; max-age=3600; SameSite=Lax";
-        setTimeout(() => {
-          if (pinGateModal) pinGateModal.style.display = "none";
-        }, 200);
+        const gate = document.getElementById("pinGateModal");
+        if (gate) gate.style.display = "none";
       } else {
         updatePinDots(true);
         setTimeout(() => {
@@ -882,7 +922,8 @@ document.querySelectorAll("#pinGateModal .nkey").forEach(btn => {
 });
 
 window.addEventListener("keydown", e => {
-  if (pinGateModal && pinGateModal.style.display === "flex") {
+  const gate = document.getElementById("pinGateModal");
+  if (gate && gate.style.display === "flex") {
     if (e.key >= "0" && e.key <= "9") handlePinKey(e.key);
     else if (e.key === "Backspace") handlePinKey("backspace");
     else if (e.key === "Escape" || e.key === "Delete") handlePinKey("clear");
@@ -891,39 +932,5 @@ window.addEventListener("keydown", e => {
 
 checkAuthGate();
 </script>
-
-<!-- GÜVENLİK PIN KALKANI (DOĞRUDAN ERİŞİM ENGELİ) -->
-<div id="pinGateModal" class="pin-gate-overlay" style="display:none;">
-  <div class="pin-gate-card">
-    <div class="pin-gate-emblem">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-    </div>
-    <h2>GÜVENLİK KONTROLÜ</h2>
-    <p>Bu sunum Kurfa Core güvenliği altındadır. Lütfen erişim PIN kodunu girin.</p>
-    <div class="pin-dots" id="pinDots">
-      <span class="pdot"></span>
-      <span class="pdot"></span>
-      <span class="pdot"></span>
-      <span class="pdot"></span>
-    </div>
-    <div class="pin-numpad" id="pinNumpad">
-      <button type="button" class="nkey" data-k="1">1</button>
-      <button type="button" class="nkey" data-k="2">2</button>
-      <button type="button" class="nkey" data-k="3">3</button>
-      <button type="button" class="nkey" data-k="4">4</button>
-      <button type="button" class="nkey" data-k="5">5</button>
-      <button type="button" class="nkey" data-k="6">6</button>
-      <button type="button" class="nkey" data-k="7">7</button>
-      <button type="button" class="nkey" data-k="8">8</button>
-      <button type="button" class="nkey" data-k="9">9</button>
-      <button type="button" class="nkey nkey-fn" data-k="clear">C</button>
-      <button type="button" class="nkey" data-k="0">0</button>
-      <button type="button" class="nkey nkey-fn" data-k="backspace">⌫</button>
-    </div>
-    <div class="pin-gate-foot">
-      <a href="https://kurfacore.github.io/" class="pin-back-home">&larr; Kurfa Core Ana Sayfası</a>
-    </div>
-  </div>
-</div>
 </body>
 </html>
