@@ -444,6 +444,46 @@ footer b{font-size:clamp(60px,16vw,220px)}
 .st.end .fb{display:flex;gap:14px;justify-content:center;margin-top:1.4em}.st.end .fb .btn{margin-top:0}
 .btn.g2{background:none;border:1px solid var(--line);color:var(--fg)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.ch,.sub,.dos,.cta,.av{opacity:1!important;transform:none!important}#mf span{opacity:1}}
+
+/* ---------- GÜVENLİK PIN KALKANI (DOĞRUDAN ERİŞİM ENGELİ) ---------- */
+.pin-gate-overlay{
+  position:fixed;inset:0;background:rgba(7,9,22,.92);backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);z-index:99999;display:flex;align-items:center;justify-content:center;
+  color:#fff;padding:20px;
+}
+.pin-gate-card{
+  width:100%;max-width:340px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+  border-radius:28px;padding:32px 24px 28px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.pin-gate-emblem{
+  width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,#ff7a3d,#e0521f);
+  color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px -4px rgba(224,82,31,.5);
+}
+.pin-gate-emblem svg{width:26px;height:26px}
+.pin-gate-card h2{font-size:17px;font-weight:800;letter-spacing:.06em;color:#fff;margin-top:4px}
+.pin-gate-card p{font-size:12px;color:#94a3b8;line-height:1.5;max-width:260px}
+.pin-dots{display:flex;gap:14px;margin:12px 0 6px}
+.pdot{
+  width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.3);
+  transition:all .18s;background:transparent;
+}
+.pdot.filled{background:#fff;border-color:#fff;box-shadow:0 0 12px #fff}
+.pdot.error{background:#ef4444;border-color:#ef4444;box-shadow:0 0 12px #ef4444}
+.pin-numpad{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;max-width:240px;margin-top:10px;
+}
+.nkey{
+  height:50px;border-radius:16px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);
+  color:#fff;font-size:20px;font-weight:600;display:grid;place-items:center;cursor:pointer;
+  transition:all .12s;user-select:none;font-family:inherit;
+}
+.nkey:hover{background:rgba(255,255,255,.16);transform:scale(1.04)}
+.nkey:active{background:rgba(255,255,255,.28);transform:scale(.95)}
+.nkey-fn{font-size:15px;color:#94a3b8}
+.pin-gate-foot{margin-top:8px}
+.pin-back-home{color:#94a3b8;font-size:11.5px;text-decoration:none;transition:color .18s}
+.pin-back-home:hover{color:#fff;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -768,6 +808,122 @@ let lt=0;function fr(t){if(t-lt<30){requestAnimationFrame(fr);return}lt=t||0;
  requestAnimationFrame(fr)}
 nrgb();rs();if(low)cv.style.display="none";else fr();
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>setTimeout(nrgb,60));
+
+/* ================= DOĞRUDAN ERİŞİM PIN GÜVENLİK KALKANI ================= */
+const VALID_PINS = ["2156", "2580", "4380"];
+let enteredPin = "";
+const pinGateModal = document.getElementById("pinGateModal");
+
+function checkAuthGate() {
+  const isInsideIframe = window.parent && window.parent !== window;
+  const hasToken = sessionStorage.getItem("kf_sec_tok_portal") || document.cookie.includes("kf_token_portal=1");
+
+  if (hasToken || isInsideIframe) {
+    if (pinGateModal) pinGateModal.style.display = "none";
+    return true;
+  }
+
+  // Doğrudan anonim giriş -> Kalkanı aç
+  if (pinGateModal) {
+    pinGateModal.style.display = "flex";
+    enteredPin = "";
+    updatePinDots();
+  }
+  return false;
+}
+
+function updatePinDots(isError = false) {
+  const dots = document.querySelectorAll("#pinGateModal .pdot");
+  dots.forEach((dot, index) => {
+    dot.className = "pdot";
+    if (isError) {
+      dot.classList.add("error");
+    } else if (index < enteredPin.length) {
+      dot.classList.add("filled");
+    }
+  });
+}
+
+function handlePinKey(key) {
+  if (key === "clear") {
+    enteredPin = "";
+    updatePinDots();
+    return;
+  }
+  if (key === "backspace") {
+    enteredPin = enteredPin.slice(0, -1);
+    updatePinDots();
+    return;
+  }
+  if (/^[0-9]$/.test(key) && enteredPin.length < 4) {
+    enteredPin += key;
+    updatePinDots();
+
+    if (enteredPin.length === 4) {
+      if (VALID_PINS.includes(enteredPin)) {
+        sessionStorage.setItem("kf_sec_tok_portal", "valid_" + Date.now());
+        document.cookie = "kf_token_portal=1; path=/; max-age=3600; SameSite=Lax";
+        setTimeout(() => {
+          if (pinGateModal) pinGateModal.style.display = "none";
+        }, 200);
+      } else {
+        updatePinDots(true);
+        setTimeout(() => {
+          enteredPin = "";
+          updatePinDots();
+        }, 600);
+      }
+    }
+  }
+}
+
+document.querySelectorAll("#pinGateModal .nkey").forEach(btn => {
+  btn.addEventListener("click", () => handlePinKey(btn.dataset.k));
+});
+
+window.addEventListener("keydown", e => {
+  if (pinGateModal && pinGateModal.style.display === "flex") {
+    if (e.key >= "0" && e.key <= "9") handlePinKey(e.key);
+    else if (e.key === "Backspace") handlePinKey("backspace");
+    else if (e.key === "Escape" || e.key === "Delete") handlePinKey("clear");
+  }
+});
+
+checkAuthGate();
 </script>
+
+<!-- GÜVENLİK PIN KALKANI (DOĞRUDAN ERİŞİM ENGELİ) -->
+<div id="pinGateModal" class="pin-gate-overlay" style="display:none;">
+  <div class="pin-gate-card">
+    <div class="pin-gate-emblem">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <h2>GÜVENLİK KONTROLÜ</h2>
+    <p>Bu sunum Kurfa Core güvenliği altındadır. Lütfen erişim PIN kodunu girin.</p>
+    <div class="pin-dots" id="pinDots">
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+      <span class="pdot"></span>
+    </div>
+    <div class="pin-numpad" id="pinNumpad">
+      <button type="button" class="nkey" data-k="1">1</button>
+      <button type="button" class="nkey" data-k="2">2</button>
+      <button type="button" class="nkey" data-k="3">3</button>
+      <button type="button" class="nkey" data-k="4">4</button>
+      <button type="button" class="nkey" data-k="5">5</button>
+      <button type="button" class="nkey" data-k="6">6</button>
+      <button type="button" class="nkey" data-k="7">7</button>
+      <button type="button" class="nkey" data-k="8">8</button>
+      <button type="button" class="nkey" data-k="9">9</button>
+      <button type="button" class="nkey nkey-fn" data-k="clear">C</button>
+      <button type="button" class="nkey" data-k="0">0</button>
+      <button type="button" class="nkey nkey-fn" data-k="backspace">⌫</button>
+    </div>
+    <div class="pin-gate-foot">
+      <a href="https://kurfacore.github.io/" class="pin-back-home">&larr; Kurfa Core Ana Sayfası</a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
