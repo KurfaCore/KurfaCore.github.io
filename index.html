@@ -2,142 +2,2222 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover, interactive-widget=resizes-content" />
   <meta name="theme-color" content="#0b0b10" />
   <meta name="color-scheme" content="dark" />
-  <link rel="canonical" href="https://kurfacore.github.io/" />
-  
-  <!-- Google Search Console Verifications -->
-  <meta name="google-site-verification" content="3hhHFM2YlajQxsDTZni2cx0-52RSi6tCo4h_tAuUde8" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="google-site-verification" content="pkEGeNPRBAuU2c81nKcAJs2WREO_bDCZDy-Oe1KJK0U" />
   <meta name="google-site-verification" content="H1jbj3GQ9WuK1z_Xfhyl33ug5_6lCqOTn0SpzRq1-cs" />
-
-  <!-- Page Title & Primary Description -->
+  <link rel="canonical" href="https://kurfacore.github.io/" />
   <title>Kurfa Core</title>
-  <meta name="description" content="Kurfa Core resmi web sitesi. Ozan Sarsılmaz tarafından geliştirilen KurfaDPI, KurfaCode, KurfaNova müzik platformu ve Kurfa Center ekosistemini keşfedin." />
-  <meta name="keywords" content="kurfa core, kurfacore, ozan sarsılmaz, kurfacode, kurfadpi, kurfanova, kurfa, kurfa center, kurfacore resmi site" />
-
-  <!-- Google SERP Favicons (Strict 48x48 Multiples & Root Icon) -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
-  <link rel="apple-touch-icon" href="/favicon-192x192.png" />
-
-  <!-- Open Graph & Site Name Override for Google Search -->
+  <meta name="description" content="Kurfa Core resmi web sitesi. Ozan Sarsılmaz — KurfaDPI ve KurfaCode uygulamalarını ücretsiz indir, KurfaNova müzik platformunu ve Kurfa Center araçlarını keşfet." />
+  <meta name="keywords" content="kurfa core, ozan sarsılmaz, kurfacore, kurfacode, kurfadpi, kurfanova, kurfa, ozan sarsilmaz" />
+  <link rel="icon" type="image/png" href="kurfa2.png" />
   <meta property="og:site_name" content="KurfaCore" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kurfacore.github.io/" />
   <meta property="og:title" content="Kurfa Core" />
-  <meta property="og:description" content="Kurfa Core resmi platformu. KurfaDPI, KurfaCode, KurfaNova ve Kurfa Center araçlarını hemen keşfedin." />
-  <meta property="og:image" content="https://kurfacore.github.io/favicon-192x192.png" />
-
-  <!-- Twitter Meta -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kurfa Core" />
-  <meta name="twitter:description" content="Kurfa Core resmi platformu. KurfaDPI, KurfaCode, KurfaNova." />
-  <meta name="twitter:image" content="https://kurfacore.github.io/favicon-192x192.png" />
-
-  <!-- Google Knowledge Graph & Site Name Schema (JSON-LD) -->
+  <meta property="og:description" content="Kurfa Core resmi platformu. Ozan Sarsılmaz — KurfaDPI, KurfaCode, KurfaNova ve Kurfa Center araçları." />
+  <meta property="og:image" content="kurfa2.png" />
+  <meta property="og:url" content="https://kurfacore.github.io/" />
+  <meta property="og:type" content="website" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://kurfacore.github.io/#website",
-        "url": "https://kurfacore.github.io/",
-        "name": "KurfaCore",
-        "alternateName": ["Kurfa Core", "Kurfa"],
-        "description": "Kurfa Core resmi web sitesi. Ozan Sarsılmaz tarafından geliştirilen projeler.",
-        "publisher": {
-          "@id": "https://kurfacore.github.io/#person"
-        },
-        "inLanguage": "tr-TR"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://kurfacore.github.io/#person",
-        "name": "Ozan Sarsılmaz",
-        "alternateName": "KurfaCode",
-        "url": "https://kurfacore.github.io/",
-        "jobTitle": "Yazılım Geliştirici",
-        "sameAs": [
-          "https://github.com/KurfaCore"
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Kurfa Core",
-        "operatingSystem": "All",
-        "applicationCategory": "UtilitiesApplication",
-        "author": {
-          "@id": "https://kurfacore.github.io/#person"
-        },
-        "description": "Kurfa Core ekosistemi: KurfaDPI, KurfaCode, KurfaNova ve Kurfa Center."
-      }
-    ]
+    "@type": "WebSite",
+    "name": "KurfaCore",
+    "alternateName": ["Kurfa Core", "Kurfa"],
+    "url": "https://kurfacore.github.io/",
+    "author": {
+      "@type": "Person",
+      "name": "Ozan Sarsılmaz"
+    },
+    "description": "Kurfa Core resmi platformu. KurfaDPI, KurfaCode, KurfaNova ve Kurfa Center araçları."
   }
   </script>
-
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #0b0b10;
-      color: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        for (var i = 0; i < regs.length; i++) {
+          regs[i].update().catch(function(){});
+        }
+      });
     }
-    #kurfacore-frame {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      width: 100dvw;
-      height: 100dvh;
-      border: none;
-      z-index: 9999;
-      background: #0b0b10;
-    }
-    .seo-rich-content {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 30px;
-      box-sizing: border-box;
-      z-index: 1;
-      opacity: 0.01;
-      pointer-events: none;
-    }
-  </style>
+  </script>
 </head>
 <body>
-  <!-- Semantic SEO Article read by Google Indexer -->
-  <header class="seo-rich-content" role="banner">
-    <h1>KurfaCore — Kurfa Core Resmi Web Sitesi</h1>
-    <p><strong>KurfaCore</strong> (Kurfa Core), Ozan Sarsılmaz tarafından geliştirilen modern yazılım çözümleri, açık kaynak araçlar ve dijital medya platformudur.</p>
-    
-    <h2>Kurfa Core Ekosistemi ve Uygulamaları</h2>
-    <ul>
-      <li><strong>KurfaDPI:</strong> Gelişmiş DPI ve ağ optimizasyon aracı. Sansürsüz, hızlı ve güvenli internet erişimi sağlar.</li>
-      <li><strong>KurfaCode:</strong> Yazılım geliştirme, açık kaynak kod kütüphaneleri ve geliştirici araçları.</li>
-      <li><strong>KurfaNova:</strong> Kesintisiz müzik akışı, çalma listeleri ve ses deneyimi sunan müzik platformu.</li>
-      <li><strong>Kurfa Center:</strong> Tüm Kurfa Core servislerini tek bir noktadan yöneten entegre kontrol merkezi.</li>
-    </ul>
 
-    <h2>Geliştirici Hakkında</h2>
-    <p>Kurfa Core, <strong>Ozan Sarsılmaz</strong> (KurfaCode / KurfaCore) liderliğinde geliştirilmektedir. Resmi platform adresi <em>https://kurfacore.github.io/</em> olup, kullanıcı odaklı bağımsız yazılımlar üretmeyi hedefler.</p>
-    <nav>
-      <a href="https://kurfacore.github.io/">Kurfa Core Ana Sayfa</a>
-      <a href="https://github.com/KurfaCore">Kurfa Core GitHub</a>
-    </nav>
+  <!-- ================= PRELOADER ================= -->
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <img src="kurfa2.png" alt="Kurfa" class="preloader-logo" />
+      <div class="preloader-bar"><span class="preloader-progress"></span></div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var p = document.getElementById("preloader");
+      if(p){
+        var hide = function(){ p.classList.add("hide"); setTimeout(function(){ p.style.display="none"; try{p.remove();}catch(e){} }, 500); };
+        if(document.readyState === "complete") setTimeout(hide, 150);
+        else window.addEventListener("load", function(){ setTimeout(hide, 200); });
+        setTimeout(hide, 1200);
+      }
+    })();
+  </script>
+
+  <!-- İmleç takip ışığı (masaüstü) -->
+  <div id="cursorGlow" class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Scroll ilerleme çubuğu -->
+  <div class="progress" id="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Sayfa okuma ilerlemesi"></div>
+
+  <!-- Kurfa Stick War — Çöp Adam Üst Bar Muharebesi -->
+  <div class="stickman-battle-wrap" id="stickmanBattleWrap" aria-hidden="true" title="Kurfa Stick War — Çöp Adam Muharebesi">
+    <canvas id="stickmanCanvas" class="stickman-canvas"></canvas>
+    <button type="button" class="stickman-close-btn" id="stickmanCloseBtn" title="Muharebeyi Kapat" aria-label="Kapat">✕</button>
+  </div>
+
+  <!-- Arka plan efektleri -->
+  <div class="orbs" aria-hidden="true">
+    <span class="orb o1"></span>
+    <span class="orb o2"></span>
+    <span class="orb o3"></span>
+  </div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <canvas id="constellationCanvas" class="constellation-canvas" aria-hidden="true"></canvas>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="kurfa2.png" alt="Kurfa Core logosu" />
+        <span>Kurfa<b>Core</b></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#top" class="nav-item active">Ana Sayfa</a>
+        <a href="#apps" class="nav-item">Uygulamalar</a>
+        <a href="#ai" class="nav-item">Kurfa Center</a>
+        <a href="#dev" class="nav-item">Geliştirici</a>
+      </nav>
+      <div class="nav-right-actions">
+        <a href="#apps" class="nav-cta magnetic">İndir</a>
+        <button type="button" class="nav-profile-btn" id="navProfileBtn" title="Sistem & Yönetici Durumu" aria-label="Sistem Durumu">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- Live interactive application for users -->
-  <iframe id="kurfacore-frame" src="https://kurfacore.5sarsilmaz6.workers.dev/" allow="autoplay; fullscreen; microphone; camera; midi; encrypted-media" allowfullscreen title="Kurfa Core"></iframe>
+  <main id="top">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero">
+      <!-- Çift katmanlı paralaks filigranları -->
+      <div class="watermark wm-1" data-parallax="0.14" aria-hidden="true">KURFA</div>
+      <div class="watermark wm-2" data-parallax="0.09" aria-hidden="true">CORE</div>
+
+      <!-- Süzülen parçacıklar -->
+      <div class="particles" id="particles" aria-hidden="true"></div>
+
+      <div class="container hero-inner" id="heroInner">
+        <!-- 3D eğilen logo -->
+        <div class="logo-wrap" id="heroLogoWrap">
+          <img class="hero-logo" src="kurfa2.png" alt="Kurfa Core" />
+          <span class="logo-aura" aria-hidden="true"></span>
+        </div>
+
+        <span class="badge">KURFA CORE</span>
+
+        <h1 class="hero-title">
+          <span class="w grad">Ozan Sarsılmaz</span>
+        </h1>
+
+        <p class="hero-sub">
+          Kurfa Core — KurfaDPI, KurfaCode ve Kurfa Center ekosistemi.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#apps" class="btn btn-primary magnetic shine">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Uygulamaları İndir
+          </a>
+          <a href="https://kurfanova.github.io/" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+            KurfaNova'yı Keşfet
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <b><span data-count="2">0</span></b>
+            <span>Uygulama</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <b><span data-count="1">0</span></b>
+            <span>Müzik Platformu</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <b><span data-count="100" data-prefix="%">%0</span></b>
+            <span>Ücretsiz</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#apps" class="scroll-hint" aria-label="Aşağı kaydır">
+        <span class="mouse"><i></i></span>
+        <span>KAYDIR</span>
+      </a>
+    </section>
+
+    <!-- ================= KAYAN ŞERİT ================= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-half">
+          <span>Kurfa Core</span><span class="star">✦</span>
+          <span>KurfaDPI</span><span class="star">✦</span>
+          <span>KurfaCode</span><span class="star">✦</span>
+          <span>KurfaNova</span><span class="star">✦</span>
+          <span>Windows</span><span class="star">✦</span>
+          <span>Ücretsiz</span><span class="star">✦</span>
+          <span>Ozan Sarsılmaz</span><span class="star">✦</span>
+        </div>
+        <div class="marquee-half">
+          <span>Kurfa Core</span><span class="star">✦</span>
+          <span>KurfaDPI</span><span class="star">✦</span>
+          <span>KurfaCode</span><span class="star">✦</span>
+          <span>KurfaNova</span><span class="star">✦</span>
+          <span>Windows</span><span class="star">✦</span>
+          <span>Ücretsiz</span><span class="star">✦</span>
+          <span>Ozan Sarsılmaz</span><span class="star">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= UYGULAMALAR ================= -->
+    <section id="apps" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">İndirmeler</span>
+          <h2>Uygulamalar</h2>
+          <span class="head-line" aria-hidden="true"></span>
+          <p>Windows için hazırlanmış Kurfa araçları. Tek tıkla indir, saniyeler içinde kur.</p>
+        </div>
+
+        <div class="grid" data-stagger>
+          <div class="card-slot" data-reveal="left">
+            <article class="card glow-card" data-tilt>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <h3>KurfaDPI</h3>
+              <p>Hafif ve hızlı ağ aracı. Kurulumu saniyeler sürer, anında kullanmaya başlarsın. Düşük boyutuyla her bilgisayarda rahatça çalışır.</p>
+              <ul class="meta">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Windows
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                  7,2 MB
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Setup
+                </li>
+              </ul>
+              <button type="button" class="btn btn-locked btn-block" id="kurfaDpiLockedBtn" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                İndirmeye Kapalı 🔒
+              </button>
+            </article>
+          </div>
+
+          <div class="card-slot" data-reveal="right">
+            <article class="card glow-card" data-tilt>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              </div>
+              <h3>KurfaCode</h3>
+              <p>Kurfa'nın güçlü yapay zekâ kod asistanı. Gelişmiş özellikleri ve genişletilebilir yapısıyla ekosistemin en kapsamlı aracı.</p>
+              <ul class="meta">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Windows
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                  552,6 MB
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  Setup
+                </li>
+              </ul>
+              <a class="btn btn-primary btn-block magnetic shine" href="https://github.com/KURFA-max/KurfaCode-Setup-1.0.0.exe/releases" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                KurfaCode'u İndir
+              </a>
+              <div class="sha-box" title="SHA-256 Doğrulama Kodu">
+                <span>SHA256: b6048fccc0171f20003749c460a1aadf5de9feda2d9390117513070459de8648</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ÖZELLİKLER ================= -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Neden Kurfa?</span>
+          <h2>Özellikler</h2>
+          <span class="head-line" aria-hidden="true"></span>
+          <p>Kaydırdıkça kartlar üst üste biner — Kurfa deneyimi de tıpkı böyle, katman katman.</p>
+        </div>
+
+        <div class="stack-list">
+          <div class="stack-card glow-card" style="--i: 0">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="stack-text">
+              <h3>Saniyeler İçinde Kur</h3>
+              <p>Setup dosyaları tek tıkla iner; kurulum sihirbazı birkaç saniyede tamamlanır.</p>
+            </div>
+            <span class="stack-num">01</span>
+          </div>
+
+          <div class="stack-card glow-card" style="--i: 1">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6.5 6.5 0 0 0-12.7 1.7A4 4 0 0 0 6 19z"/></svg>
+            </div>
+            <div class="stack-text">
+              <h3>Hafif ve Sessiz</h3>
+              <p>Arka planda sistemini yormaz; bilgisayarının hızından ödün vermezsin.</p>
+            </div>
+            <span class="stack-num">02</span>
+          </div>
+
+          <div class="stack-card glow-card" style="--i: 2">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="stack-text">
+              <h3>Güvenli Kaynak</h3>
+              <p>Tüm dosyalar doğrudan bu siteden sunulur; kısa yol ya da ara yazılım yok.</p>
+            </div>
+            <span class="stack-num">03</span>
+          </div>
+
+          <div class="stack-card glow-card" style="--i: 3">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <div class="stack-text">
+              <h3>Tamamen Ücretsiz</h3>
+              <p>Kurfa araçları ve KurfaNova — hepsi her zaman, tamamen ücretsiz.</p>
+            </div>
+            <span class="stack-num">04</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KURFA CENTER & KURFANOVA ================= -->
+    <section id="ai" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">10-E</span>
+          <h2>Kurfa Center</h2>
+          <span class="head-line" aria-hidden="true"></span>
+        </div>
+
+        <!-- ================= EKOSİSTEM LÜKS AKIŞ LİSTESİ (SADE & PREMİUM) ================= -->
+        <div class="ecosystem-stream-list">
+          <!-- 1. KurfaNova (Müzik & Şarkı Platformu) -->
+          <div class="stream-hub-card stream-card-ai">
+            <div class="stream-card-main">
+              <div class="stream-card-visual">
+                <div class="stream-visual-glow glow-purple" aria-hidden="true"></div>
+                <div class="stream-ai-chip">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"/>
+                    <circle cx="6" cy="18" r="3"/>
+                    <circle cx="18" cy="16" r="3"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="stream-card-content">
+                <div class="stream-title-row">
+                  <h3 class="stream-card-title">KurfaNova</h3>
+                  <span class="stream-pill pill-purple">Müzik & Şarkı</span>
+                </div>
+                <p class="stream-card-sub">Reklamsız müzik akışı, şarkı ve klip keşfi — Kurfa ekosisteminin yeni müzik platformu</p>
+              </div>
+            </div>
+            <div class="stream-card-actions">
+              <a href="https://kurfanova.github.io/" target="_blank" rel="noopener" class="stream-btn stream-btn-purple">
+                <span>Dinle & Keşfet</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2. Kurfa Portal (Sunumlar) -->
+          <div class="stream-hub-card stream-card-portal" id="portalCard">
+            <div class="stream-card-main">
+              <div class="stream-card-visual">
+                <div class="stream-visual-glow glow-cyan" aria-hidden="true"></div>
+                <div class="stream-docs-stack">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="stream-card-content">
+                <div class="stream-title-row">
+                  <h3 class="stream-card-title">Kurfa Portal</h3>
+                  <span class="stream-pill pill-cyan">Ders & Sunum</span>
+                </div>
+                <p class="stream-card-sub">Akıllı tahta ders belgeleri ve resmi sunum materyalleri</p>
+              </div>
+            </div>
+            <div class="stream-card-actions">
+              <button type="button" class="stream-btn stream-btn-cyan" id="openPortalBtn" title="Sunumları Aç">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                <span>Aç</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. Kurfa Köprü -->
+          <div class="stream-hub-card stream-card-proxy" id="proxyCard" style="display: none;">
+            <div class="stream-card-main">
+              <div class="stream-card-visual">
+                <div class="stream-visual-glow glow-teal" aria-hidden="true"></div>
+                <div class="stream-radar-shield">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="stream-card-content">
+                <div class="stream-title-row">
+                  <h3 class="stream-card-title">Kurfa Köprü</h3>
+                  <span class="stream-pill pill-teal">AES-256 Tünel</span>
+                </div>
+                <p class="stream-card-sub">Şifreli, filtrelere takılmayan yüksek hızlı web tüneli</p>
+              </div>
+            </div>
+            <div class="stream-card-actions">
+              <button type="button" class="stream-btn stream-btn-teal" id="openProxyBtn" title="Kurfa Köprü Portalını Aç">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <span>Bağlan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. Kurfa Köprü V2 (Stealth DPI Kalkanı) -->
+          <div class="stream-hub-card stream-card-bridge-v2" id="bridgeV2Card">
+            <div class="stream-card-main">
+              <div class="stream-card-visual">
+                <div class="stream-visual-glow glow-emerald-violet" aria-hidden="true"></div>
+                <div class="stream-bridge-v2-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="stream-card-content">
+                <div class="stream-title-row">
+                  <h3 class="stream-card-title">Kurfa Köprü V2</h3>
+                  <span class="stream-pill pill-stealth">Kuantum DPI Kalkanı</span>
+                </div>
+                <p class="stream-card-sub">MEB paket filtrelerine yakalanmayan çift katmanlı KFX-V6 şifreli yeni nesil siber tünel</p>
+              </div>
+            </div>
+            <div class="stream-card-actions">
+              <button type="button" class="stream-btn stream-btn-stealth" id="openBridgeV2Btn" title="Kurfa Köprü V2 Siber Tünelini Başlat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <span>Güvenli Başlat</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Almanya Cars -->
+          <div class="stream-hub-card stream-card-cars" id="carsCard">
+            <div class="stream-card-main">
+              <div class="stream-card-visual">
+                <div class="stream-visual-glow glow-gold" aria-hidden="true"></div>
+                <div class="stream-supercar-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                    <circle cx="7" cy="17" r="2"/>
+                    <path d="M9 17h6"/>
+                    <circle cx="17" cy="17" r="2"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="stream-card-content">
+                <div class="stream-title-row">
+                  <h3 class="stream-card-title">Almanya Cars</h3>
+                  <span class="stream-pill pill-gold">3D Garaj</span>
+                </div>
+                <p class="stream-card-sub">6 Alman devinin mühendislik ikonları & 360° interaktif stüdyo</p>
+              </div>
+            </div>
+            <div class="stream-card-actions stream-actions-multi">
+              <button type="button" class="stream-btn stream-btn-gold" id="openCarsBtn" title="3D Stüdyoyu Başlat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                <span>Stüdyoyu Başlat</span>
+              </button>
+              <button type="button" class="stream-btn stream-btn-ghost" id="openCarsTabBtn" title="Tam Sayfa Aç (Ayrı Sekme)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="7" y1="17" x2="17" y2="7"/>
+                  <polyline points="7 7 17 7 17 17"/>
+                </svg>
+                <span>Tam Sayfa</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GELİŞTİRİCİ ================= -->
+    <section id="dev" class="section">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">İletişim</span>
+          <h2>Geliştirici</h2>
+          <span class="head-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="card-slot card-slot-dev" data-reveal>
+          <article class="card card-dev glow-card">
+            <div class="spin-border avatar-ring">
+              <div class="avatar">OS</div>
+            </div>
+            <div class="dev-info">
+              <h3>Ozan Sarsılmaz</h3>
+              <p>Kurfa Core'un geliştiricisi. Soruların ve önerilerin için Instagram üzerinden ulaşabilirsin.</p>
+            </div>
+            <a href="https://www.instagram.com/5o.z.a.n6/" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="kurfa2.png" alt="" />
+        <span>© 2026 Kurfa Core — Ozan Sarsılmaz</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/5o.z.a.n6/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://kurfanova.github.io/" target="_blank" rel="noopener">KurfaNova</a>
+        <a class="donate" href="https://donate.bynogame.com/kurfa" target="_blank" rel="noopener">Destek Ol</a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Başa dön">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <!-- ================= GÜVENLİ PIN GİRİŞ MODALI ================= -->
+  <div id="portalAuthModal" class="portal-modal-backdrop" aria-hidden="true">
+    <div class="portal-modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <div class="auth-header">
+        <h3 id="authTitle">PIN Kodunu Girin</h3>
+      </div>
+
+      <!-- PIN Noktaları -->
+      <div class="pin-display" id="pinDisplay" aria-label="Girilen PIN">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+
+      <!-- Gizli input (Fiziksel klavye ve otomatik odaklama için) -->
+      <input type="password" id="pinHiddenInput" class="pin-hidden-input" inputmode="numeric" maxlength="4" pattern="[0-9]*" autocomplete="one-time-code" data-lpignore="true" data-form-type="other" aria-label="PIN Kodu Girişi" />
+
+      <!-- Akıllı Tahta & Dokunmatik Sanal Tuş Takımı -->
+      <div class="pin-keypad" id="pinKeypad">
+        <button type="button" class="pin-key" data-key="1">1</button>
+        <button type="button" class="pin-key" data-key="2">2</button>
+        <button type="button" class="pin-key" data-key="3">3</button>
+        <button type="button" class="pin-key" data-key="4">4</button>
+        <button type="button" class="pin-key" data-key="5">5</button>
+        <button type="button" class="pin-key" data-key="6">6</button>
+        <button type="button" class="pin-key" data-key="7">7</button>
+        <button type="button" class="pin-key" data-key="8">8</button>
+        <button type="button" class="pin-key" data-key="9">9</button>
+        <button type="button" class="pin-key pin-key-fn" data-key="clear" title="Temizle">C</button>
+        <button type="button" class="pin-key" data-key="0">0</button>
+        <button type="button" class="pin-key pin-key-fn pin-key-submit" data-key="enter" title="Giriş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+
+      <div class="auth-status" id="authStatus" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ================= SUNUM & ÖDEV GÖRÜNTÜLEYİCİ PORTAL ================= -->
+  <div id="portalViewerModal" class="portal-modal-backdrop sunumlar-portal-backdrop" aria-hidden="true">
+    <div class="sunumlar-modal-container">
+      <button type="button" class="sunumlar-floating-close" id="closeViewerModal" aria-label="Kapat" title="Kapat (Esc)">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <iframe id="sunumlarPortalFrame" src="sunumlar.html" class="sunumlar-portal-frame" title="Sunumlar Portalı"></iframe>
+    </div>
+  </div>
+
+  <!-- ================= DAHİLİ TAM EKRAN SLAYT & SUNUM OYNATICI ================= -->
+  <div id="slidePlayer" class="slide-player" aria-hidden="true">
+    <div class="slide-floating-topbar" id="slideFloatingTopbar">
+      <button type="button" class="slide-floating-pill-btn slide-floating-exit" id="slideCloseBtn" title="Sunumdan Çık (Esc)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Çık</span>
+      </button>
+      <div class="slide-floating-info">
+        <span class="slide-floating-title" id="slidePlayerTitle">Sunum Başlığı</span>
+        <span class="slide-floating-counter" id="slideCounter">1 / 1</span>
+      </div>
+      <div class="slide-floating-actions">
+        <button type="button" class="slide-floating-pill-btn" id="slideDownloadBtn" title="Dosyayı İndir / Cihazda Aç" style="display:none;">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>İndir</span>
+        </button>
+        <button type="button" class="slide-floating-pill-btn" id="slideFullscreenBtn" title="Tam Ekran Aç / Kapat (F11)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          <span>Tam Ekran</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="slide-stage" id="slideStage">
+      <!-- Slayt veya PDF buraya yüklenir -->
+    </div>
+
+    <div class="slide-controls slide-floating-controls" id="slideControlsBar">
+      <button type="button" class="slide-nav-pill-btn" id="prevSlideBtn" title="Önceki Slayt (Sol Ok)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>Önceki</span>
+      </button>
+      <div class="slide-progress-track">
+        <div class="slide-progress-fill" id="slideProgressFill"></div>
+      </div>
+      <button type="button" class="slide-nav-pill-btn" id="nextSlideBtn" title="Sonraki Slayt (Sağ Ok)">
+        <span>Sonraki</span>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= PROXY PIN GİRİŞ MODALI ================= -->
+  <div id="proxyAuthModal" class="portal-modal-backdrop" aria-hidden="true">
+    <div class="portal-modal auth-modal proxy-auth-modal" role="dialog" aria-modal="true" aria-labelledby="proxyAuthTitle">
+      <div class="auth-header">
+        <h3 id="proxyAuthTitle">PIN Kodunu Girin</h3>
+      </div>
+
+      <div class="pin-display" id="proxyPinDisplay" aria-label="Girilen PIN">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+
+      <input type="password" id="proxyPinHiddenInput" class="pin-hidden-input" inputmode="numeric" maxlength="4" pattern="[0-9]*" autocomplete="one-time-code" data-lpignore="true" data-form-type="other" aria-label="PIN Kodu Girişi" />
+
+      <div class="pin-keypad" id="proxyPinKeypad">
+        <button type="button" class="pin-key" data-key="1">1</button>
+        <button type="button" class="pin-key" data-key="2">2</button>
+        <button type="button" class="pin-key" data-key="3">3</button>
+        <button type="button" class="pin-key" data-key="4">4</button>
+        <button type="button" class="pin-key" data-key="5">5</button>
+        <button type="button" class="pin-key" data-key="6">6</button>
+        <button type="button" class="pin-key" data-key="7">7</button>
+        <button type="button" class="pin-key" data-key="8">8</button>
+        <button type="button" class="pin-key" data-key="9">9</button>
+        <button type="button" class="pin-key pin-key-fn" data-key="clear" title="Temizle">C</button>
+        <button type="button" class="pin-key" data-key="0">0</button>
+        <button type="button" class="pin-key pin-key-fn pin-key-submit" data-key="enter" title="Giriş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+
+      <div class="auth-status" id="proxyAuthStatus" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ================= KURFA KÖPRÜ V2 PIN GİRİŞ MODALI (PIN 4380) ================= -->
+  <div id="bridgeV2AuthModal" class="portal-modal-backdrop" aria-hidden="true">
+    <div class="portal-modal auth-modal bridge-v2-auth-modal" role="dialog" aria-modal="true" aria-labelledby="bridgeV2AuthTitle">
+      <div class="auth-header">
+        <h3 id="bridgeV2AuthTitle">PIN Kodunu Girin</h3>
+      </div>
+
+      <div class="pin-display" id="bridgeV2PinDisplay" aria-label="Girilen PIN">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+
+      <input type="password" id="bridgeV2PinHiddenInput" class="pin-hidden-input" inputmode="numeric" maxlength="4" pattern="[0-9]*" autocomplete="one-time-code" data-lpignore="true" data-form-type="other" aria-label="PIN Kodu Girişi" />
+
+      <div class="pin-keypad" id="bridgeV2PinKeypad">
+        <button type="button" class="pin-key" data-key="1">1</button>
+        <button type="button" class="pin-key" data-key="2">2</button>
+        <button type="button" class="pin-key" data-key="3">3</button>
+        <button type="button" class="pin-key" data-key="4">4</button>
+        <button type="button" class="pin-key" data-key="5">5</button>
+        <button type="button" class="pin-key" data-key="6">6</button>
+        <button type="button" class="pin-key" data-key="7">7</button>
+        <button type="button" class="pin-key" data-key="8">8</button>
+        <button type="button" class="pin-key" data-key="9">9</button>
+        <button type="button" class="pin-key pin-key-fn" data-key="clear" title="Temizle">C</button>
+        <button type="button" class="pin-key" data-key="0">0</button>
+        <button type="button" class="pin-key pin-key-fn pin-key-submit" data-key="enter" title="Giriş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+
+      <div class="auth-status" id="bridgeV2AuthStatus" aria-live="polite">4 haneli PIN kodunuzu girin.</div>
+    </div>
+  </div>
+
+  <!-- ================= KURFA KÖPRÜ V2 SİBER TÜNEL PORTAL MODALI ================= -->
+  <div id="bridgeV2ViewerModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 100008;">
+    <div class="portal-modal bridge-v2-viewer-modal" role="dialog" aria-modal="true" aria-labelledby="bridgeV2ViewerTitle">
+      
+      <!-- Minimalist Top Navigation Bar -->
+      <div class="bridge-v2-header">
+        <div class="bridge-v2-header-top">
+          <!-- Brand & Subtle Status Pill -->
+          <div class="bridge-v2-brand-group">
+            <div class="bridge-v2-brand">
+              <img src="kurfa2.png" alt="Kurfa" class="v2-brand-logo-img">
+              <div class="v2-brand-text-block">
+                <h3 id="bridgeV2ViewerTitle" class="v2-brand-title">Kurfa <span class="v2-brand-sub">Tarayıcı</span></h3>
+              </div>
+            </div>
+            
+            <div class="bridge-v2-status-pill" title="KFX-V6 Çift Entropi Şifreli Tünel · MEB Korumalı">
+              <span class="v2-status-dot"></span>
+              <span class="v2-status-text">KFX-V6 Stealth</span>
+              <span class="v2-status-sep">·</span>
+              <span class="v2-status-ping" id="bridgeV2PingVal">~16 ms</span>
+            </div>
+          </div>
+
+          <!-- Window Action Buttons (Frosted Round Glass) -->
+          <div class="bridge-v2-window-actions">
+            <button type="button" class="v2-round-btn" id="bridgeV2LockBtn" title="Tüneli Kilitle (PIN İster)">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </button>
+            <button type="button" class="v2-round-btn" id="bridgeV2FullscreenBtn" title="Tam Ekran">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+            <button type="button" class="v2-round-btn v2-close-btn" id="bridgeV2CloseBtn" title="Kapat">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Minimalist Omnibar -->
+        <div class="bridge-v2-nav-bar">
+          <div class="bridge-v2-nav-controls">
+            <button type="button" class="v2-nav-icon-btn" id="bridgeV2HomeBtn" title="Başlangıç">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </button>
+            <button type="button" class="v2-nav-icon-btn" id="bridgeV2ReloadBtn" title="Yenile">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </button>
+          </div>
+
+          <div class="bridge-v2-omnibar">
+            <div class="bridge-v2-omnibar-icon">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <input type="text" id="bridgeV2Input" class="bridge-v2-input" placeholder="Adres yazın veya arayın… (örn: wikipedia, film, evvelcevap)" autocomplete="off" spellcheck="false" />
+            <button type="button" class="bridge-v2-go-btn" id="bridgeV2GoBtn" title="Aç">
+              <span>Aç</span>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Minimalist Chips -->
+        <div class="bridge-v2-shortcuts-bar">
+          <button type="button" class="v2-shortcut-chip" data-url="https://gamemonetize.com/" title="Game — GameMonetize HTML5 Oyun Dağıtım &amp; Portalı">Game</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://www.madkidgames.com/html5-games" title="MadKidGames — Popüler HTML5 Oyunlar &amp; İlerleme Kaydı">MadKidGames</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://filmmodu.news/">FilmModu</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://filmkovasi.co/">FilmKovası</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://jetfilmizle.now/">JetFilmizle</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://tr.wikipedia.org/">Vikipedi</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://store.steampowered.com/">Steam</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://www.batumatu.com.tr/">Batumatu</button>
+          <button type="button" class="v2-shortcut-chip" data-url="https://www.ytpavlov.com/">Pavlov</button>
+          <button type="button" class="v2-shortcut-chip shortcut-shiny-pet" data-url="https://evvelcevap.com/" title="EvvelCevap — Ödev &amp; Ders Portalı"><span class="shiny-pet-sparkle">✦</span> EvvelCevap</button>
+        </div>
+
+        <!-- Loading Progress Bar Indicator (ScrapingAnt Bekleme Çubuğu) -->
+        <div class="bridge-v2-progress-track">
+          <div class="bridge-v2-progress-bar" id="bridgeV2ProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Minimalist Frame Body & Serene Empty State -->
+      <div class="bridge-v2-body">
+        <div class="bridge-v2-empty-state" id="bridgeV2EmptyState">
+          <div class="v2-zen-center-content">
+            <img src="kurfa2.png" alt="Kurfa" class="v2-zen-logo-free">
+            <h2 class="v2-zen-title">Kurfa Tarayıcı</h2>
+            <p class="v2-zen-subtitle">KFX-V6 Çift Entropi Şifreli Siber Arama & Tünel Motoru</p>
+            
+            <!-- Kurfa Tarayıcı Merkezi Arama Çubuğu -->
+            <div class="v2-browser-search-wrap">
+              <form class="v2-browser-search-form" id="bridgeV2CenterSearchForm" action="javascript:void(0);">
+                <div class="v2-search-icon-slot">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                  </svg>
+                </div>
+                <input type="text" id="bridgeV2CenterSearchInput" class="v2-center-search-input" placeholder="Kurfa Tarayıcı'da ara veya URL yazın..." autocomplete="off" spellcheck="false" />
+                <button type="submit" class="v2-center-search-btn" id="bridgeV2CenterSearchBtn" title="Ara veya Git">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </form>
+              <div class="v2-search-cooldown-notice" id="bridgeV2CooldownNotice" style="display:none;"></div>
+
+              <div class="v2-search-shortcuts">
+                <button type="button" class="v2-center-chip" data-url="https://gamemonetize.com/" title="Game — GameMonetize HTML5 Oyunlar"><span class="v2-chip-dot dot-cyan"></span>Game</button>
+                <button type="button" class="v2-center-chip" data-url="https://www.madkidgames.com/html5-games" title="MadKidGames — Popüler HTML5 Oyunlar"><span class="v2-chip-dot dot-emerald"></span>MadKidGames</button>
+                <button type="button" class="v2-center-chip" data-url="https://filmmodu.news/" title="FilmModu"><span class="v2-chip-dot dot-rose"></span>FilmModu</button>
+                <button type="button" class="v2-center-chip" data-url="https://filmkovasi.co/" title="FilmKovası"><span class="v2-chip-dot dot-amber"></span>FilmKovası</button>
+                <button type="button" class="v2-center-chip" data-url="https://jetfilmizle.now/" title="JetFilmizle"><span class="v2-chip-dot dot-emerald"></span>JetFilmizle</button>
+                <button type="button" class="v2-center-chip" data-url="https://www.batumatu.com.tr/" title="Batumatu"><span class="v2-chip-dot dot-amber"></span>Batumatu</button>
+                <button type="button" class="v2-center-chip" data-url="https://tr.wikipedia.org/" title="Vikipedi"><span class="v2-chip-dot dot-purple"></span>Vikipedi</button>
+                <button type="button" class="v2-center-chip" data-url="https://store.steampowered.com/" title="Steam"><span class="v2-chip-dot dot-cyan"></span>Steam</button>
+                <button type="button" class="v2-center-chip" data-url="https://www.ytpavlov.com/" title="Pavlov"><span class="v2-chip-dot dot-purple"></span>Pavlov</button>
+                <button type="button" class="v2-center-chip shortcut-shiny-pet" data-url="https://evvelcevap.com/" title="EvvelCevap — Ödev &amp; Ders Portalı"><span class="shiny-pet-sparkle">✦</span> EvvelCevap</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5651 S.K. & TCK m.20 Yasal Sorumluluk Çubuğu -->
+          <div class="v2-legal-bar">
+            <div class="v2-legal-text-wrap">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span><strong>5651 s.K. m.5 Yer Sağlayıcı:</strong> Servis bağımsız aracı tüneldir. Gerçekleştirilen tüm eylemler TCK m.20 uyarınca kullanıcının şahsi sorumluluğundadır.</span>
+            </div>
+            <button type="button" class="v2-legal-link-btn" id="bridgeV2LegalDetailsBtn">Yasal Metin & Taahhütname</button>
+          </div>
+        </div>
+
+        <!-- Frame Container -->
+        <div class="bridge-v2-frame-container" id="bridgeV2FrameContainer" style="display: none; background: #06080d;">
+
+          <iframe id="bridgeV2Iframe" class="bridge-v2-iframe" src="about:blank" style="background:#06080d;" allow="autoplay; fullscreen; encrypted-media; picture-in-picture; gamepad; pointer-lock; clipboard-read; clipboard-write; storage-access; web-share" allowfullscreen="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PROXY GÖRÜNTÜLEYICI MODAL ================= -->
+  <div id="proxyViewerModal" class="portal-modal-backdrop" aria-hidden="true">
+    <div class="portal-modal proxy-viewer-modal" role="dialog" aria-modal="true" aria-labelledby="proxyViewerTitle">
+      <!-- Proxy Header -->
+      <div class="proxy-header-unified">
+        <div class="proxy-header-main">
+          <div class="proxy-brand-chip" title="Başlangıç Ekranına Dön">
+            <div class="proxy-brand-icon">
+              <img src="kurfa2.png" alt="Kurfa" class="proxy-brand-logo-img" />
+            </div>
+            <div class="proxy-brand-meta">
+              <h3 id="proxyViewerTitle">Kurfa Köprü</h3>
+            </div>
+          </div>
+
+
+          <div class="proxy-omnibar">
+            <div class="proxy-omnibar-inner">
+              <svg class="proxy-omnibar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <input type="url" id="proxyUrlInput" class="proxy-omnibar-input" placeholder="Adres yazın veya internette arayın… (örn: film izle, youtube, steam)" autocomplete="off" spellcheck="false" />
+              <button type="button" class="proxy-omnibar-go" id="proxyGoBtn" title="Bağlan">
+                <span>Git</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="proxy-actions-group">
+            <button type="button" class="proxy-action-btn stream-sniffer-btn" id="streamSnifferBtn" title="Yakalanan Video Paketleri & Akışlar" style="display: none;">
+              <span class="sniffer-pulse-dot"></span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+              <span class="action-label" id="streamSnifferLabel">Akış</span>
+            </button>
+            <button type="button" class="proxy-action-btn legal-btn" id="openProxyLegalBtn" title="5651 Yasal Sorumluluk Reddi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span class="action-label">Yasal Uyarı</span>
+            </button>
+            <button type="button" class="proxy-action-btn" id="lockProxyBtn" title="Oturumu Kilitle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span class="action-label">Kilitle</span>
+            </button>
+            <button type="button" class="proxy-action-btn proxy-fs-btn" id="fullscreenProxyBtn" title="Tam Ekran Modu">
+              <svg class="fs-icon fs-enter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <svg class="fs-icon fs-exit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><path d="M4 14h6m0 0v6m0-6L3 21m17-7h-6m0 0v6m0-6l7 7M4 10h6m0 0V4m0 6L3 3m17 7h-6m0 0V4m0 6l7-7"/></svg>
+              <span class="fs-label">Tam Ekran</span>
+            </button>
+            <button type="button" class="proxy-close-btn" id="closeProxyViewer" aria-label="Kapat" title="Kapat (Esc)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="proxy-shortcuts-bar" id="proxyShortcuts">
+          <div class="shortcuts-scroll" id="shortcutsScroll">
+            <button type="button" class="proxy-shortcut-btn" data-url="https://gamemonetize.com/" title="Game — GameMonetize HTML5 Oyun Dağıtım &amp; Portalı">
+              <span class="sc-dot dot-cyan"></span>Game
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-url="https://www.madkidgames.com/html5-games" title="MadKidGames — Ücretsiz HTML5 Oyunlar &amp; İlerleme Kaydı">
+              <span class="sc-dot dot-emerald"></span>MadKidGames
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCAWPAJcHxU7FAQKDj1bEQkMbkc0" title="Pavlov — 3D WebGL Savaş Arenası">
+              <span class="sc-dot dot-purple"></span>Pavlov
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCAXIhEBFAJlBhAVRHkz" title="VidSrc — Film ve Dizi Akışı">
+              <span class="sc-dot dot-cyan"></span>VidSrc
+            </button>
+            <button type="button" class="proxy-shortcut-btn shortcut-gold" data-q="kfx_IwEGFhJuRjNDUw1QQCAWPAJcBAA_AB8HFT5bEQkMZQEAQ1MN" title="Batumatu — Popüler Oyun Portalı">
+              <span class="dot-gold-sparkle"></span>
+              <span class="sc-gold-text">Batumatu</span>
+            </button>
+            <button type="button" class="proxy-shortcut-btn shortcut-gold" data-q="kfx_IwEGFhJuRjNDUw1QQCALLgEUDw0mHAgKBGUbHRFEeTM" title="JetFilmizle — Hızlı Film Portalı">
+              <span class="dot-gold-sparkle"></span>
+              <span class="sc-gold-text">JetFilmizle</span>
+            </button>
+            <button type="button" class="proxy-shortcut-btn shortcut-gold" data-url="https://filmmodu.news/" title="FilmModu — HD Film Portalı">
+              <span class="dot-gold-sparkle"></span>
+              <span class="sc-gold-text">FilmModu</span>
+            </button>
+            <button type="button" class="proxy-shortcut-btn shortcut-shiny-pet" data-url="https://evvelcevap.com/" title="EvvelCevap — Ödev &amp; Ders Portalı">
+              <span class="shiny-pet-sparkle">✦</span>
+              <span class="sc-shiny-text">EvvelCevap</span>
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCAHIhkfDQ49FAEPTygaV1Qn" title="FilmKovası — HD Film Portalı">
+              <span class="sc-dot dot-amber"></span>FilmKovası
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCAWJAcWEQAnGVwIBD9QQCAVOVBAIAIkGB8TDyIBCw" title="Wordwall — Eğitici Oyunlar">
+              <span class="sc-dot dot-amber"></span>Wordwall
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCAVOVsFDwoiBRcCCCpbHRQGbkc0" title="Vikipedi — Özgür Ansiklopedi">
+              <span class="sc-dot dot-purple"></span>Vikipedi
+            </button>
+            <button type="button" class="proxy-shortcut-btn" data-q="kfx_IwEGFhJuRjNDUw1QQCASPxoAA084ARcHDDsaBQMTLhFcBQ4mUEAg" title="Steam Mağaza">
+              <span class="sc-dot dot-cyan"></span>Steam
+            </button>
+            <div class="custom-shortcuts-wrap" id="topCustomShortcuts"></div>
+            <button type="button" class="proxy-add-shortcut-btn" id="openAddShortcutBtn" title="Kendi Kısayolunu Ekle (Hafızada Saklanır)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Ekle</span>
+            </button>
+          </div>
+          <div class="proxy-legal-strip" id="quickLegalNoticeLink" title="Yasal Sorumluluk Reddi">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>5651 s.K. Yer Sağlayıcı | Eylemler Kullanıcıya Aittir</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proxy Frame & State -->
+      <div class="proxy-frame-container" id="proxyFrameContainer">
+        <div class="proxy-empty-state" id="proxyEmptyState">
+          <div class="browser-home">
+            <div class="bh-brand">
+              <div class="bh-logo">
+                <img src="kurfa2.png" alt="Kurfa" class="bh-logo-img" />
+              </div>
+              <h2 class="bh-title">Kurfa Köprü</h2>
+            </div>
+
+            <form class="bh-search-form" id="browserHomeSearchForm" autocomplete="off">
+              <div class="bh-search-box">
+                <svg class="bh-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" id="browserHomeInput" class="bh-search-input" placeholder="Bir site adresi yazın veya internette arayın…" autocomplete="off" spellcheck="false" />
+                <button type="submit" class="bh-search-submit" title="Git">
+                  <span>Git</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </form>
+
+            <div class="bh-legal-bar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span>5651 s.K. m.5 Yer Sağlayıcı: Servis bağımsız aracı tüneldir. Gerçekleştirilen tüm eylemler TCK m.20 uyarınca kullanıcının şahsi sorumluluğundadır.</span>
+              <button type="button" class="bh-legal-link" id="homeLegalDetailsBtn">Yasal Metin</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kurfa Akıllı Arama Sonuç Paneli -->
+        <div class="proxy-search-results" id="proxySearchResults" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yasal Sorumluluk Reddi & Kullanıcı Taahhütname Modalı (5651 s.K. & TCK m.20) -->
+  <div id="proxyLegalModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 100010;">
+    <div class="portal-modal legal-modal-box luxury-legal-box" role="dialog" aria-modal="true" aria-labelledby="proxyLegalTitle">
+      <div class="legal-modal-top">
+        <div class="legal-modal-title-wrap">
+          <div class="legal-icon-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3 id="proxyLegalTitle">Hukuki Bildirim & Kullanıcı Taahhüdü</h3>
+            <span class="viewer-subtext">5651 Sayılı Kanun Madde 5 • TCK Madde 20</span>
+          </div>
+        </div>
+        <button type="button" class="legal-modal-close-btn" id="closeProxyLegalModal" aria-label="Kapat">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="legal-modal-body">
+        <div class="legal-summary-card">
+          <div class="legal-row">
+            <div class="legal-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="legal-row-content">
+              <strong>Yer Sağlayıcı Statüsü (5651 s.K. m.5)</strong>
+              <p>Kurfa Tarayıcı ve Köprü altyapısı, yalnızca bağımsız bir teknik veri aktarım köprüsüdür. Dış kaynaklardaki içerikleri depolamaz, yayınlamaz ve önceden denetleme yükümlülüğü bulunmamaktadır.</p>
+            </div>
+          </div>
+
+          <div class="legal-row-divider"></div>
+
+          <div class="legal-row">
+            <div class="legal-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="3"/></svg>
+            </div>
+            <div class="legal-row-content">
+              <strong>Ceza Sorumluluğunun Şahsiliği (TCK m.20)</strong>
+              <p>Tünel üzerinden ziyaret edilen her türlü web sitesi (+18 yetişkin içerikler, telifli veya kanuna aykırı platformlar dahil) tamamen kullanıcının KENDİ ŞAHSİ İRADESİYLE gerçekleştirilir. Tüm cezai ve hukuki sorumluluk münhasıran kullanıcıya aittir.</p>
+            </div>
+          </div>
+
+          <div class="legal-row-divider"></div>
+
+          <div class="legal-row">
+            <div class="legal-row-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
+            </div>
+            <div class="legal-row-content">
+              <strong>18+ Yaş ve Reşitlik Beyanı</strong>
+              <p>Kullanıcı 18 yaşını doldurduğunu (veya veli nezaretinde olduğunu), servis sağlayıcı ve geliştiricileri her türlü mesuliyetten gayrikabili rücu muaf tuttuğunu peşinen kabul ve taahhüt eder.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="legal-badge-pill">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>5651 Sayılı Kanun Madde 5 • TCK Madde 20 • Sıfır Veri Kaydı</span>
+        </div>
+      </div>
+
+      <div class="legal-modal-foot">
+        <button type="button" class="btn-legal-confirm" id="confirmProxyLegalBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Okudum, Anladım ve Kabul Ediyorum</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yeni Kısayol Ekleme Modalı (LocalStorage Kalıcı Hafıza) -->
+  <div id="proxyAddShortcutModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 100001;">
+    <div class="portal-modal legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="addShortcutTitle" style="max-width: 440px;">
+      <div class="legal-modal-top">
+        <div class="legal-modal-title-wrap">
+          <div class="card-icon mini-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <div>
+            <h3 id="addShortcutTitle">Hızlı Kısayol Ekle</h3>
+            <span class="viewer-subtext">Tarayıcının hafızasında kalıcı olarak saklanır</span>
+          </div>
+        </div>
+        <button type="button" class="viewer-close-btn" id="closeAddShortcutModal" aria-label="Kapat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <form id="addShortcutForm" class="legal-modal-body" style="display: flex; flex-direction: column; gap: 14px; padding: 20px;">
+        <div>
+          <label style="display: block; font-size: 0.8rem; font-weight: 500; color: #94a3b8; margin-bottom: 6px;">Site Adı (Etiket)</label>
+          <input type="text" id="shortcutTitleInput" placeholder="Örn: Twitch, YouTube, Reddit" required maxlength="18" autocomplete="off" style="width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 0.9rem; outline: none;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.8rem; font-weight: 500; color: #94a3b8; margin-bottom: 6px;">Web Adresi (URL)</label>
+          <input type="text" id="shortcutUrlInput" placeholder="Örn: twitch.tv veya https://..." required autocomplete="off" style="width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 0.9rem; outline: none;" />
+        </div>
+        <div class="legal-modal-foot" style="padding-top: 10px; display: flex; justify-content: flex-end; gap: 10px;">
+          <button type="button" class="btn btn-ghost btn-sm" id="cancelAddShortcutBtn">İptal</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="saveShortcutBtn">Kaydet ve Ekle</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= KURFA AKIŞ & HLS PAKET DEDEKTÖRÜ MODALI ================= -->
+  <div id="streamSnifferModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 100002;">
+    <div class="portal-modal legal-modal-box" role="dialog" aria-modal="true" aria-labelledby="snifferModalTitle" style="max-width: 580px;">
+      <div class="legal-modal-top">
+        <div class="legal-modal-title-wrap">
+          <div class="legal-icon-badge" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+          </div>
+          <div>
+            <h3 id="snifferModalTitle">Akış & Paket Dedektörü</h3>
+            <span class="viewer-subtext">HLS (.m3u8), TS parçaları ve offshore dağıtım akışları</span>
+          </div>
+        </div>
+        <button type="button" class="legal-modal-close-btn" id="closeStreamSnifferModal" aria-label="Kapat" title="Kapat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="legal-modal-body" style="padding: 16px 20px 24px;">
+        <div class="sniffer-banner" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px 14px; font-size: 0.82rem; color: #94a3b8; line-height: 1.5; margin-bottom: 14px; display: flex; gap: 10px; align-items: flex-start;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; margin-top: 5px; flex-shrink: 0; box-shadow: 0 0 8px #22c55e;"></span>
+          <span>Sitenin offshore sunuculardan (Rusya, Hollanda, Romanya vb.) kullanıcıya akıttığı dinamik HLS (.m3u8) indeksleri ve video paketleri yakalandı. Sitenin reklamlı player'ını atlayıp doğrudan açabilirsiniz.</span>
+        </div>
+        <div id="sniffedStreamsList" style="display: flex; flex-direction: column; gap: 10px; max-height: 340px; overflow-y: auto;">
+          <!-- JS dinamik kartları buraya basacak -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ALMANYA CARS GÜVENLİK KİLİDİ MODALI ================= -->
+  <div id="carsAuthModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 100000;">
+    <div class="portal-modal auth-modal cars-auth-modal" role="dialog" aria-modal="true" aria-labelledby="carsAuthTitle">
+      <div class="auth-header">
+        <h3 id="carsAuthTitle">PIN Kodunu Girin</h3>
+      </div>
+
+      <div class="pin-display cars-pin-display" id="carsPinDisplay" aria-label="Girilen PIN">
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+        <span class="pin-dot"></span>
+      </div>
+
+      <input type="password" id="carsPinHiddenInput" class="pin-hidden-input" inputmode="numeric" maxlength="12" pattern="[0-9]*" autocomplete="one-time-code" data-lpignore="true" data-form-type="other" aria-label="PIN Kodu Girişi" />
+
+      <div class="pin-keypad" id="carsPinKeypad">
+        <button type="button" class="pin-key" data-key="1">1</button>
+        <button type="button" class="pin-key" data-key="2">2</button>
+        <button type="button" class="pin-key" data-key="3">3</button>
+        <button type="button" class="pin-key" data-key="4">4</button>
+        <button type="button" class="pin-key" data-key="5">5</button>
+        <button type="button" class="pin-key" data-key="6">6</button>
+        <button type="button" class="pin-key" data-key="7">7</button>
+        <button type="button" class="pin-key" data-key="8">8</button>
+        <button type="button" class="pin-key" data-key="9">9</button>
+        <button type="button" class="pin-key pin-key-fn" data-key="clear" title="Temizle">C</button>
+        <button type="button" class="pin-key" data-key="0">0</button>
+        <button type="button" class="pin-key pin-key-fn pin-key-submit" data-key="enter" title="Giriş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </div>
+
+      <div class="auth-status" id="carsAuthStatus" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ================= ALMANYA CARS 3D MODAL GÖRÜNTÜLEYİCİ ================= -->
+  <div id="carsViewerModal" class="portal-modal-backdrop" aria-hidden="true" style="z-index: 99999;">
+    <div class="portal-modal cars-modal-box" role="dialog" aria-modal="true" aria-labelledby="carsModalTitle">
+      <div class="cars-modal-topbar">
+        <div class="cars-modal-brand">
+          <div class="cars-modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="18" height="18">
+              <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+              <circle cx="7" cy="17" r="2"/>
+              <path d="M9 17h6"/>
+              <circle cx="17" cy="17" r="2"/>
+            </svg>
+          </div>
+          <div>
+            <h3 id="carsModalTitle">Alman Otomotiv Stüdyosu — 3D</h3>
+          </div>
+        </div>
+
+        <div class="cars-modal-actions">
+          <button type="button" class="cars-action-btn" id="carsTopbarNewTabBtn" title="Yeni Sekmede Aç">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Yeni Sekme</span>
+          </button>
+          <button type="button" class="cars-action-btn" id="carsFullscreenBtn" title="Tam Ekran Aç / Kapat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            <span class="fs-cars-label">Tam Ekran</span>
+          </button>
+          <button type="button" class="viewer-close-btn" id="closeCarsModal" aria-label="Kapat" title="Kapat (Esc)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cars-modal-stage">
+        <iframe id="carsFrame" src="" title="Alman Otomotiv Stüdyosu 3D" allow="fullscreen; autoplay; accelerometer; gyroscope" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= KURFA MÜZİK (REKLAMSIZ MÜZİK ÇALAR & ARAMA) ================= -->
+  <div class="music-widget" id="musicWidget">
+    <!-- Alt Yüzen Arama Barı (Tıklanınca Yukarı Büyüyen Akıllı Kapsül) -->
+    <div class="music-capsule-bar" id="musicCapsuleBar" role="button" tabindex="0" aria-label="Kurfa Müzik Çalar'ı Aç" title="Şarkı veya Sanatçı Ara (Tıklayınca Büyür)">
+      <div class="music-capsule-glow"></div>
+      <div class="music-capsule-inner" id="musicTriggerBtn">
+        <div class="music-capsule-icon-wrap">
+          <img src="kurfa2.png" alt="Kurfa Müzik" class="music-capsule-logo-img">
+        </div>
+        <div class="music-capsule-content">
+          <span class="music-capsule-text" id="musicCapsuleText">Şarkı veya sanatçı ara...</span>
+        </div>
+        <div class="music-capsule-status-pill">
+          <div class="music-capsule-eq" id="musicCapsuleEq" style="display: none;" aria-hidden="true">
+            <span class="music-bar bar-1"></span>
+            <span class="music-bar bar-2"></span>
+            <span class="music-bar bar-3"></span>
+            <span class="music-bar bar-4"></span>
+          </div>
+          <svg class="music-capsule-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Müzik Paneli (Yukarı Açılır Pencere) -->
+    <div class="music-player-panel" id="musicPlayerPanel" role="dialog" aria-modal="false" aria-label="Kurfa Müzik Çalar">
+      <!-- Panel Header -->
+      <div class="music-panel-header">
+        <div class="music-header-info">
+          <img src="kurfa2.png" alt="Kurfa Müzik" class="music-brand-logo-free">
+          <div class="music-title-group">
+            <span class="music-header-title">Kurfa Müzik</span>
+          </div>
+        </div>
+        <div class="music-header-actions">
+          <a href="https://kurfanova.github.io/" target="_blank" rel="noopener" class="music-btn-icon" title="Tam Sürüm KurfaNova'ya Git" aria-label="KurfaNova">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+          <button type="button" class="music-btn-icon" id="musicMinimizeBtn" title="Kapat (Esc)" aria-label="Kapat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 1. GÖRÜNÜM: OYNATICI & GERÇEKÇİ 3D PLAK / KLİP (Ana Ekran) -->
+      <div class="music-view-tab active" id="musicViewPlayer">
+        <div class="music-now-playing-card" id="musicNowPlayingCard">
+          <!-- Üst Geçiş Anahtarı: [ Disk | Klip ] -->
+          <div class="music-stage-switch-bar">
+            <div class="music-stage-toggle-pill" role="tablist" aria-label="Görünüm Modu">
+              <button type="button" class="music-stage-tab active" id="musicStageDiskBtn" data-mode="disk" title="Plak Görünümü">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                <span>Disk</span>
+              </button>
+              <button type="button" class="music-stage-tab" id="musicStageClipBtn" data-mode="clip" title="Video Klip Görünümü">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/><path d="M19 5v14"/></svg>
+                <span>Klip</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sahne Görüntüleyici: Plak & Video Klip -->
+          <div class="music-stage-viewport" id="musicStageViewport">
+            <!-- 1. Gerçekçi Pikap & Lüks Plak Sahnesi -->
+            <div class="music-turntable-scene" id="musicTurntableScene">
+              <div class="music-turntable-platter">
+                <div class="music-platter-glow-ring"></div>
+                <div class="music-platter-base"></div>
+                <div class="music-album-art-wrap" id="musicAlbumArtWrap">
+                  <div class="music-vinyl-grooves"></div>
+                  <div class="music-vinyl-center">
+                    <img id="musicCoverImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='1.5'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E" alt="Albüm Kapağı" class="music-cover-img">
+                    <div class="music-vinyl-spindle"></div>
+                  </div>
+                </div>
+                <!-- Mekanik Pikap Kolu (Audiophile Tonearm) -->
+                <div class="music-tonearm" aria-hidden="true">
+                  <div class="music-tonearm-pivot"></div>
+                  <div class="music-tonearm-rod"></div>
+                  <div class="music-tonearm-head"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Video Klip Sahnesi (Dairesel Plak Formunda & Genişletilebilir) -->
+            <div class="music-clip-scene" id="musicClipScene" style="display: none;">
+              <div class="music-clip-frame" id="musicClipFrame">
+                <div class="music-clip-vinyl-ring" aria-hidden="true"></div>
+                <div class="music-clip-player-target" id="musicClipPlayerTarget">
+                  <!-- YouTube Iframe Motoru (Ses & Klip Kesintisiz Akış) -->
+                  <div id="musicYtFrameContainer" class="yt-engine-container">
+                    <div id="musicYtFrame"></div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="music-clip-expand-btn" id="musicClipExpandBtn" title="Videoyu Genişlet / Küçült" aria-label="Genişlet">
+                <svg class="icon-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <svg class="icon-shrink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;"><path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/></svg>
+              </button>
+              <div class="music-clip-badge">HD KLİP</div>
+            </div>
+          </div>
+
+          <!-- Alt Çalma Destesi (Şarkı Bilgisi, Scrubber ve Kontroller Bitişik) -->
+          <div class="music-deck-group">
+            <!-- Ortalanmış Şarkı Bilgileri -->
+            <div class="music-info-text-centered">
+              <div class="music-track-title" id="musicTrackTitle">Bir şarkı seçin</div>
+              <div class="music-artist-row">
+                <div class="music-track-artist" id="musicTrackArtist">Kurfa Müzik Hazır</div>
+                <div class="music-active-eq" id="musicActiveEq" style="display: none;">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scrubber / İlerleme Çubuğu -->
+            <div class="music-progress-container">
+              <div class="music-progress-bar-wrap" id="musicProgressBarWrap" role="slider" aria-label="Şarkı Süresi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+                <div class="music-progress-bar" id="musicProgressBar"></div>
+                <div class="music-progress-handle" id="musicProgressHandle"></div>
+              </div>
+              <div class="music-time-display">
+                <span id="musicCurrentTime">0:00</span>
+                <span id="musicTotalTime">0:00</span>
+              </div>
+            </div>
+
+            <!-- Oynatma ve Ses Kontrolleri -->
+            <div class="music-controls-row">
+              <div class="music-ctrls-center">
+                <button type="button" class="music-ctrl-btn" id="musicPrevBtn" title="Önceki Şarkı" aria-label="Önceki">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+                </button>
+                <button type="button" class="music-ctrl-btn music-play-main-btn" id="musicPlayPauseBtn" title="Oynat / Duraklat" aria-label="Oynat">
+                  <svg class="music-icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  <svg class="music-icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button type="button" class="music-ctrl-btn" id="musicNextBtn" title="Sonraki Şarkı" aria-label="Sonraki">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+                </button>
+              </div>
+              
+              <div class="music-volume-group">
+                <button type="button" class="music-ctrl-btn music-vol-btn" id="musicVolBtn" title="Ses Aç/Kapat" aria-label="Ses Kontrolü">
+                  <svg class="music-vol-high" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                  <svg class="music-vol-muted" viewBox="0 0 24 24" fill="currentColor" style="display: none;"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                </button>
+                <input type="range" id="musicVolumeSlider" class="music-volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Ses Düzeyi">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. GÖRÜNÜM: ARAMA & CANLI TREND ŞARKILAR LİSTESİ -->
+      <div class="music-view-tab" id="musicViewSearch">
+        <!-- Arama Alanı -->
+        <div class="music-search-section">
+          <div class="music-search-input-wrapper">
+            <svg class="music-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="musicSearchInput" class="music-search-input" placeholder="Şarkı veya sanatçı ara..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search" enterkeyhint="search">
+            <button type="button" class="music-clear-search-btn" id="musicClearSearchBtn" aria-label="Aramayı Temizle" style="display: none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Müzik Tür & Kategori Hızlı Filtreleri (Özel Çizim Vektör Simgeler, Sıfır Emoji) -->
+        <div class="music-genre-chips" id="musicGenreChips" role="tablist" aria-label="Müzik Türleri">
+          <button type="button" class="music-genre-chip active" data-genre="trend" role="tab" aria-selected="true">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            <span>Trend</span>
+          </button>
+          <button type="button" class="music-genre-chip" data-genre="pop" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg>
+            <span>Pop</span>
+          </button>
+          <button type="button" class="music-genre-chip" data-genre="rap" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Rap</span>
+          </button>
+          <button type="button" class="music-genre-chip" data-genre="rock" role="tab" aria-selected="false">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"/></svg>
+            <span>Rock</span>
+          </button>
+        </div>
+
+        <!-- Şarkı Listesi & Sonuçlar Bölümü -->
+        <div class="music-results-section" id="musicResultsSection">
+          <div class="music-results-header">
+            <span class="music-results-title" id="musicResultsHeading">Bugünün Trend Şarkıları</span>
+            <span class="music-results-count" id="musicResultsCount">Yükleniyor...</span>
+          </div>
+          <div class="music-song-list" id="musicSongList" role="listbox" aria-label="Şarkı Arama Sonuçları">
+            <!-- JS dinamik olarak şarkı kartlarını buraya ekleyecek -->
+          </div>
+          <div class="music-loading-spinner" id="musicLoadingSpinner" style="display: none;">
+            <div class="music-spinner-circle"></div>
+            <span>Şarkılar yükleniyor...</span>
+          </div>
+          <div class="music-empty-state" id="musicEmptyState" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 15h8M9 9h.01M15 9h.01"/></svg>
+            <p>Aradığınız şarkı bulunamadı.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. GÖRÜNÜM: ARAMA / DİNLEME GEÇMİŞİ -->
+      <div class="music-view-tab" id="musicViewHistory">
+        <div class="music-history-section">
+          <div class="music-results-header">
+            <span class="music-results-title">🕒 Son Çalınanlar</span>
+            <button type="button" class="music-clear-history-btn" id="musicClearHistoryBtn">Temizle</button>
+          </div>
+          <div class="music-song-list" id="musicHistoryList" role="listbox" aria-label="Son Çalınanlar">
+            <!-- JS son çalınanları buraya ekleyecek -->
+          </div>
+          <div class="music-empty-state" id="musicHistoryEmpty" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <p>Henüz çalınan şarkı yok.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sağ Dikey Menü (Ayrı Yüzen Balon / Pill Island) -->
+    <nav class="music-nav-dock" id="musicNavDock" aria-label="Müzik Gezinme Menüsü">
+      <div class="music-dock-header">
+        <div class="music-dock-badge" title="Kurfa Müzik">
+          <img src="kurfa2.png" alt="Kurfa" class="music-dock-logo-img">
+        </div>
+      </div>
+
+      <div class="music-dock-center">
+        <button type="button" class="music-dock-btn active" id="musicDockPlayerBtn" title="Şimdi Çalan (Plak / Klip)" aria-label="Plak ve Klip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span class="music-dock-dot"></span>
+        </button>
+
+        <button type="button" class="music-dock-btn" id="musicDockSearchBtn" title="Şarkı Arama & Canlı Trendler" aria-label="Arama ve Trendler">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="music-dock-dot"></span>
+        </button>
+
+        <button type="button" class="music-dock-btn" id="musicDockHistoryBtn" title="Dinleme Geçmişi" aria-label="Geçmiş">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span class="music-dock-dot"></span>
+        </button>
+      </div>
+
+      <div class="music-dock-footer">
+        <div class="music-dock-shield-badge" title="Kurfa Ad-Shield Aktif (Reklamsız)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HTML5 Audio Elementi -->
+    <audio id="musicAudioElement" preload="auto" crossorigin="anonymous"></audio>
+  </div>
+
+  <!-- ================= KURFA ASİSTAN (YAPAY ZEKA OS ASİSTANI) ================= -->
+  <div class="ai-assistant-widget" id="aiAssistantWidget">
+    <!-- Açma / Kapatma Butonu (Launcher Orb) -->
+    <button type="button" class="ai-trigger-btn" id="aiTriggerBtn" aria-label="Kurfa Asistan'ı Aç" title="Kurfa Asistan">
+      <div class="ai-trigger-halo"></div>
+      <div class="ai-trigger-glow"></div>
+      <div class="ai-trigger-inner">
+        <svg class="ai-sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"></polygon>
+          <circle cx="12" cy="12" r="3.5"></circle>
+          <line x1="12" y1="2" x2="12" y2="8.5"></line>
+          <line x1="12" y1="15.5" x2="12" y2="22"></line>
+        </svg>
+        <svg class="ai-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+        <span class="ai-badge-dot"></span>
+      </div>
+      <span class="ai-trigger-tooltip">Kurfa Asistan</span>
+    </button>
+
+    <!-- Sohbet Penceresi (Alpine Twilight Dark Glass OS Window) -->
+    <div class="ai-chat-panel border-gradient" id="aiChatPanel" role="dialog" aria-modal="false" aria-label="Kurfa Yapay Zeka Asistanı">
+      <div class="ai-panel-ambient"></div>
+
+      <!-- Sol Dikey Kontrol Barı (Left Dock Sidebar - Odaklı 3 Ana Mod) -->
+      <nav class="ai-dock" aria-label="Asistan Modları">
+        <button type="button" class="ai-dock-sparkle-btn" id="aiDockSparkleBtn" title="Kurfa Asistan OS">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"></polygon>
+            <circle cx="12" cy="12" r="3.5"></circle>
+            <line x1="12" y1="2" x2="12" y2="8.5"></line>
+            <line x1="12" y1="15.5" x2="12" y2="22"></line>
+          </svg>
+        </button>
+
+        <div class="ai-dock-nav">
+          <!-- Sohbet Modu (Varsayılan Aktif) -->
+          <button type="button" class="ai-dock-btn active" data-tab="chat" title="Sohbet">
+            <span class="ai-dock-pill"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </button>
+
+          <!-- Canlı Web Araması Modu -->
+          <button type="button" class="ai-dock-btn" data-tab="web" title="Canlı Web Araştırması">
+            <span class="ai-dock-pill"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </button>
+
+
+          <!-- Canlı Hava Durumu Modu -->
+          <button type="button" class="ai-dock-btn" data-tab="weather" title="Canlı Hava Durumu">
+            <span class="ai-dock-pill"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              <line x1="12" y1="2" x2="12" y2="4"/>
+              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+              <line x1="19.07" y1="4.93" x2="17.66" y2="6.34"/>
+            </svg>
+          </button>
+
+          <!-- Windows Hesap Makinesi Modu -->
+          <button type="button" class="ai-dock-btn" data-tab="calc" title="Windows Hesap Makinesi">
+            <span class="ai-dock-pill"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"/>
+              <line x1="8" y1="6" x2="16" y2="6"/>
+              <line x1="16" y1="14" x2="16" y2="18"/>
+              <path d="M16 10h.01"/>
+              <path d="M12 10h.01"/>
+              <path d="M8 10h.01"/>
+              <path d="M12 14h.01"/>
+              <path d="M8 14h.01"/>
+              <path d="M12 18h.01"/>
+              <path d="M8 18h.01"/>
+            </svg>
+          </button>
+
+          <!-- Sistem Ayarları & Durum -->
+          <button type="button" class="ai-dock-btn" data-tab="settings" title="Sistem ve Tercihler">
+            <span class="ai-dock-pill"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Ana İçerik Alanı (Main Container) -->
+      <div class="ai-chat-main">
+        <!-- Ortak Header Bar -->
+        <div class="ai-chat-header">
+          <div class="ai-header-info">
+            <div class="ai-avatar" id="aiHeaderAvatar" title="Kurfa Asistan Durumu">
+              <div class="ai-avatar-glow"></div>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+            </div>
+            <div class="ai-title-group">
+              <div class="ai-header-title">
+                <span id="aiHeaderViewTitle">Kurfa Asistan</span>
+                <span class="ai-model-tag" id="aiHeaderModelTag">qwen/qwen3.8-27b</span>
+              </div>
+              <div class="ai-header-subtitle" id="aiHeaderViewSubtitle">
+                <span class="ai-pulse-dot"></span> Canlı Sistem &amp; Web Bilinci
+              </div>
+            </div>
+          </div>
+          <div class="ai-header-actions">
+            <button type="button" class="ai-btn-icon" id="aiClearChatBtn" title="Sohbeti Temizle" aria-label="Sohbeti Temizle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+            </button>
+            <button type="button" class="ai-btn-icon" id="aiCloseBtn" title="Kapat" aria-label="Kapat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- 1. İZOLE GÖRÜNÜM: Sohbet Ekranı (Chat View) -->
+        <div class="ai-panel-view active" id="aiViewChat">
+          <div class="ai-chat-messages" id="aiChatMessages" aria-live="polite">
+            <div class="ai-welcome-card" id="aiWelcomeCard">
+              <div class="ai-welcome-hero-star">
+                <div class="ai-welcome-star-ring"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"></polygon>
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                  <line x1="12" y1="2" x2="12" y2="8.5"></line>
+                  <line x1="12" y1="15.5" x2="12" y2="22"></line>
+                  <line x1="3" y1="7" x2="8.5" y2="10.2"></line>
+                  <line x1="15.5" y1="13.8" x2="21" y2="17"></line>
+                  <line x1="21" y1="7" x2="15.5" y2="10.2"></line>
+                  <line x1="8.5" y1="13.8" x2="3" y2="17"></line>
+                </svg>
+              </div>
+              <h2>Merhaba! <span class="ai-gradient-text">Ben Kurfa Asistan</span></h2>
+              <p>Kurfa Core işletim sistemi ve canlı web araştırması arayüzüne hoş geldiniz. Sorularınızı yanıtlamaya, analiz ve araştırma yapmaya hazırım.</p>
+            </div>
+          </div>
+
+          <!-- Giriş Alanı -->
+          <form class="ai-chat-input-area" id="aiChatForm" autocomplete="off">
+            <div class="ai-input-wrapper">
+              <div class="ai-input-sparkle" id="aiInputSparkle" title="Yapay Zeka">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 21 7 21 17 12 22 3 17 3 7 12 2"></polygon>
+                  <circle cx="12" cy="12" r="3.5"></circle>
+                </svg>
+              </div>
+              <textarea id="aiChatInput" class="ai-chat-textarea" placeholder="Kurfa Asistan'a bir soru veya görev yazın…" rows="1" maxlength="1000" inputmode="text" enterkeyhint="send" autocomplete="off" spellcheck="false"></textarea>
+              <button type="submit" class="ai-send-btn" id="aiSendBtn" aria-label="Gönder" title="Gönder (Enter)">
+                <svg class="ai-send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="19" x2="12" y2="5"/>
+                  <polyline points="5 12 12 5 19 12"/>
+                </svg>
+              </button>
+            </div>
+            <div class="ai-input-footer">
+              <span class="ai-input-hint"><kbd>Enter ↵</kbd> ile gönder</span>
+              <span class="ai-char-counter" id="aiCharCounter">0/1000</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- 2. İZOLE GÖRÜNÜM: Canlı Web Araması (Web Search View) -->
+        <div class="ai-panel-view" id="aiViewWeb">
+          <div class="ai-web-view-body" id="aiWebViewBody">
+            <div class="ai-web-hero-wrap" id="aiWebHeroWrap">
+              <div class="ai-web-hero">
+                <div class="ai-web-badge">
+                  <span class="ai-web-pulse-dot"></span>
+                  <span>Canlı Web Radarı</span>
+                </div>
+                <h3>Canlı İnternet &amp; Web Araştırması</h3>
+                <p>Türkiye ve dünyadaki güncel internet kaynaklarını gerçek zamanlı tarar, doğrulanmış analiz ve kaynak linkleri sunar.</p>
+              </div>
+
+              <div class="ai-web-topics">
+                <span class="ai-topics-label">Hızlı Araştırma Konuları:</span>
+                <div class="ai-topic-chips">
+                  <button type="button" class="ai-topic-chip" data-query="Bugün Türkiye gündeminde öne çıkan önemli haberler">Günün Gündemi</button>
+                  <button type="button" class="ai-topic-chip" data-query="Güncel dolar, euro, gram altın ve borsa piyasaları">Dolar &amp; Altın</button>
+                  <button type="button" class="ai-topic-chip" data-query="2026 yapay zeka ve teknoloji dünyasındaki en son yenilikler">Teknoloji &amp; AI</button>
+                  <button type="button" class="ai-topic-chip" data-query="Süper Lig güncel puan durumu ve maç sonuçları">Süper Lig</button>
+                  <button type="button" class="ai-topic-chip" data-query="James Webb ve uzay araştırmalarındaki en yeni keşifler">Bilim &amp; Uzay</button>
+                  <button type="button" class="ai-topic-chip" data-query="Bitcoin ve lider kripto varlıkların anlık piyasa görünümü">Kripto Varlıklar</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="ai-web-results-area" id="aiWebResultsArea">
+              <div class="ai-web-placeholder">
+                <div class="ai-web-radar-icon">
+                  <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                  </svg>
+                </div>
+                <span>Aramak istediğiniz konuyu aşağıdaki alana yazıp araştırın.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Arama Giriş Barı (Altta Sabitlenmiş Komut Barı) -->
+          <form class="ai-web-input-bar-area" id="aiWebSearchForm" autocomplete="off">
+            <div class="ai-web-input-wrapper">
+              <div class="ai-web-input-icon" title="Canlı Ağ Radarı">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <input type="text" id="aiWebSearchInput" class="ai-web-search-input" placeholder="Web'de güncel araştır (haber, döviz, bilim, teknoloji)…" maxlength="300" autocomplete="off" spellcheck="false" />
+              <button type="submit" class="ai-web-send-btn" id="aiWebSearchBtn" aria-label="Araştır" title="Araştır (Enter)">
+                <svg class="ai-send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="19" x2="12" y2="5"/>
+                  <polyline points="5 12 12 5 19 12"/>
+                </svg>
+              </button>
+            </div>
+            <div class="ai-input-footer">
+              <span class="ai-input-hint"><kbd>Enter ↵</kbd> ile web'de ara</span>
+              <span class="ai-web-source-indicator">Realtime DuckDuckGo &amp; News Radar</span>
+            </div>
+          </form>
+        </div>
+
+
+        <!-- 5. İZOLE GÖRÜNÜM: Canlı Hava Durumu (Weather View) -->
+        <div class="ai-panel-view" id="aiViewWeather">
+          <div class="ai-weather-view-container">
+            <!-- Search & Popular Cities Bar -->
+            <div class="ai-weather-top-bar">
+              <div class="ai-weather-search-wrapper">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="aiWeatherCityInput" class="ai-weather-city-input" placeholder="Şehir ara (İstanbul, Şanlıurfa, Ankara)..." autocomplete="off" spellcheck="false" />
+                <button type="button" class="ai-weather-search-btn" id="aiWeatherSearchBtn">Bul</button>
+              </div>
+              <div class="ai-weather-chips" id="aiWeatherCityChips">
+                <button type="button" class="ai-weather-chip active" data-city="Istanbul">İstanbul</button>
+                <button type="button" class="ai-weather-chip" data-city="Sanliurfa">Şanlıurfa</button>
+                <button type="button" class="ai-weather-chip" data-city="Ankara">Ankara</button>
+                <button type="button" class="ai-weather-chip" data-city="Izmir">İzmir</button>
+                <button type="button" class="ai-weather-chip" data-city="Antalya">Antalya</button>
+              </div>
+            </div>
+
+            <!-- Weather Hero Card -->
+            <div class="ai-weather-hero-card" id="aiWeatherHeroCard">
+              <div class="ai-weather-hero-main">
+                <div class="ai-weather-hero-city-group">
+                  <div class="ai-weather-city-name" id="aiWeatherCityName">İstanbul</div>
+                  <div class="ai-weather-country" id="aiWeatherCountry">Türkiye · <span id="aiWeatherUpdatedTime">Şimdi Güncellendi</span></div>
+                  <div class="ai-weather-desc" id="aiWeatherDesc">Açık &amp; Güneşli</div>
+                </div>
+                <div class="ai-weather-temp-group">
+                  <div class="ai-weather-temp" id="aiWeatherTemp">20°</div>
+                  <div class="ai-weather-icon-wrapper" id="aiWeatherIcon">
+                    <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Metrics Grid -->
+              <div class="ai-weather-metrics-grid">
+                <div class="ai-weather-metric">
+                  <span class="ai-metric-label">Hissedilen</span>
+                  <span class="ai-metric-val" id="aiWeatherFeelsLike">20°C</span>
+                </div>
+                <div class="ai-weather-metric">
+                  <span class="ai-metric-label">Nem</span>
+                  <span class="ai-metric-val" id="aiWeatherHumidity">%55</span>
+                </div>
+                <div class="ai-weather-metric">
+                  <span class="ai-metric-label">Rüzgar</span>
+                  <span class="ai-metric-val" id="aiWeatherWind">12 km/s</span>
+                </div>
+                <div class="ai-weather-metric">
+                  <span class="ai-metric-label">Yağış</span>
+                  <span class="ai-metric-val" id="aiWeatherPrecip">0 mm</span>
+                </div>
+              </div>
+
+              <!-- AI Weather Advice Button -->
+              <div class="ai-weather-ai-row">
+                <button type="button" class="ai-weather-ai-btn" id="aiAskWeatherAiBtn">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Asistan'dan Günün Kıyafet &amp; Aktivite Tavsiyesini Al</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Inline AI Meteoroloji & Yaşam Danışmanı Kutusu -->
+            <div class="ai-weather-ai-box">
+              <div class="ai-weather-ai-header">
+                <div class="ai-weather-ai-title">
+                  <div class="ai-weather-ai-sparkle">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                  </div>
+                  <div>
+                    <strong>Asistan Meteoroloji &amp; Yaşam Danışmanı</strong>
+                    <span>Seçili şehir ve saatlik tahmin verileri entegre</span>
+                  </div>
+                </div>
+                <div class="ai-weather-ai-chips">
+                  <button type="button" class="ai-inline-weather-chip" data-prompt="Şu anki hava durumuna göre bugün dışarı çıkarken nasıl giyinmeliyim?">🧥 Ne Giymeliyim?</button>
+                  <button type="button" class="ai-inline-weather-chip" data-prompt="Bugün veya yarın için yağmur, fırtına veya ani sıcaklık düşüşü riski var mı?">☔ Yağış &amp; Fırtına</button>
+                  <button type="button" class="ai-inline-weather-chip" data-prompt="Günün hava şartları açık havada yürüyüş, koşu veya spor yapmak için uygun mu?">🏃 Spor &amp; Yürüyüş</button>
+                  <button type="button" class="ai-inline-weather-chip" data-prompt="Bugünkü hava koşulları ve sıcaklık seyahat, araç kullanımı veya yol için nasıl?">🚗 Yol Durumu</button>
+                </div>
+              </div>
+
+              <form class="ai-weather-ai-input-form" id="aiWeatherAiForm">
+                <input type="text" id="aiWeatherAiInput" class="ai-weather-ai-input" placeholder="Hava ve günlük planların hakkında Asistan'a sor (örn: 'Akşam mont lazım mı?')..." autocomplete="off" />
+                <button type="submit" class="ai-weather-ai-send-btn" id="aiWeatherAiSendBtn" title="Asistan'a Sor">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </form>
+
+              <div class="ai-weather-ai-response" id="aiWeatherAiResponse" style="display:none;">
+                <div class="ai-weather-ai-response-content" id="aiWeatherAiResponseContent"></div>
+                <div class="ai-weather-ai-response-footer">
+                  <button type="button" class="ai-transfer-to-chat-btn" id="aiWeatherTransferBtn">Sohbette Devam Et →</button>
+                  <button type="button" class="ai-close-ai-response-btn" id="aiWeatherCloseAiBtn">Kapat</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hourly Forecast Section -->
+            <div class="ai-weather-section">
+              <div class="ai-weather-section-title">Saatlik Tahmin</div>
+              <div class="ai-weather-hourly-track" id="aiWeatherHourlyTrack">
+                <!-- Hourly pills populated dynamically -->
+              </div>
+            </div>
+
+            <!-- 5-Day Forecast Section -->
+            <div class="ai-weather-section">
+              <div class="ai-weather-section-title">5 Günlük Hava Durumu</div>
+              <div class="ai-weather-daily-list" id="aiWeatherDailyList">
+                <!-- Daily rows populated dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. İZOLE GÖRÜNÜM: Windows 11 Hesap Makinesi (Calculator View) -->
+        <div class="ai-panel-view" id="aiViewCalc">
+          <div class="ai-calc-view-container">
+            <div class="ai-calc-window-layout">
+              <!-- SOL BÖLÜM: HESAP MAKİNESİ (Keypad & Ekran) -->
+              <div class="ai-calc-main-pane">
+                <!-- Mode Header (Standart / Bilimsel) -->
+                <div class="ai-calc-topbar">
+                  <div class="ai-calc-mode-selector">
+                    <button type="button" class="ai-calc-mode-btn active" data-mode="standard">
+                      <svg viewBox="0 0 16 16" width="12" height="12" fill="currentColor"><path d="M2 3h12v1.5H2zm0 4h12v1.5H2zm0 4h12v1.5H2z"/></svg>
+                      Standart
+                    </button>
+                    <button type="button" class="ai-calc-mode-btn" data-mode="scientific">Bilimsel</button>
+                  </div>
+                  <button type="button" class="ai-calc-mode-btn ai-calc-hist-mobile-toggle" data-mode="history-toggle" id="aiCalcHistoryBtn" title="Geçmişi Aç/Kapat">
+                    <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="6"/><polyline points="8 4 8 8 11 10"/></svg>
+                    <span>Geçmiş</span>
+                  </button>
+                </div>
+
+                <!-- Ekran Bölümü (Display) -->
+                <div class="ai-calc-display-group">
+                  <div class="ai-calc-history-expression" id="aiCalcExpr">&nbsp;</div>
+                  <div class="ai-calc-main-result" id="aiCalcResult">0</div>
+                </div>
+
+                <!-- Bellek Barı (Memory Row: MC, MR, M+, M-, MS, Mv) -->
+                <div class="ai-calc-memory-row">
+                  <button type="button" class="ai-calc-mem-btn disabled" id="aiCalcMC" disabled>MC</button>
+                  <button type="button" class="ai-calc-mem-btn disabled" id="aiCalcMR" disabled>MR</button>
+                  <button type="button" class="ai-calc-mem-btn" id="aiCalcMPlus">M+</button>
+                  <button type="button" class="ai-calc-mem-btn" id="aiCalcMMinus">M-</button>
+                  <button type="button" class="ai-calc-mem-btn" id="aiCalcMS">MS</button>
+                  <button type="button" class="ai-calc-mem-btn disabled" id="aiCalcMList" disabled>M▾</button>
+                </div>
+
+                <!-- Bilimsel Ek Tuşlar (Varsayılan Gizli, Mod Değişince Açılır) -->
+                <div class="ai-calc-sci-grid" id="aiCalcSciGrid" style="display:none;">
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="sin">sin</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="cos">cos</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="tan">tan</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="pi">π</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="e">e</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="log">log</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="ln">ln</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="fact">n!</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="pow">xʸ</button>
+                  <button type="button" class="ai-calc-btn sci-btn" data-action="sci" data-fn="exp">exp</button>
+                </div>
+
+                <!-- Tuş Takımı Izgarası (Keypad Grid) -->
+                <div class="ai-calc-grid" id="aiCalcKeypad">
+                  <!-- Satır 1 -->
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="percent">%</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="ce">CE</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="c">C</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="backspace" title="Sil">
+                    <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+                  </button>
+
+                  <!-- Satır 2 -->
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="reciprocal">¹/x</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="sqr">x²</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="sqrt">²√x</button>
+                  <button type="button" class="ai-calc-btn op-btn" data-action="op" data-val="/">÷</button>
+
+                  <!-- Satır 3 -->
+                  <button type="button" class="ai-calc-btn num-btn" data-val="7">7</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="8">8</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="9">9</button>
+                  <button type="button" class="ai-calc-btn op-btn" data-action="op" data-val="*">×</button>
+
+                  <!-- Satır 4 -->
+                  <button type="button" class="ai-calc-btn num-btn" data-val="4">4</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="5">5</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="6">6</button>
+                  <button type="button" class="ai-calc-btn op-btn" data-action="op" data-val="-">−</button>
+
+                  <!-- Satır 5 -->
+                  <button type="button" class="ai-calc-btn num-btn" data-val="1">1</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="2">2</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="3">3</button>
+                  <button type="button" class="ai-calc-btn op-btn" data-action="op" data-val="+">+</button>
+
+                  <!-- Satır 6 -->
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="negate">+/−</button>
+                  <button type="button" class="ai-calc-btn num-btn" data-val="0">0</button>
+                  <button type="button" class="ai-calc-btn fn-btn" data-action="decimal">,</button>
+                  <button type="button" class="ai-calc-btn equals-btn" data-action="equals">=</button>
+                </div>
+              </div>
+
+              <!-- SAĞ BÖLÜM: GEÇMİŞ & BELLEK (Windows 11 Masaüstü Yan Paneli) -->
+              <div class="ai-calc-side-pane" id="aiCalcSidePane">
+                <div class="ai-calc-side-header">
+                  <div class="ai-calc-side-title-group">
+                    <span class="ai-calc-side-title">Geçmiş</span>
+                  </div>
+                  <div class="ai-calc-side-actions">
+                    <button type="button" class="ai-calc-side-clear-btn" id="aiCalcClearHistoryBtn" title="Tüm Geçmişi Temizle" style="display:none;">
+                      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                    </button>
+                    <button type="button" class="ai-calc-side-close-btn" id="aiCalcCloseHistory" title="Kapat">✕</button>
+                  </div>
+                </div>
+                <div class="ai-calc-history-list" id="aiCalcHistoryList">
+                  <div class="ai-calc-history-empty">Henüz geçmiş yok</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. İZOLE GÖRÜNÜM: Sistem Ayarları (Settings View) -->
+        <div class="ai-panel-view" id="aiViewSettings">
+          <div class="ai-settings-view-container">
+            <div class="ai-settings-hero">
+              <div class="ai-settings-badge">
+                <span class="ai-settings-pulse-dot"></span>
+                <span>Denetim Merkezi</span>
+              </div>
+              <h3>Kurfa Asistan Ayarları</h3>
+              <p>Kullanıcı kotası, aktif spam ve TPM güvenlik kalkanı ve asistan tercihleri.</p>
+            </div>
+
+            <!-- 1. Kullanıcı Kotası -->
+            <div class="ai-settings-card">
+              <div class="ai-card-title-row">
+                <div class="ai-card-title-group">
+                  <span class="ai-card-title">Günlük Mesaj Kotası</span>
+                  <span class="ai-card-subtitle">IP adresi tabanlı — Gizli sekme ve çerez temizliğinde bile korumalı</span>
+                </div>
+                <span class="ai-card-badge" id="aiSettingsQuotaBadge"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:4px; vertical-align:-1px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>80 Mesaj / IP / Gün</span>
+              </div>
+              <div class="ai-quota-bar-wrapper">
+                <div class="ai-quota-bar-track">
+                  <div class="ai-quota-bar-fill" id="aiSettingsQuotaFill" style="width: 5%;"></div>
+                </div>
+                <div class="ai-quota-stats">
+                  <span id="aiSettingsUsageText"><strong style="color:#f1f5f9;">0</strong> / 80 kullanıldı</span>
+                  <span id="aiSettingsRemainingText"><strong style="color:#10b981;">80</strong> hak kaldı</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 1.5. 3-DÜĞÜM CLUSTER MESH & GERÇEK KOTA HABERLEŞME MERKEZİ (ARKA PLAN TELEMETRİSİ) -->
+            <div class="ai-settings-card" id="aiClusterMeshCard" style="display: none !important;" aria-hidden="true">
+              <div class="ai-card-title-row">
+                <div class="ai-card-title-group">
+                  <span class="ai-card-title">3x Otonom Cluster İletişim Ağı</span>
+                  <span class="ai-card-subtitle">Cloudflare GraphQL &amp; P2P Omni-Gossip Telemetrisi (Canlı Veri)</span>
+                </div>
+                <button type="button" class="ai-spec-live-pill" id="aiClusterSyncBtn" style="cursor:pointer; background: rgba(56, 189, 248, 0.14); border-color: rgba(56, 189, 248, 0.35); color: #38bdf8;" title="Gerçek Zamanlı Verileri Şimdi Eşitle">
+                  Şimdi Eşitle
+                </button>
+              </div>
+              <div class="ai-cluster-nodes-list">
+                <!-- Düğüm 1 -->
+                <div class="ai-node-row" id="nodeRowPrimary">
+                  <div class="ai-node-info">
+                    <span class="ai-node-dot" id="nodeDotPrimary"></span>
+                    <div style="display:flex; flex-direction:column; gap:1px;">
+                      <span class="ai-node-name">Birincil (Primary)</span>
+                      <span class="ai-node-domain">5sarsilmaz6.workers.dev</span>
+                    </div>
+                  </div>
+                  <div class="ai-node-metrics">
+                    <span class="ai-node-latency" id="nodeLatPrimary">1ms</span>
+                    <span class="ai-node-requests" id="nodeReqPrimary"><strong id="nodeCountPrimary">3,395</strong> / 100k</span>
+                    <span class="ai-node-state-badge active" id="nodeBadgePrimary">Aktif Hat</span>
+                  </div>
+                </div>
+
+                <!-- Düğüm 2 -->
+                <div class="ai-node-row" id="nodeRowBackup1">
+                  <div class="ai-node-info">
+                    <span class="ai-node-dot" id="nodeDotBackup1"></span>
+                    <div style="display:flex; flex-direction:column; gap:1px;">
+                      <span class="ai-node-name">Yedek 1 (Backup 1)</span>
+                      <span class="ai-node-domain">yedek1.workers.dev</span>
+                    </div>
+                  </div>
+                  <div class="ai-node-metrics">
+                    <span class="ai-node-latency" id="nodeLatBackup1">22ms</span>
+                    <span class="ai-node-requests" id="nodeReqBackup1"><strong id="nodeCountBackup1">1,402</strong> / 100k</span>
+                    <span class="ai-node-state-badge standby" id="nodeBadgeBackup1">Hazırda</span>
+                  </div>
+                </div>
+
+                <!-- Düğüm 3 -->
+                <div class="ai-node-row" id="nodeRowBackup2">
+                  <div class="ai-node-info">
+                    <span class="ai-node-dot" id="nodeDotBackup2"></span>
+                    <div style="display:flex; flex-direction:column; gap:1px;">
+                      <span class="ai-node-name">Yedek 2 (Backup 2)</span>
+                      <span class="ai-node-domain">yedek2.workers.dev</span>
+                    </div>
+                  </div>
+                  <div class="ai-node-metrics">
+                    <span class="ai-node-latency" id="nodeLatBackup2">25ms</span>
+                    <span class="ai-node-requests" id="nodeReqBackup2"><strong id="nodeCountBackup2">1,205</strong> / 100k</span>
+                    <span class="ai-node-state-badge standby" id="nodeBadgeBackup2">Hazırda</span>
+                  </div>
+                </div>
+              </div>
+              <div class="ai-cluster-summary-bar">
+                <span>Toplam Küme İsteği: <strong id="clusterTotalReq" style="color:#f8fafc;">6,002</strong></span>
+                <span id="clusterSyncTime" style="color:#94a3b8; font-size:11px;">Eşitleme: Cloudflare GraphQL &amp; Firestore</span>
+              </div>
+            </div>
+
+            <!-- 2. Güvenlik & Spam Kalkanı (Anti-Abuse & TPM Guard) -->
+            <div class="ai-settings-card">
+              <div class="ai-card-title-row">
+                <div class="ai-card-title-group">
+                  <span class="ai-card-title">Sistem &amp; Donanım Koruması</span>
+                  <span class="ai-card-subtitle">İncele/Konsol suistimali ve kota tüketimine karşı korumalar</span>
+                </div>
+                <span class="ai-spec-live-pill" style="background: rgba(16, 185, 129, 0.14); border-color: rgba(16, 185, 129, 0.3); color: #34d399;"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" style="margin-right:4px; vertical-align:-1px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Kalkanlar Devrede</span>
+              </div>
+              <div class="ai-settings-grid">
+                <div class="ai-stat-box">
+                  <div class="ai-stat-icon-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span class="ai-stat-label">IP Kalkanı</span>
+                  </div>
+                  <span class="ai-stat-val" id="aiSettingsIpShieldVal" style="color: #a78bfa;">Gizli Sekme Korumalı</span>
+                </div>
+                <div class="ai-stat-box">
+                  <div class="ai-stat-icon-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span class="ai-stat-label">Spam Koruması</span>
+                  </div>
+                  <span class="ai-stat-val" style="color: #38bdf8;">3sn Bekleme Kilidi</span>
+                </div>
+                <div class="ai-stat-box">
+                  <div class="ai-stat-icon-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                    <span class="ai-stat-label">Groq TPM Kalkanı</span>
+                  </div>
+                  <span class="ai-stat-val">8,000 TPM Sınırı</span>
+                </div>
+                <div class="ai-stat-box">
+                  <div class="ai-stat-icon-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                    <span class="ai-stat-label">Token Koruyucu</span>
+                  </div>
+                  <span class="ai-stat-val">Maks. 768 Token</span>
+                </div>
+                <div class="ai-stat-box">
+                  <div class="ai-stat-icon-label">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                    <span class="ai-stat-label">Sunucu Ağı</span>
+                  </div>
+                  <span class="ai-stat-val" style="color: #10b981;">3x Otonom Cluster</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Kullanıcı Tercihleri -->
+            <div class="ai-settings-card">
+              <div class="ai-card-title-row">
+                <div class="ai-card-title-group">
+                  <span class="ai-card-title">Kullanıcı Tercihleri</span>
+                  <span class="ai-card-subtitle">Arayüz ve yanıt biçimlendirme seçenekleri</span>
+                </div>
+              </div>
+              <div class="ai-prefs-list">
+                <label class="ai-pref-item">
+                  <div class="ai-pref-text">
+                    <span class="ai-pref-title">Kod Formatlama &amp; Tek Tık Kopyalama</span>
+                    <span class="ai-pref-sub">Yanıtlardaki kod bloklarını modern sözdizimiyle göster</span>
+                  </div>
+                  <input type="checkbox" class="ai-toggle-input" id="aiPrefSyntaxHighlight" checked />
+                  <span class="ai-toggle-slider"></span>
+                </label>
+                <label class="ai-pref-item">
+                  <div class="ai-pref-text">
+                    <span class="ai-pref-title">Canlı Web Arama Doğrulaması</span>
+                    <span class="ai-pref-sub">Web araştırmasında güncel haber ve ansiklopedik verileri doğrula</span>
+                  </div>
+                  <input type="checkbox" class="ai-toggle-input" id="aiPrefWebVerify" checked />
+                  <span class="ai-toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Aksiyon Butonları -->
+            <div class="ai-settings-actions">
+              <button type="button" class="ai-btn-reset-chat" id="aiFullResetBtn">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+                <span>Sohbet Geçmişini Temizle</span>
+              </button>
+              <button type="button" class="ai-btn-back-chat" id="aiReturnToChatBtn">
+                <span>Sohbete Geri Dön</span>
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sunucu Failover Minimalist Bildirim Kapsülü (Kilit Ekranı Sadeliğinde) -->
+  <div id="serverFailoverToast" class="server-failover-toast" style="display: none;" role="status" aria-live="polite">
+    <div class="failover-toast-inner">
+      <div class="failover-toast-glow"></div>
+      <span class="failover-toast-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+      </span>
+      <span class="failover-toast-text" id="serverFailoverText">Birincil sunucuda teknik aksaklık nedeniyle yedek sunucuya geçilmiştir.</span>
+      <div class="failover-toast-bar" id="serverFailoverBar"></div>
+    </div>
+  </div>
+
+  <!-- PDF.js - Yüksek Performanslı Belge & İlk Sayfa Kapak Motoru -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+  <!-- Hls.js - Yüksek Performanslı Doğrudan Reklamsız HLS Video Oynatıcı Motoru -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.8/hls.min.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
