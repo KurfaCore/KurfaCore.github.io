@@ -350,31 +350,59 @@ footer b{font-size:clamp(60px,16vw,220px)}
 .fz button small{font-size:.75em;margin-left:1px}.fz i{width:1px;height:18px;background:var(--line)}
 .tb .x{width:44px;min-width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line);background:none;font-size:18px;color:var(--fg)}
 .tb .x:active,.tb .fz button:active{background:var(--acc);color:#10132a}
-.audio-hud{position:relative;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 14px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(18,20,32,.72);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);color:var(--fg);font:500 13px Manrope,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.16);transition:all .35s cubic-bezier(.2,.8,.2,1);user-select:none}
-.audio-hud:hover{border-color:rgba(255,255,255,.3);box-shadow:0 10px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.25);transform:translateY(-1px)}
-.audio-hud.track-yusuf{border-color:rgba(255,154,118,.6);box-shadow:0 0 22px rgba(255,138,92,.35),0 8px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22)}
-.audio-hud.track-closing{border-color:rgba(255,85,95,.65);box-shadow:0 0 24px rgba(255,75,75,.4),0 8px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22)}
-.audio-hud-btn{background:none;border:0;padding:0;width:26px;height:26px;display:grid;place-items:center;cursor:pointer;color:var(--fg);border-radius:50%;transition:transform .2s,color .2s,background .2s}
-.audio-hud-btn:hover{color:var(--acc);background:rgba(255,255,255,.08);transform:scale(1.12)}
-.audio-hud-bars{display:inline-flex;align-items:flex-end;gap:3px;height:18px;padding:0 2px}
-.audio-hud-bars span{display:block;width:3px;height:4px;border-radius:3px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
+.audio-hud{position:relative;display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 10px;border-radius:99px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--fg);font:500 12px Manrope,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:all .25s ease;user-select:none}
+.audio-hud:hover{border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.08)}
+.audio-hud-btn{background:none;border:0;padding:0;width:22px;height:22px;display:grid;place-items:center;cursor:pointer;color:var(--fg);border-radius:50%;transition:transform .15s,color .15s,background .15s}
+.audio-hud-btn:hover{color:var(--acc);background:rgba(255,255,255,.1)}
+.audio-hud-bars{display:inline-flex;align-items:flex-end;gap:2.5px;height:12px;padding:0 1px}
+.audio-hud-bars span{display:block;width:2.5px;height:3px;border-radius:2px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
 .audio-hud.track-closing .audio-hud-bars span{background:linear-gradient(to top,#ff3366,#ff7733)}
-.audio-hud.playing .audio-hud-bars span{animation:audioPulse 0.9s ease-in-out infinite alternate}
+.audio-hud.playing .audio-hud-bars span{animation:audioPulse 0.85s ease-in-out infinite alternate}
 .audio-hud.playing .audio-hud-bars span:nth-child(1){animation-delay:.08s}
 .audio-hud.playing .audio-hud-bars span:nth-child(2){animation-delay:.32s}
 .audio-hud.playing .audio-hud-bars span:nth-child(3){animation-delay:.18s}
 .audio-hud.playing .audio-hud-bars span:nth-child(4){animation-delay:.42s}
-@keyframes audioPulse{0%{height:3px}50%{height:16px}100%{height:6px}}
-.audio-hud-title{font-size:12px;letter-spacing:.02em;color:var(--fg);white-space:nowrap;max-width:145px;overflow:hidden;text-overflow:ellipsis;font-weight:600}
-.audio-hud-slider{-webkit-appearance:none;appearance:none;width:58px;height:4px;border-radius:2px;background:rgba(255,255,255,.18);outline:none;cursor:pointer;transition:all .2s}
-.audio-hud-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:12px;height:12px;border-radius:50%;background:var(--acc);cursor:pointer;box-shadow:0 0 8px var(--acc);transition:transform .15s}
-.audio-hud-slider::-webkit-slider-thumb:hover{transform:scale(1.25)}
-.audio-hud-slider::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--acc);cursor:pointer;border:0;box-shadow:0 0 8px var(--acc)}
-.audio-toast{position:absolute;top:calc(100% + 10px);right:0;padding:7px 16px;border-radius:99px;background:rgba(15,18,30,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 30px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.2);color:#fff;font:500 12px Manrope,sans-serif;display:flex;align-items:center;gap:8px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-6px) scale(.96);transition:opacity .4s cubic-bezier(.2,.8,.2,1),transform .4s cubic-bezier(.2,.8,.2,1);z-index:100}
-.audio-toast.show{opacity:1;transform:translateY(0) scale(1)}
-.audio-toast .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc);animation:pulseDot 1.2s ease-in-out infinite}
-@keyframes pulseDot{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.4);opacity:1}}
-@media (max-width:768px){.audio-hud{padding:0 10px;gap:6px}.audio-hud-title{display:none}.audio-hud-slider{width:40px}.audio-toast{right:-20px;font-size:11px;padding:5px 12px}}
+@keyframes audioPulse{0%{height:2.5px}50%{height:11px}100%{height:5px}}
+.audio-hud-title{font-size:11px;letter-spacing:.02em;color:var(--fg);white-space:nowrap;max-width:115px;overflow:hidden;text-overflow:ellipsis;font-weight:500;opacity:.9}
+.audio-hud-slider{-webkit-appearance:none;appearance:none;width:42px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);outline:none;cursor:pointer;transition:all .2s}
+.audio-hud-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:10px;height:10px;border-radius:50%;background:var(--acc);cursor:pointer;box-shadow:0 0 4px var(--acc);transition:transform .15s}
+.audio-hud-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
+.audio-hud-slider::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--acc);cursor:pointer;border:0;box-shadow:0 0 4px var(--acc)}
+@media (max-width:768px){.audio-hud{padding:0 8px;gap:5px}.audio-hud-title{display:none}.audio-hud-slider{width:34px}}
+
+.btn-full-poem{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:99px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--fg);font:600 12px Manrope,sans-serif;cursor:pointer;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 16px rgba(0,0,0,.2);transition:all .2s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
+.btn-full-poem:hover{background:rgba(255,255,255,.1);border-color:var(--acc);color:#fff;transform:translateY(-1px)}
+.btn-full-poem:active{transform:translateY(0)}
+.btn-full-poem svg{opacity:.85;transition:transform .2s}
+.btn-full-poem:hover svg{opacity:1;transform:scale(1.1)}
+@media (max-width:768px){.btn-full-poem span{display:none}.btn-full-poem{padding:0 10px}}
+
+.full-poem-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.full-poem-modal.open{opacity:1;pointer-events:auto}
+.full-poem-backdrop{position:absolute;inset:0;background:rgba(6,8,15,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.full-poem-panel{position:relative;z-index:2;width:min(660px,94vw);max-height:85vh;display:flex;flex-direction:column;background:rgba(18,20,32,.92);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border:1px solid rgba(255,255,255,.14);border-radius:22px;box-shadow:0 24px 64px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.18);overflow:hidden;transform:scale(.95) translateY(10px);transition:transform .28s cubic-bezier(.16,1,.3,1)}
+.full-poem-modal.open .full-poem-panel{transform:scale(1) translateY(0)}
+.full-poem-header{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 22px 14px;border-bottom:1px solid rgba(255,255,255,.08);gap:12px}
+.full-poem-badge{display:inline-block;padding:2px 8px;border-radius:6px;background:rgba(255,138,92,.14);color:var(--acc);font:700 10px Manrope,sans-serif;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.full-poem-header h3{font:700 clamp(18px,1.6vw,24px) 'Bodoni Moda',serif;color:#fff;margin:0;line-height:1.2}
+.full-poem-header p{font:500 12px Manrope,sans-serif;color:var(--mut);margin:3px 0 0}
+.full-poem-close{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--fg);font-size:14px;display:grid;place-items:center;cursor:pointer;transition:all .2s}
+.full-poem-close:hover{background:var(--acc);color:#10132a;border-color:var(--acc);transform:scale(1.08)}
+.full-poem-content{flex:1;overflow-y:auto;padding:18px 22px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.full-poem-content::-webkit-scrollbar{width:6px}
+.full-poem-content::-webkit-scrollbar-thumb{background:rgba(255,255,255,.16);border-radius:3px}
+.full-poem-content::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+.fp-stanza{position:relative;padding:14px 18px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:all .2s ease}
+.fp-stanza:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);transform:translateX(3px)}
+.fp-stanza.active-stanza{background:rgba(255,138,92,.08);border-color:rgba(255,138,92,.4);box-shadow:0 0 16px rgba(255,138,92,.12)}
+.fp-num{display:flex;justify-content:space-between;align-items:center;font:700 10px Manrope,sans-serif;color:var(--mut);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.fp-tag{font:700 9px Manrope,sans-serif;padding:2px 6px;border-radius:4px;background:var(--acc);color:#10132a;text-transform:uppercase;letter-spacing:.04em}
+.fp-lines{font:400 clamp(14px,1.1vw,16px)/1.7 'Bodoni Moda',serif;color:var(--fg);white-space:pre-line}
+.fp-intro{background:rgba(143,125,255,.06);border-color:rgba(143,125,255,.25)}
+.fp-intro .fp-num{color:#b3a6ff}
+.full-poem-footer{display:flex;align-items:center;justify-content:space-between;padding:10px 22px;border-top:1px solid rgba(255,255,255,.08);background:rgba(12,14,22,.55);font:500 11px Manrope,sans-serif;color:var(--mut)}
+.btn-done-full{background:var(--acc);color:#10132a;font:600 12px Manrope,sans-serif;padding:5px 14px;border-radius:99px;border:0;cursor:pointer;transition:transform .15s}
+.btn-done-full:hover{transform:scale(1.05)}
 .rf{flex-direction:column;gap:12px;padding:8px 4vw calc(16px + env(safe-area-inset-bottom,0px))}
 .hint2{color:var(--mut);font-size:clamp(12px,.9vw,14px);transition:opacity 1s}.hint2.gone{opacity:0}
 #dt{gap:6px;flex-wrap:nowrap;width:min(560px,72vw);max-width:none}
@@ -633,9 +661,29 @@ footer b{font-size:clamp(60px,16vw,220px)}
 
 <button id="up" aria-label="Başa dön">↑</button>
 <div id="rd" role="dialog" aria-modal="true" aria-label="Şiir okuma ekranı">
-<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="audio-hud" id="audioHud" title="Fon Müziği Kontrolü"><button id="audioMuteBtn" class="audio-hud-btn" type="button" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat (M tuşu)"><svg class="audio-icon-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><svg class="audio-icon-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button><div class="audio-hud-bars" id="audioHudBars" title="Ses Dalgası"><span></span><span></span><span></span><span></span></div><span class="audio-hud-title" id="audioHudTitle">Fon Müziği</span><input type="range" id="audioHudSlider" min="0" max="1" step="0.05" value="0.75" class="audio-hud-slider" title="Ses Seviyesi"><div class="audio-toast" id="audioToast" aria-live="polite"></div></div><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
+<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="audio-hud" id="audioHud" title="Fon Müziği Kontrolü"><button id="audioMuteBtn" class="audio-hud-btn" type="button" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat (M tuşu)"><svg class="audio-icon-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><svg class="audio-icon-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button><div class="audio-hud-bars" id="audioHudBars" title="Ses Dalgası"><span></span><span></span><span></span><span></span></div><span class="audio-hud-title" id="audioHudTitle">Fon Müziği</span><input type="range" id="audioHudSlider" min="0" max="1" step="0.05" value="0.75" class="audio-hud-slider" title="Ses Seviyesi"></div><button id="btnFullPoem" class="btn-full-poem" type="button" aria-label="Şiirin tamamı" title="Şiirin Tamamını Gör (T tuşu)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Tam Şiir</span></button><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
 <div id="sg"></div>
 <div class="rf"><div id="hn" class="hint2">Ekrana dokun: sonraki kıta · sol kenara dokun: önceki</div><div class="mid"><div id="dt"></div><small id="ct"></small></div></div>
+
+<!-- ŞİİRİN TAMAMINI GÖSTEREN MODAL PENCERE -->
+<div id="fullPoemModal" class="full-poem-modal" style="display:none;" aria-hidden="true" role="dialog" aria-labelledby="fullPoemTitle">
+  <div class="full-poem-backdrop" id="fullPoemBackdrop"></div>
+  <div class="full-poem-panel">
+    <div class="full-poem-header">
+      <div class="full-poem-meta">
+        <span class="full-poem-badge">Tam Metin Görünümü</span>
+        <h3 id="fullPoemTitle">Şiir Başlığı</h3>
+        <p id="fullPoemSubtitle">Şair · Okuyan</p>
+      </div>
+      <button type="button" class="full-poem-close" id="btnCloseFullPoem" aria-label="Kapat">✕</button>
+    </div>
+    <div class="full-poem-content" id="fullPoemContent"></div>
+    <div class="full-poem-footer">
+      <span>💡 Herhangi bir kıtaya dokunarak doğrudan o kıtaya geçebilirsiniz.</span>
+      <button type="button" class="btn-done-full" id="btnDoneFullPoem">Okumaya Dön</button>
+    </div>
+  </div>
+</div>
 </div>
 
 <script>
@@ -953,17 +1001,6 @@ const audioManager = (function() {
     else fadeTimerClosing = timer;
   }
 
-  function showToast(text, subtext) {
-    const toast = $("#audioToast");
-    if (!toast) return;
-    clearTimeout(toastTimer);
-    toast.innerHTML = `<span class="toast-dot"></span><span><b>${esc(text)}</b>${subtext ? ' · ' + esc(subtext) : ''}</span>`;
-    toast.classList.add("show");
-    toastTimer = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 4200);
-  }
-
   function updateUI(playing, title, trackType) {
     const hud = $("#audioHud");
     const titleEl = $("#audioHudTitle");
@@ -996,6 +1033,13 @@ const audioManager = (function() {
     const track = TRACKS[type];
     if (!track) return;
 
+    const currentAudio = type === "yusuf" ? audioYusuf : audioClosing;
+
+    // EĞER BU ŞARKI ZATEN AKTİF VE ÇALIYORSA: KESİNTİ YAPMA, SESİ SIFIRLAMA, DEVAM ETSİN!
+    if (activeTrack === type && currentAudio && !currentAudio.paused) {
+      return;
+    }
+
     // KAPANIŞ BAŞLARKEN: Yusuf Ali'nin müziğini ANINDA kesin olarak kes ve sıfırla!
     if (type === "closing") {
       stopYusufAli(true);
@@ -1003,10 +1047,8 @@ const audioManager = (function() {
       stopClosing(true);
     }
 
-    const currentAudio = type === "yusuf" ? audioYusuf : audioClosing;
     activeTrack = type;
     updateUI(true, track.name, type);
-    showToast(type === "yusuf" ? "Duygusal Fon Başladı" : "Kapanış Müziği Başladı", track.name);
 
     currentAudio.volume = 0;
     const p = currentAudio.play();
@@ -1187,7 +1229,49 @@ let cp,ci=0,ix=0,S=[],fs=1,wl,ro=0;const sg=$("#sg");
 const rf=()=>{try{!document.fullscreenElement&&R.requestFullscreen&&R.requestFullscreen()}catch(e){}};
 const fsc=()=>{try{document.fullscreenElement?document.exitFullscreen():R.requestFullscreen&&R.requestFullscreen()}catch(e){}};
 function openR(i){ci=i;cp=P[i];ro=1;const hn=$("#hn");hn.classList.remove("gone");clearTimeout(window._h);window._h=setTimeout(()=>hn.classList.add("gone"),5500);$("#rd").style.setProperty("--cx",mx+"px");$("#rd").style.setProperty("--cy",my+"px");if(!$("#rd .fy"))for(let k=0;k<10;k++){const f=document.createElement("i");f.className="fy";f.style.cssText=`--x:${Math.random()*100}vw;--s:${3+Math.random()*4|0}px;--d:${12+Math.random()*12|0}s;--l:-${Math.random()*20|0}s;--dx:${(Math.random()-.5)*20|0}vw`;$("#rd").appendChild(f)}$("#rd").classList.add("open");document.body.style.overflow="hidden";try{navigator.wakeLock&&navigator.wakeLock.request("screen").then(l=>wl=l).catch(()=>{})}catch(e){}draw()}
-function closeR(){ro=0;fxToggle(0);audioManager.stopAll(true);$("#rd").classList.remove("open");document.body.style.overflow="";try{wl&&wl.release()}catch(e){}}
+function closeR(){ro=0;closeFullPoem();fxToggle(0);audioManager.stopAll(true);$("#rd").classList.remove("open");document.body.style.overflow="";try{wl&&wl.release()}catch(e){}}
+
+/* Tam Şiir Modal Yöneticisi */
+let fullPoemOpen = 0;
+function openFullPoem(){
+ if(!cp)return;
+ const modal=$("#fullPoemModal");if(!modal)return;
+ fullPoemOpen=1;
+ $("#fullPoemTitle").textContent=cp.t;
+ $("#fullPoemSubtitle").textContent=cp.a+" · Okuyan: "+cp.r;
+ const t=txt(cp),container=$("#fullPoemContent");
+ container.innerHTML="";
+ const of=cp.s&&cp.s.trim()?1:0;
+ if(of){
+  const introDiv=document.createElement("div");
+  introDiv.className="fp-stanza fp-intro"+(ix===1?" active-stanza":"");
+  introDiv.innerHTML=`<div class="fp-num"><span>Sunuş / Giriş Metni</span>${ix===1?'<span class="fp-tag">Şu an okunan</span>':''}</div><div class="fp-lines">${esc(cp.s.trim())}</div>`;
+  introDiv.onclick=()=>{go(1);closeFullPoem()};
+  container.appendChild(introDiv);
+ }
+ const stanzas=t?t.split(/\n\s*\n/):["Şiir yakında gelecek…"];
+ stanzas.forEach((st,idx)=>{
+  const stanzaSlide=idx+1+of;
+  const isActive=ix===stanzaSlide;
+  const card=document.createElement("div");
+  card.className="fp-stanza"+(isActive?" active-stanza":"");
+  card.innerHTML=`<div class="fp-num"><span>Kıta ${idx+1}</span>${isActive?'<span class="fp-tag">Şu an okunan</span>':''}</div><div class="fp-lines">${esc(st.trim())}</div>`;
+  card.onclick=()=>{go(stanzaSlide);closeFullPoem()};
+  container.appendChild(card);
+ });
+ modal.style.display="flex";
+ requestAnimationFrame(()=>modal.classList.add("open"));
+ setTimeout(()=>{
+  const activeEl=container.querySelector(".active-stanza");
+  if(activeEl)activeEl.scrollIntoView({behavior:"smooth",block:"center"});
+ },80);
+}
+function closeFullPoem(){
+ const modal=$("#fullPoemModal");if(!modal||!fullPoemOpen)return;
+ fullPoemOpen=0;modal.classList.remove("open");
+ setTimeout(()=>{if(!fullPoemOpen)modal.style.display="none"},250);
+}
+function toggleFullPoem(){if(fullPoemOpen)closeFullPoem();else openFullPoem()}
 function fit(){const h=sg.clientHeight*.76,w=sg.clientWidth*.9,base=Math.min(innerWidth*.046,innerHeight*.08)*fs;let m=base,st=[];
  S.forEach(e=>{e.classList.remove("wr");const t=e.classList.contains("tt")||e.classList.contains("end");let f=t?Math.min(innerWidth*.052,innerHeight*.09)*fs:base,n=0;e.style.fontSize=f+"px";
   while((e.scrollHeight>h||e.scrollWidth>w)&&f>18&&n++<90){f-=2;e.style.fontSize=f+"px"}
@@ -1286,6 +1370,10 @@ function go(i){
  if(ct)ct.textContent=ix>of&&ix<S.length-1?"Kıta "+(ix-of)+" / "+(S.length-2-of):"";
 }
 $("#go").onclick=$("#nb").onclick=()=>{rf();openR(0)};$("#cl").onclick=closeR;
+const btnFP=$("#btnFullPoem");if(btnFP)btnFP.onclick=(e)=>{e.stopPropagation();toggleFullPoem()};
+const btnCFP=$("#btnCloseFullPoem");if(btnCFP)btnCFP.onclick=(e)=>{e.stopPropagation();closeFullPoem()};
+const btnDFP=$("#btnDoneFullPoem");if(btnDFP)btnDFP.onclick=(e)=>{e.stopPropagation();closeFullPoem()};
+const bgFP=$("#fullPoemBackdrop");if(bgFP)bgFP.onclick=(e)=>{e.stopPropagation();closeFullPoem()};
 
 $("#fp").onclick=()=>{fs=Math.min(1.6,fs*1.12);fit()};$("#fm").onclick=()=>{fs=Math.max(.5,fs/1.12);fit()};
 addEventListener("resize",()=>S.length&&fit());
@@ -1295,10 +1383,12 @@ sg.addEventListener("click",e=>{if(!S.length||e.target.closest("button"))return;
  if(!low){const d=document.createElement("i");d.className="rpl";d.style.left=e.clientX+"px";d.style.top=e.clientY+"px";$("#rd").appendChild(d);setTimeout(()=>d.remove(),750)}
  go(ix+(e.clientX-r.left<r.width*.28?-1:1))});
 addEventListener("keydown",e=>{
- if(!ro||e.target.tagName=="TEXTAREA")return;
- if(["ArrowDown","ArrowRight"," ","PageDown"].includes(e.key)){e.preventDefault();go(ix+1)}
- else if(["ArrowUp","ArrowLeft","PageUp"].includes(e.key)){e.preventDefault();go(ix-1)}
- else if(e.key=="Escape")closeR();else if(e.key=="f")fsc()});
+ if(!ro||e.target.tagName=="TEXTAREA"||e.target.tagName=="INPUT")return;
+ if(e.key=="t"||e.key=="T"){e.preventDefault();toggleFullPoem()}
+ else if(e.key=="Escape"){if(fullPoemOpen)closeFullPoem();else closeR()}
+ else if(["ArrowDown","ArrowRight"," ","PageDown"].includes(e.key)){e.preventDefault();if(!fullPoemOpen)go(ix+1)}
+ else if(["ArrowUp","ArrowLeft","PageUp"].includes(e.key)){e.preventDefault();if(!fullPoemOpen)go(ix-1)}
+ else if(e.key=="f"||e.key=="F")fsc()});
 
 /* tema */
 let rgb;const nrgb=()=>rgb=getComputedStyle(R).getPropertyValue("--node").trim();
