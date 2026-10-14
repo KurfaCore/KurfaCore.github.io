@@ -325,7 +325,7 @@ nav a::after{content:none!important}
 @media (max-width:820px){.flow{flex-direction:column;align-items:stretch}.flow i{width:2px;height:20px;align-self:center}}
 .rh{padding:8px 3vw;gap:8px}
 .ti b{font-size:clamp(16px,1.5vw,24px)}.ti span{font-size:clamp(11px,.9vw,14px)}
-.tb{gap:6px}.tb button{min-height:40px;min-width:40px;padding:2px 14px;font-size:clamp(12px,.9vw,15px)}
+.tb{gap:8px}.tb > button:not(.btn-full-poem):not(.audio-hud-btn){min-height:36px;min-width:36px;padding:2px 12px;font-size:clamp(12px,.9vw,15px)}
 .nv{width:72px;height:72px;font-size:40px}
 .mid{display:flex;flex-direction:column;align-items:center;gap:8px}#ct{color:var(--mut);font-size:clamp(11px,.9vw,14px);letter-spacing:.08em}
 .low .st{text-shadow:none}.low #rn{display:none}
@@ -344,38 +344,43 @@ footer b{font-size:clamp(60px,16vw,220px)}
 #up.show{opacity:1;pointer-events:auto;transform:none}
 @media (max-width:1100px){.nl{gap:20px}.lg{font-size:20px}.nb{padding-left:16px}}
 .rh{padding:6px 3vw;border-bottom:0;background:linear-gradient(rgba(0,0,0,.28),transparent)}
-.tb{align-items:center;gap:12px}
-.fz{display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;background:var(--card)}
-.tb .fz button{min-width:50px;height:40px;padding:0 14px;border:0;border-radius:0;background:none;font:600 clamp(15px,1.1vw,19px) Manrope,sans-serif;color:var(--fg)}
-.fz button small{font-size:.75em;margin-left:1px}.fz i{width:1px;height:18px;background:var(--line)}
-.tb .x{width:44px;min-width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line);background:none;font-size:18px;color:var(--fg)}
-.tb .x:active,.tb .fz button:active{background:var(--acc);color:#10132a}
-.audio-hud{position:relative;display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 10px;border-radius:99px;border:1px solid rgba(255,255,255,.11);background:rgba(255,255,255,.05);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--fg);font:500 12px Manrope,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.25);transition:all .25s ease;user-select:none}
-.audio-hud:hover{border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.08)}
-.audio-hud-btn{background:none;border:0;padding:0;width:22px;height:22px;display:grid;place-items:center;cursor:pointer;color:var(--fg);border-radius:50%;transition:transform .15s,color .15s,background .15s}
-.audio-hud-btn:hover{color:var(--acc);background:rgba(255,255,255,.1)}
-.audio-hud-bars{display:inline-flex;align-items:flex-end;gap:2.5px;height:12px;padding:0 1px}
-.audio-hud-bars span{display:block;width:2.5px;height:3px;border-radius:2px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
+.tb{align-items:center;gap:8px}
+
+/* Audio HUD - Apple Glassmorphism Minimalist Pill */
+.audio-hud{position:relative;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 8px 0 5px;border-radius:99px;border:1px solid rgba(255,255,255,.12);background:rgba(18,20,32,.7);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);color:var(--fg);font:500 11px Manrope,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14);transition:all .25s ease;user-select:none;box-sizing:border-box;overflow:hidden}
+.audio-hud:hover{border-color:rgba(255,255,255,.24);background:rgba(26,29,46,.85)}
+.tb .audio-hud-btn,#audioMuteBtn{all:unset;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:20px!important;min-width:20px!important;max-width:20px!important;height:20px!important;min-height:20px!important;max-height:20px!important;padding:0!important;margin:0!important;border:0!important;border-radius:50%!important;background:transparent!important;color:var(--fg)!important;cursor:pointer!important;box-shadow:none!important;outline:none!important;flex:0 0 20px!important;box-sizing:border-box!important;transition:transform .15s,color .15s,background .15s!important}
+.tb .audio-hud-btn:hover,#audioMuteBtn:hover{color:var(--acc)!important;background:rgba(255,255,255,.14)!important;transform:scale(1.08)}
+.audio-hud-bars{display:inline-flex;align-items:flex-end;gap:2px;height:10px;padding:0 1px;flex-shrink:0}
+.audio-hud-bars span{display:block;width:2px;height:2.5px;border-radius:1px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
 .audio-hud.track-closing .audio-hud-bars span{background:linear-gradient(to top,#ff3366,#ff7733)}
 .audio-hud.playing .audio-hud-bars span{animation:audioPulse 0.85s ease-in-out infinite alternate}
 .audio-hud.playing .audio-hud-bars span:nth-child(1){animation-delay:.08s}
 .audio-hud.playing .audio-hud-bars span:nth-child(2){animation-delay:.32s}
 .audio-hud.playing .audio-hud-bars span:nth-child(3){animation-delay:.18s}
 .audio-hud.playing .audio-hud-bars span:nth-child(4){animation-delay:.42s}
-@keyframes audioPulse{0%{height:2.5px}50%{height:11px}100%{height:5px}}
-.audio-hud-title{font-size:11px;letter-spacing:.02em;color:var(--fg);white-space:nowrap;max-width:115px;overflow:hidden;text-overflow:ellipsis;font-weight:500;opacity:.9}
-.audio-hud-slider{-webkit-appearance:none;appearance:none;width:42px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);outline:none;cursor:pointer;transition:all .2s}
-.audio-hud-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:10px;height:10px;border-radius:50%;background:var(--acc);cursor:pointer;box-shadow:0 0 4px var(--acc);transition:transform .15s}
-.audio-hud-slider::-webkit-slider-thumb:hover{transform:scale(1.2)}
-.audio-hud-slider::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:var(--acc);cursor:pointer;border:0;box-shadow:0 0 4px var(--acc)}
-@media (max-width:768px){.audio-hud{padding:0 8px;gap:5px}.audio-hud-title{display:none}.audio-hud-slider{width:34px}}
+@keyframes audioPulse{0%{height:2px}50%{height:9px}100%{height:4px}}
+.audio-hud-title{font-size:10.5px;letter-spacing:.02em;color:rgba(255,255,255,.9);white-space:nowrap;max-width:96px;overflow:hidden;text-overflow:ellipsis;font-weight:600;line-height:1}
+.audio-hud-slider{-webkit-appearance:none;appearance:none;width:36px;height:3px;border-radius:2px;background:rgba(255,255,255,.2);outline:none;cursor:pointer;transition:all .2s;flex-shrink:0}
+.audio-hud-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:8px;height:8px;border-radius:50%;background:var(--acc);cursor:pointer;box-shadow:0 0 5px var(--acc);transition:transform .15s}
+.audio-hud-slider::-webkit-slider-thumb:hover{transform:scale(1.25)}
+.audio-hud-slider::-moz-range-thumb{width:8px;height:8px;border-radius:50%;background:var(--acc);cursor:pointer;border:0;box-shadow:0 0 5px var(--acc)}
+@media (max-width:768px){.audio-hud{padding:0 6px 0 4px;gap:4px;height:26px}.audio-hud-title{display:none}.audio-hud-slider{width:28px}}
 
-.btn-full-poem{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:99px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--fg);font:600 12px Manrope,sans-serif;cursor:pointer;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 4px 16px rgba(0,0,0,.2);transition:all .2s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
-.btn-full-poem:hover{background:rgba(255,255,255,.1);border-color:var(--acc);color:#fff;transform:translateY(-1px)}
-.btn-full-poem:active{transform:translateY(0)}
-.btn-full-poem svg{opacity:.85;transition:transform .2s}
-.btn-full-poem:hover svg{opacity:1;transform:scale(1.1)}
-@media (max-width:768px){.btn-full-poem span{display:none}.btn-full-poem{padding:0 10px}}
+/* Tam Şiir Butonu */
+.tb .btn-full-poem{display:inline-flex!important;align-items:center!important;gap:5px!important;height:28px!important;min-height:28px!important;max-height:28px!important;padding:0 10px!important;border-radius:99px!important;border:1px solid rgba(255,255,255,.12)!important;background:rgba(18,20,32,.7)!important;color:var(--fg)!important;font:600 11px Manrope,sans-serif!important;cursor:pointer!important;backdrop-filter:blur(20px) saturate(180%)!important;-webkit-backdrop-filter:blur(20px) saturate(180%)!important;box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.14)!important;transition:all .2s cubic-bezier(.2,.8,.2,1)!important;white-space:nowrap!important;box-sizing:border-box!important}
+.tb .btn-full-poem:hover{background:rgba(26,29,46,.85)!important;border-color:var(--acc)!important;color:#fff!important;transform:translateY(-1px)!important}
+.tb .btn-full-poem:active{transform:translateY(0)!important}
+.tb .btn-full-poem svg{opacity:.85;transition:transform .2s}
+.tb .btn-full-poem:hover svg{opacity:1;transform:scale(1.1)}
+@media (max-width:768px){.tb .btn-full-poem span{display:none}.tb .btn-full-poem{padding:0 8px!important}}
+
+.fz{display:flex;align-items:center;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(18,20,32,.7);height:28px;box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.14);box-sizing:border-box}
+.tb .fz button{min-width:32px;height:26px;padding:0 8px;border:0;border-radius:0;background:none;font:600 12px Manrope,sans-serif;color:var(--fg);cursor:pointer}
+.fz button small{font-size:.75em;margin-left:1px}.fz i{width:1px;height:14px;background:rgba(255,255,255,.14)}
+.tb .x{width:28px;min-width:28px;max-width:28px;height:28px;min-height:28px;max-height:28px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(18,20,32,.7);font-size:13px;color:var(--fg);display:grid;place-items:center;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.14);cursor:pointer;box-sizing:border-box}
+.tb .x:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.24);transform:scale(1.05)}
+.tb .x:active,.tb .fz button:active{background:var(--acc);color:#10132a}
 
 .full-poem-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s ease}
 .full-poem-modal.open{opacity:1;pointer-events:auto}
@@ -661,7 +666,7 @@ footer b{font-size:clamp(60px,16vw,220px)}
 
 <button id="up" aria-label="Başa dön">↑</button>
 <div id="rd" role="dialog" aria-modal="true" aria-label="Şiir okuma ekranı">
-<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="audio-hud" id="audioHud" title="Fon Müziği Kontrolü"><button id="audioMuteBtn" class="audio-hud-btn" type="button" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat (M tuşu)"><svg class="audio-icon-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><svg class="audio-icon-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button><div class="audio-hud-bars" id="audioHudBars" title="Ses Dalgası"><span></span><span></span><span></span><span></span></div><span class="audio-hud-title" id="audioHudTitle">Fon Müziği</span><input type="range" id="audioHudSlider" min="0" max="1" step="0.05" value="0.75" class="audio-hud-slider" title="Ses Seviyesi"></div><button id="btnFullPoem" class="btn-full-poem" type="button" aria-label="Şiirin tamamı" title="Şiirin Tamamını Gör (T tuşu)"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Tam Şiir</span></button><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
+<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="audio-hud" id="audioHud" title="Fon Müziği Kontrolü"><button id="audioMuteBtn" class="audio-hud-btn" type="button" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat (M tuşu)"><svg class="audio-icon-on" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><svg class="audio-icon-off" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button><div class="audio-hud-bars" id="audioHudBars" title="Ses Dalgası"><span></span><span></span><span></span><span></span></div><span class="audio-hud-title" id="audioHudTitle">Fon Müziği</span><input type="range" id="audioHudSlider" min="0" max="1" step="0.05" value="0.75" class="audio-hud-slider" title="Ses Seviyesi"></div><button id="btnFullPoem" class="btn-full-poem" type="button" aria-label="Şiirin tamamı" title="Şiirin Tamamını Gör (T tuşu)"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg><span>Tam Şiir</span></button><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
 <div id="sg"></div>
 <div class="rf"><div id="hn" class="hint2">Ekrana dokun: sonraki kıta · sol kenara dokun: önceki</div><div class="mid"><div id="dt"></div><small id="ct"></small></div></div>
 
@@ -698,7 +703,7 @@ const AYAR={liste:false,onizleme:1}; /* liste:true yaparsan hazırlık kontrol l
 const D={tarih:"",sure:"",mekan:"",sozcu:"",sunucular:"",muzik:"Yusuf Ali (Duygusal Fon) & Kapanış (Survivor Konsey)",kostum:""};
 /* Aşağıdaki x metinleri DENEME amaçlı rastgele harflerdir: silip kendi şiirini yapıştır. */
 const P=[
-{n:1,r:"Ozan",t:"Dostlar Beni Hatırlasın",a:"Âşık Veysel Şatıroğlu",k:"p1",x:`Ben giderim adım kalır
+{n:1,r:"Ozan",t:"Dostlar Beni Hatırlasın",a:"Aşık Veysel Şatıroğlu",k:"p1",x:`Ben giderim adım kalır
 Dostlar beni hatırlasın..
 Düğün olur bayram gelir
 Dostlar beni hatırlasın..
@@ -706,6 +711,16 @@ Dostlar beni hatırlasın..
 Can kafeste durmaz uçar
 Dünya bir han konan göçer
 Ay dolanır yıllar geçer
+Dostlar beni hatırlasın..
+
+Can bedenden ayrılacak
+Tütmez baca yanmaz ocak
+Selam olsun kucak kucak
+Dostlar beni hatırlasın..
+
+Ne gelsemdi ne giderdim
+Günden güne arttı derdim
+Garip kalır yerim yurdum
 Dostlar beni hatırlasın..
 
 Açar solar türlü çiçek
