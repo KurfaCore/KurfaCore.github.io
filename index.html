@@ -137,26 +137,7 @@
     </nav>
   </header>
 
-  <!-- Live interactive application for users with Smart Hardware & WebView Shield -->
-  <iframe id="kurfacore-frame" allow="autoplay; fullscreen; microphone; camera; midi; encrypted-media; gamepad; clipboard-read; clipboard-write; storage-access; web-share" allowfullscreen title="Kurfa Core"></iframe>
-  <script>
-    (function() {
-      var ua = navigator.userAgent || '';
-      var isWebView = /;\s*wv\)|Instagram|FBAN|FBAV|WhatsApp|MicroMessenger/i.test(ua);
-      var isLowRam = navigator.deviceMemory && navigator.deviceMemory <= 4;
-      var isSmartBoard = /Pardus|ETAP|SmartBoard/i.test(ua) || (window.screen.width >= 1920 && isLowRam);
-      var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-
-      var baseUrl = "https://kurfacore.5sarsilmaz6.workers.dev/";
-      var frame = document.getElementById("kurfacore-frame");
-
-      // Android Custom Tab, WebView, Akıllı Tahta veya Düşük RAM'li cihazlarda ?lite=1 ile 3D WebGL RAM aşımını önle
-      if (isWebView || isLowRam || isSmartBoard || isMobile) {
-        frame.src = baseUrl + "?lite=1";
-      } else {
-        frame.src = baseUrl;
-      }
-    })();
-  </script>
+  <!-- Live interactive application for users with SafeStorage & VRAM Shield -->
+  <iframe id="kurfacore-frame" src="https://kurfacore.5sarsilmaz6.workers.dev/" allow="autoplay; fullscreen; microphone; camera; midi; encrypted-media; gamepad; clipboard-read; clipboard-write; storage-access; web-share" allowfullscreen title="Kurfa Core"></iframe>
 </body>
 </html>
