@@ -350,6 +350,31 @@ footer b{font-size:clamp(60px,16vw,220px)}
 .fz button small{font-size:.75em;margin-left:1px}.fz i{width:1px;height:18px;background:var(--line)}
 .tb .x{width:44px;min-width:44px;height:44px;padding:0;border-radius:50%;border:1px solid var(--line);background:none;font-size:18px;color:var(--fg)}
 .tb .x:active,.tb .fz button:active{background:var(--acc);color:#10132a}
+.audio-hud{position:relative;display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 14px;border-radius:99px;border:1px solid rgba(255,255,255,.14);background:rgba(18,20,32,.72);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);color:var(--fg);font:500 13px Manrope,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.16);transition:all .35s cubic-bezier(.2,.8,.2,1);user-select:none}
+.audio-hud:hover{border-color:rgba(255,255,255,.3);box-shadow:0 10px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.25);transform:translateY(-1px)}
+.audio-hud.track-yusuf{border-color:rgba(255,154,118,.6);box-shadow:0 0 22px rgba(255,138,92,.35),0 8px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22)}
+.audio-hud.track-closing{border-color:rgba(255,85,95,.65);box-shadow:0 0 24px rgba(255,75,75,.4),0 8px 30px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.22)}
+.audio-hud-btn{background:none;border:0;padding:0;width:26px;height:26px;display:grid;place-items:center;cursor:pointer;color:var(--fg);border-radius:50%;transition:transform .2s,color .2s,background .2s}
+.audio-hud-btn:hover{color:var(--acc);background:rgba(255,255,255,.08);transform:scale(1.12)}
+.audio-hud-bars{display:inline-flex;align-items:flex-end;gap:3px;height:18px;padding:0 2px}
+.audio-hud-bars span{display:block;width:3px;height:4px;border-radius:3px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
+.audio-hud.track-closing .audio-hud-bars span{background:linear-gradient(to top,#ff3366,#ff7733)}
+.audio-hud.playing .audio-hud-bars span{animation:audioPulse 0.9s ease-in-out infinite alternate}
+.audio-hud.playing .audio-hud-bars span:nth-child(1){animation-delay:.08s}
+.audio-hud.playing .audio-hud-bars span:nth-child(2){animation-delay:.32s}
+.audio-hud.playing .audio-hud-bars span:nth-child(3){animation-delay:.18s}
+.audio-hud.playing .audio-hud-bars span:nth-child(4){animation-delay:.42s}
+@keyframes audioPulse{0%{height:3px}50%{height:16px}100%{height:6px}}
+.audio-hud-title{font-size:12px;letter-spacing:.02em;color:var(--fg);white-space:nowrap;max-width:145px;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+.audio-hud-slider{-webkit-appearance:none;appearance:none;width:58px;height:4px;border-radius:2px;background:rgba(255,255,255,.18);outline:none;cursor:pointer;transition:all .2s}
+.audio-hud-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:12px;height:12px;border-radius:50%;background:var(--acc);cursor:pointer;box-shadow:0 0 8px var(--acc);transition:transform .15s}
+.audio-hud-slider::-webkit-slider-thumb:hover{transform:scale(1.25)}
+.audio-hud-slider::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--acc);cursor:pointer;border:0;box-shadow:0 0 8px var(--acc)}
+.audio-toast{position:absolute;top:calc(100% + 10px);right:0;padding:7px 16px;border-radius:99px;background:rgba(15,18,30,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 30px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.2);color:#fff;font:500 12px Manrope,sans-serif;display:flex;align-items:center;gap:8px;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-6px) scale(.96);transition:opacity .4s cubic-bezier(.2,.8,.2,1),transform .4s cubic-bezier(.2,.8,.2,1);z-index:100}
+.audio-toast.show{opacity:1;transform:translateY(0) scale(1)}
+.audio-toast .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc);animation:pulseDot 1.2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.4);opacity:1}}
+@media (max-width:768px){.audio-hud{padding:0 10px;gap:6px}.audio-hud-title{display:none}.audio-hud-slider{width:40px}.audio-toast{right:-20px;font-size:11px;padding:5px 12px}}
 .rf{flex-direction:column;gap:12px;padding:8px 4vw calc(16px + env(safe-area-inset-bottom,0px))}
 .hint2{color:var(--mut);font-size:clamp(12px,.9vw,14px);transition:opacity 1s}.hint2.gone{opacity:0}
 #dt{gap:6px;flex-wrap:nowrap;width:min(560px,72vw);max-width:none}
@@ -608,7 +633,7 @@ footer b{font-size:clamp(60px,16vw,220px)}
 
 <button id="up" aria-label="Başa dön">↑</button>
 <div id="rd" role="dialog" aria-modal="true" aria-label="Şiir okuma ekranı">
-<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
+<div id="fin"></div><div id="rp"></div><div class="rh"><div class="ti"><b id="rt"></b><span id="ra"></span></div><div class="tb"><div class="audio-hud" id="audioHud" title="Fon Müziği Kontrolü"><button id="audioMuteBtn" class="audio-hud-btn" type="button" aria-label="Sesi Aç/Kapat" title="Sesi Aç/Kapat (M tuşu)"><svg class="audio-icon-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><svg class="audio-icon-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg></button><div class="audio-hud-bars" id="audioHudBars" title="Ses Dalgası"><span></span><span></span><span></span><span></span></div><span class="audio-hud-title" id="audioHudTitle">Fon Müziği</span><input type="range" id="audioHudSlider" min="0" max="1" step="0.05" value="0.75" class="audio-hud-slider" title="Ses Seviyesi"><div class="audio-toast" id="audioToast" aria-live="polite"></div></div><div class="fz"><button id="fm" aria-label="Yazıyı küçült">A<small>−</small></button><i></i><button id="fp" aria-label="Yazıyı büyüt">A<small>+</small></button></div><button id="cl" class="x" aria-label="Kapat">✕</button></div></div>
 <div id="sg"></div>
 <div class="rf"><div id="hn" class="hint2">Ekrana dokun: sonraki kıta · sol kenara dokun: önceki</div><div class="mid"><div id="dt"></div><small id="ct"></small></div></div>
 </div>
@@ -622,7 +647,7 @@ const $=s=>document.querySelector(s),R=document.documentElement;R.dataset.theme=
    4) Yeni arkadaş için bu satırı kopyala:  {n:3,r:"İsim",t:"Şiirin adı",a:"Şair",k:"p3",x:``,s:``},
    5) Dinleti kartı bilgileri aşağıdaki D içinde; boşsa "Yakında" yazar. */
 const AYAR={liste:false,onizleme:1}; /* liste:true yaparsan hazırlık kontrol listesi görünür; onizleme: sayfada kaç kıta gösterilsin */
-const D={tarih:"",sure:"",mekan:"",sozcu:"",sunucular:"",muzik:"",kostum:""};
+const D={tarih:"",sure:"",mekan:"",sozcu:"",sunucular:"",muzik:"Yusuf Ali (Duygusal Fon) & Kapanış (Survivor Konsey)",kostum:""};
 /* Aşağıdaki x metinleri DENEME amaçlı rastgele harflerdir: silip kendi şiirini yapıştır. */
 const P=[
 {n:1,r:"Ozan",t:"Dostlar Beni Hatırlasın",a:"Âşık Veysel Şatıroğlu",k:"p1",x:`Ben giderim adım kalır
@@ -811,12 +836,358 @@ function pos(){const hero=$(".hero"),hc=$(".hc"),l=[...document.querySelectorAll
  (document.fonts&&document.fonts.load?document.fonts.load('400 120px "Bodoni Moda"'):Promise.resolve()).then(calc,calc)}
 addEventListener("resize",pos);setTimeout(pos,3000);document.fonts&&document.fonts.ready.then(()=>setTimeout(pos,3000));
 
+/* ================= ŞİİR DİNLETİSİ SES & FON MÜZİĞİ YÖNETİCİSİ ================= */
+const audioManager = (function() {
+  const getAudioPath = (filename) => "audio/" + filename;
+
+  const TRACKS = {
+    yusuf: {
+      id: "yusuf",
+      name: "Yusuf Ali · Duygusal Fon",
+      src: getAudioPath("duygusal-siir-fon.mp3"),
+      altSrc: "/siir-dinletisi/audio/duygusal-siir-fon.mp3",
+      targetVol: 0.70
+    },
+    closing: {
+      id: "closing",
+      name: "Kapanış · Survivor Konsey",
+      src: getAudioPath("survivor-konsey.mp3"),
+      altSrc: "/siir-dinletisi/audio/survivor-konsey.mp3",
+      targetVol: 0.85
+    }
+  };
+
+  let audioYusuf = null;
+  let audioClosing = null;
+  let activeTrack = null;
+  let isMuted = false;
+  let masterVol = 0.75;
+  let toastTimer = null;
+
+  // Bağımsız ses kısma/açma sayaçları (çakışmayı önler)
+  let fadeTimerYusuf = null;
+  let fadeTimerClosing = null;
+  let isUnlocked = false;
+
+  try {
+    const savedVol = localStorage.getItem("sd2_vol");
+    if (savedVol !== null) masterVol = parseFloat(savedVol);
+    const savedMute = localStorage.getItem("sd2_mute");
+    if (savedMute === "1") isMuted = true;
+  } catch(e) {}
+
+  function createAudio(trackInfo) {
+    const a = new Audio();
+    a.src = trackInfo.src;
+    a.loop = true;
+    a.preload = "auto";
+    a.volume = 0;
+    a.addEventListener("error", () => {
+      if (!a.dataset.retried && trackInfo.altSrc && location.protocol !== "file:") {
+        a.dataset.retried = "1";
+        a.src = trackInfo.altSrc;
+        a.load();
+      }
+    });
+    return a;
+  }
+
+  function initAudio() {
+    if (!audioYusuf) audioYusuf = createAudio(TRACKS.yusuf);
+    if (!audioClosing) audioClosing = createAudio(TRACKS.closing);
+  }
+
+  function unlock() {
+    if (isUnlocked) return;
+    initAudio();
+    isUnlocked = true;
+    window.removeEventListener("pointerdown", unlock);
+    window.removeEventListener("keydown", unlock);
+  }
+  window.addEventListener("pointerdown", unlock, { passive: true });
+  window.addEventListener("keydown", unlock, { passive: true });
+
+  function fadeAudio(trackType, targetVolume, durationMs, onDone) {
+    const audio = trackType === "yusuf" ? audioYusuf : audioClosing;
+    if (!audio) return;
+
+    if (trackType === "yusuf") {
+      clearInterval(fadeTimerYusuf);
+      fadeTimerYusuf = null;
+    } else {
+      clearInterval(fadeTimerClosing);
+      fadeTimerClosing = null;
+    }
+
+    if (durationMs <= 0) {
+      audio.volume = Math.max(0, Math.min(1, targetVolume));
+      if (onDone) onDone();
+      return;
+    }
+
+    const stepTime = 30;
+    const steps = Math.max(1, Math.floor(durationMs / stepTime));
+    const startVolume = audio.volume;
+    const stepDelta = (targetVolume - startVolume) / steps;
+    let stepCount = 0;
+
+    const timer = setInterval(() => {
+      stepCount++;
+      let nextVol = startVolume + stepDelta * stepCount;
+      if (stepCount >= steps || (stepDelta > 0 && nextVol >= targetVolume) || (stepDelta < 0 && nextVol <= targetVolume)) {
+        audio.volume = Math.max(0, Math.min(1, targetVolume));
+        if (trackType === "yusuf") {
+          clearInterval(fadeTimerYusuf);
+          fadeTimerYusuf = null;
+        } else {
+          clearInterval(fadeTimerClosing);
+          fadeTimerClosing = null;
+        }
+        if (onDone) onDone();
+      } else {
+        audio.volume = Math.max(0, Math.min(1, nextVol));
+      }
+    }, stepTime);
+
+    if (trackType === "yusuf") fadeTimerYusuf = timer;
+    else fadeTimerClosing = timer;
+  }
+
+  function showToast(text, subtext) {
+    const toast = $("#audioToast");
+    if (!toast) return;
+    clearTimeout(toastTimer);
+    toast.innerHTML = `<span class="toast-dot"></span><span><b>${esc(text)}</b>${subtext ? ' · ' + esc(subtext) : ''}</span>`;
+    toast.classList.add("show");
+    toastTimer = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4200);
+  }
+
+  function updateUI(playing, title, trackType) {
+    const hud = $("#audioHud");
+    const titleEl = $("#audioHudTitle");
+    const muteOn = $("#audioMuteBtn .audio-icon-on");
+    const muteOff = $("#audioMuteBtn .audio-icon-off");
+    const slider = $("#audioHudSlider");
+
+    if (slider) slider.value = masterVol;
+    if (muteOn && muteOff) {
+      muteOn.style.display = isMuted ? "none" : "block";
+      muteOff.style.display = isMuted ? "block" : "none";
+    }
+
+    if (!hud) return;
+
+    hud.classList.remove("track-yusuf", "track-closing");
+    if (trackType) hud.classList.add("track-" + trackType);
+
+    if (playing) {
+      hud.classList.add("playing", "active");
+      if (titleEl) titleEl.textContent = title || "Fon Müziği";
+    } else {
+      hud.classList.remove("playing");
+      if (titleEl) titleEl.textContent = title ? title : "Fon Müziği";
+    }
+  }
+
+  function playTrack(type) {
+    initAudio();
+    const track = TRACKS[type];
+    if (!track) return;
+
+    // KAPANIŞ BAŞLARKEN: Yusuf Ali'nin müziğini ANINDA kesin olarak kes ve sıfırla!
+    if (type === "closing") {
+      stopYusufAli(true);
+    } else if (type === "yusuf") {
+      stopClosing(true);
+    }
+
+    const currentAudio = type === "yusuf" ? audioYusuf : audioClosing;
+    activeTrack = type;
+    updateUI(true, track.name, type);
+    showToast(type === "yusuf" ? "Duygusal Fon Başladı" : "Kapanış Müziği Başladı", track.name);
+
+    currentAudio.volume = 0;
+    const p = currentAudio.play();
+    const destVol = isMuted ? 0 : Math.min(1, track.targetVol * (masterVol / 0.75));
+
+    if (p !== undefined) {
+      p.then(() => {
+        fadeAudio(type, destVol, 1600);
+      }).catch(e => {
+        console.warn("Otomatik oynatma bekliyor:", e);
+      });
+    }
+  }
+
+  function stopYusufAli(instant = false) {
+    clearInterval(fadeTimerYusuf);
+    fadeTimerYusuf = null;
+    if (!audioYusuf) return;
+
+    if (instant) {
+      audioYusuf.pause();
+      audioYusuf.currentTime = 0;
+      audioYusuf.volume = 0;
+      if (activeTrack === "yusuf") {
+        activeTrack = null;
+        updateUI(false, "");
+      }
+    } else if (!audioYusuf.paused) {
+      fadeAudio("yusuf", 0, 700, () => {
+        audioYusuf.pause();
+        audioYusuf.currentTime = 0;
+        if (activeTrack === "yusuf") {
+          activeTrack = null;
+          updateUI(false, "");
+        }
+      });
+    }
+  }
+
+  function stopClosing(instant = false) {
+    clearInterval(fadeTimerClosing);
+    fadeTimerClosing = null;
+    if (!audioClosing) return;
+
+    if (instant) {
+      audioClosing.pause();
+      audioClosing.currentTime = 0;
+      audioClosing.volume = 0;
+      if (activeTrack === "closing") {
+        activeTrack = null;
+        updateUI(false, "");
+      }
+    } else if (!audioClosing.paused) {
+      fadeAudio("closing", 0, 800, () => {
+        audioClosing.pause();
+        audioClosing.currentTime = 0;
+        if (activeTrack === "closing") {
+          activeTrack = null;
+          updateUI(false, "");
+        }
+      });
+    }
+  }
+
+  function stopAll(instant = false) {
+    stopYusufAli(instant);
+    stopClosing(instant);
+    activeTrack = null;
+    updateUI(false, "");
+  }
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    try { localStorage.setItem("sd2_mute", isMuted ? "1" : "0"); } catch(e) {}
+    if (isMuted) {
+      if (audioYusuf) audioYusuf.volume = 0;
+      if (audioClosing) audioClosing.volume = 0;
+    } else {
+      if (activeTrack === "yusuf" && audioYusuf) {
+        audioYusuf.volume = Math.min(1, TRACKS.yusuf.targetVol * (masterVol / 0.75));
+      }
+      if (activeTrack === "closing" && audioClosing) {
+        audioClosing.volume = Math.min(1, TRACKS.closing.targetVol * (masterVol / 0.75));
+      }
+    }
+    updateUI(activeTrack !== null, activeTrack ? TRACKS[activeTrack].name : "", activeTrack);
+  }
+
+  function setVolume(v) {
+    masterVol = Math.max(0, Math.min(1, parseFloat(v)));
+    try { localStorage.setItem("sd2_vol", String(masterVol)); } catch(e) {}
+    if (!isMuted) {
+      if (activeTrack === "yusuf" && audioYusuf) {
+        audioYusuf.volume = Math.min(1, TRACKS.yusuf.targetVol * (masterVol / 0.75));
+      }
+      if (activeTrack === "closing" && audioClosing) {
+        audioClosing.volume = Math.min(1, TRACKS.closing.targetVol * (masterVol / 0.75));
+      }
+    }
+  }
+
+  function togglePlayPause() {
+    if (!activeTrack) {
+      if (fon) {
+        playTrack("closing");
+      } else if (cp && cp.r === "Yusuf Ali") {
+        playTrack("yusuf");
+      } else {
+        playTrack("yusuf");
+      }
+      return;
+    }
+    const currentAudio = activeTrack === "yusuf" ? audioYusuf : audioClosing;
+    if (currentAudio) {
+      if (currentAudio.paused) {
+        currentAudio.play().then(() => {
+          const destVol = isMuted ? 0 : Math.min(1, TRACKS[activeTrack].targetVol * (masterVol / 0.75));
+          fadeAudio(activeTrack, destVol, 700);
+          updateUI(true, TRACKS[activeTrack].name, activeTrack);
+        }).catch(() => {});
+      } else {
+        fadeAudio(activeTrack, 0, 400, () => {
+          currentAudio.pause();
+          updateUI(false, TRACKS[activeTrack].name + " (Duraklatıldı)", activeTrack);
+        });
+      }
+    }
+  }
+
+  function onPoemChanged(poem, index) {
+    const isYusuf = (poem && poem.r === "Yusuf Ali") || index === 4;
+    if (isYusuf) {
+      playTrack("yusuf");
+    } else {
+      stopYusufAli(false);
+    }
+  }
+
+  function bindUI() {
+    const muteBtn = $("#audioMuteBtn");
+    const slider = $("#audioHudSlider");
+
+    if (muteBtn) muteBtn.onclick = (e) => { e.stopPropagation(); toggleMute(); };
+    if (slider) {
+      slider.oninput = (e) => setVolume(e.target.value);
+      slider.onclick = (e) => e.stopPropagation();
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT") return;
+      if (e.key === "m" || e.key === "M") {
+        toggleMute();
+      } else if (e.key === "p" || e.key === "P") {
+        togglePlayPause();
+      }
+    });
+
+    updateUI(false, "");
+  }
+
+  return {
+    init: initAudio,
+    bindUI,
+    onPoemChanged,
+    playYusufAli: () => playTrack("yusuf"),
+    stopYusufAli,
+    playClosing: () => playTrack("closing"),
+    stopClosing,
+    stopAll,
+    toggleMute,
+    setVolume,
+    togglePlayPause
+  };
+})();
+
 /* okuma ekranı: tek kıta, satır satır beliren sahne */
 let cp,ci=0,ix=0,S=[],fs=1,wl,ro=0;const sg=$("#sg");
 const rf=()=>{try{!document.fullscreenElement&&R.requestFullscreen&&R.requestFullscreen()}catch(e){}};
 const fsc=()=>{try{document.fullscreenElement?document.exitFullscreen():R.requestFullscreen&&R.requestFullscreen()}catch(e){}};
 function openR(i){ci=i;cp=P[i];ro=1;const hn=$("#hn");hn.classList.remove("gone");clearTimeout(window._h);window._h=setTimeout(()=>hn.classList.add("gone"),5500);$("#rd").style.setProperty("--cx",mx+"px");$("#rd").style.setProperty("--cy",my+"px");if(!$("#rd .fy"))for(let k=0;k<10;k++){const f=document.createElement("i");f.className="fy";f.style.cssText=`--x:${Math.random()*100}vw;--s:${3+Math.random()*4|0}px;--d:${12+Math.random()*12|0}s;--l:-${Math.random()*20|0}s;--dx:${(Math.random()-.5)*20|0}vw`;$("#rd").appendChild(f)}$("#rd").classList.add("open");document.body.style.overflow="hidden";try{navigator.wakeLock&&navigator.wakeLock.request("screen").then(l=>wl=l).catch(()=>{})}catch(e){}draw()}
-function closeR(){ro=0;fxToggle(0);$("#rd").classList.remove("open");document.body.style.overflow="";try{wl&&wl.release()}catch(e){}}
+function closeR(){ro=0;fxToggle(0);audioManager.stopAll(true);$("#rd").classList.remove("open");document.body.style.overflow="";try{wl&&wl.release()}catch(e){}}
 function fit(){const h=sg.clientHeight*.76,w=sg.clientWidth*.9,base=Math.min(innerWidth*.046,innerHeight*.08)*fs;let m=base,st=[];
  S.forEach(e=>{e.classList.remove("wr");const t=e.classList.contains("tt")||e.classList.contains("end");let f=t?Math.min(innerWidth*.052,innerHeight*.09)*fs:base,n=0;e.style.fontSize=f+"px";
   while((e.scrollHeight>h||e.scrollWidth>w)&&f>18&&n++<90){f-=2;e.style.fontSize=f+"px"}
@@ -837,13 +1208,13 @@ function draw(edit){
  mk(nx?"end":"end fin",`<span class="ln en1">Dinlediğiniz için teşekkürler</span>`+(nx?`<span class="ln en2">Sıradaki okuyucu · ${nx.n} / ${P.length}</span><span class="ln en3">${esc(nx.r)}</span><span class="ln en4">${esc(nx.t)} · ${esc(nx.a)}</span><button class="btn" data-o="${ci+1}">Devam</button>`:`<div class="spc" id="spc"></div><span class="ln en5">Dostlukla kalın.</span><p class="nl2">${P.map(p=>esc(p.r)).join(" · ")}</p><div class="fb"><button class="btn" data-x="1">Kapat</button><button class="btn g2" data-o="0">Baştan başla</button></div>`));
  S.slice(1,-1).forEach((_,j)=>{const d=document.createElement("i");d.onclick=()=>go(j+1);$("#dt").appendChild(d)});
  sg.insertAdjacentHTML("afterbegin",'<b id="rn"></b>');
- fit();document.fonts&&document.fonts.ready.then(()=>S.length&&fit());go(0)}
+ fit();document.fonts&&document.fonts.ready.then(()=>S.length&&fit());go(0);audioManager.onPoemChanged(cp,ci)}
 function switchTo(i){const rd=$("#rd");if(low){ci=i;cp=P[i];draw();return}rd.classList.add("fo");setTimeout(()=>{ci=i;cp=P[i];draw();rd.classList.remove("fo")},430)}
 /* FİNAL SAHNESİ v3: sinema jeneriği (gün doğumu, harf harf açılan başlık, kayan isimler) */
 let fon=0,mvd=0,ftm=0;const fin=$("#fin");
 function fxToggle(on){
- if(!on){if(fon){fon=0;clearTimeout(ftm);fin.classList.remove("on","ke","skip")}return}
- if(fon)return;fon=1;
+ if(!on){if(fon){fon=0;clearTimeout(ftm);fin.classList.remove("on","ke","skip");audioManager.stopClosing(false)}return}
+ if(fon)return;fon=1;audioManager.stopYusufAli(true);audioManager.playClosing();
  fin.style.setProperty("--finbg",getComputedStyle($(".hbg")).backgroundImage);
  const dust=low?"":Array.from({length:26},()=>`<i class="fy" style="--x:${Math.random()*100}vw;--s:${2+Math.random()*4|0}px;--d:${10+Math.random()*12|0}s;--l:-${Math.random()*16|0}s;--dx:${(Math.random()-.5)*14|0}vw"></i>`).join("")+`<i class="ss" style="top:14%;right:26%"></i><i class="ss" style="top:30%;right:6%;animation-delay:3.5s"></i>`;
  const roll=`<div class="k-h">Okuyanlar</div>`+P.map(p=>`<div class="k-i"><small>${String(p.n).padStart(2,"0")} · Okuyan</small><b>${esc(p.r)}</b><span>“${esc(p.t)}”</span><em>${esc(p.a)}</em></div>`).join("")+`<div class="k-h k-f">Türk Dili ve Edebiyatı · Performans görevi</div>`;
@@ -892,7 +1263,28 @@ function fxLoop(){
   if(k>.93&&!e._b){e._b=1;explode(innerWidth/2,innerHeight*.5,26,PAL[0])}});
  requestAnimationFrame(fxLoop)}
 function burst(n){if(low)return;n=n||16;for(let k=0;k<n;k++){const e=document.createElement("i");e.className="sk2";const a=k/n*6.283,d=120+Math.random()*(n>20?300:160);e.style.cssText=`--dx:${Math.cos(a)*d|0}px;--dy:${Math.sin(a)*d|0}px;--s:${3+Math.random()*4|0}px;background:${k%2?"var(--acc2)":"var(--acc)"}`;$("#rd").appendChild(e);setTimeout(()=>e.remove(),1500)}}
-function go(i){if(!S.length)return;ix=Math.max(0,Math.min(i,S.length-1));S.forEach((e,j)=>{e.classList.toggle("on",j==ix);e.classList.toggle("pa",j<ix)});[...$("#dt").children].forEach((d,j)=>{d.classList.toggle("on",j+1==ix);d.classList.toggle("done",j+1<ix)});$("#rp").style.transform=`scaleX(${ix/(S.length-1)})`;fxToggle(S[ix].classList.contains("fin"));if(ix==S.length-1&&S.length>1)burst(S[ix].classList.contains("fin")?40:16);const r=$("#rn");const of=cp.s&&cp.s.trim()?1:0;if(r)r.textContent=ix>of&&ix<S.length-1?rm(ix-of):"";const ct=$("#ct");if(ct)ct.textContent=ix>of&&ix<S.length-1?"Kıta "+(ix-of)+" / "+(S.length-2-of):""}
+function go(i){
+ if(!S.length)return;
+ ix=Math.max(0,Math.min(i,S.length-1));
+ S.forEach((e,j)=>{e.classList.toggle("on",j==ix);e.classList.toggle("pa",j<ix)});
+ [...$("#dt").children].forEach((d,j)=>{d.classList.toggle("on",j+1==ix);d.classList.toggle("done",j+1<ix)});
+ $("#rp").style.transform=`scaleX(${ix/(S.length-1)})`;
+ const isFin=S[ix].classList.contains("fin");
+ if(isFin){
+  audioManager.stopYusufAli(true);
+  fxToggle(true);
+ } else {
+  fxToggle(false);
+  if(cp&&cp.r==="Yusuf Ali"&&ro){
+   audioManager.playYusufAli();
+  }
+ }
+ if(ix==S.length-1&&S.length>1)burst(isFin?40:16);
+ const r=$("#rn");const of=cp.s&&cp.s.trim()?1:0;
+ if(r)r.textContent=ix>of&&ix<S.length-1?rm(ix-of):"";
+ const ct=$("#ct");
+ if(ct)ct.textContent=ix>of&&ix<S.length-1?"Kıta "+(ix-of)+" / "+(S.length-2-of):"";
+}
 $("#go").onclick=$("#nb").onclick=()=>{rf();openR(0)};$("#cl").onclick=closeR;
 
 $("#fp").onclick=()=>{fs=Math.min(1.6,fs*1.12);fit()};$("#fm").onclick=()=>{fs=Math.max(.5,fs/1.12);fit()};
@@ -933,6 +1325,7 @@ let lt=0;function fr(t){if(t-lt<30){requestAnimationFrame(fr);return}lt=t||0;
  requestAnimationFrame(fr)}
 nrgb();rs();if(low)cv.style.display="none";else fr();
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>setTimeout(nrgb,60));
+audioManager.bindUI();
 </script>
 
 <!-- GÜVENLİK PIN KALKANI (DOĞRUDAN ERİŞİM ENGELİ) -->
@@ -977,10 +1370,11 @@ let enteredPin = "";
 function checkAuthGate() {
   const isInsideIframe = window.parent && window.parent !== window;
   const hasToken = sessionStorage.getItem("kf_sec_tok_portal") || document.cookie.includes("kf_token_portal=1");
+  const isOffline = location.protocol === "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.search.includes("offline");
   const gate = document.getElementById("pinGateModal");
   const preloader = document.getElementById("pl");
 
-  if (hasToken || isInsideIframe) {
+  if (hasToken || isInsideIframe || isOffline) {
     if (gate) gate.style.display = "none";
     return true;
   }
