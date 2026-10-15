@@ -354,6 +354,7 @@ footer b{font-size:clamp(60px,16vw,220px)}
 .audio-hud-bars{display:inline-flex;align-items:flex-end;gap:2px;height:10px;padding:0 1px;flex-shrink:0}
 .audio-hud-bars span{display:block;width:2px;height:2.5px;border-radius:1px;background:linear-gradient(to top,var(--acc2),var(--acc));transition:height .25s ease,background .3s}
 .audio-hud.track-closing .audio-hud-bars span{background:linear-gradient(to top,#ff3366,#ff7733)}
+.audio-hud.track-ozan .audio-hud-bars span{background:linear-gradient(to top,#ffb03a,#ffd077)}
 .audio-hud.playing .audio-hud-bars span{animation:audioPulse 0.85s ease-in-out infinite alternate}
 .audio-hud.playing .audio-hud-bars span:nth-child(1){animation-delay:.08s}
 .audio-hud.playing .audio-hud-bars span:nth-child(2){animation-delay:.32s}
@@ -700,7 +701,7 @@ const $=s=>document.querySelector(s),R=document.documentElement;R.dataset.theme=
    4) Yeni arkadaş için bu satırı kopyala:  {n:3,r:"İsim",t:"Şiirin adı",a:"Şair",k:"p3",x:``,s:``},
    5) Dinleti kartı bilgileri aşağıdaki D içinde; boşsa "Yakında" yazar. */
 const AYAR={liste:false,onizleme:1}; /* liste:true yaparsan hazırlık kontrol listesi görünür; onizleme: sayfada kaç kıta gösterilsin */
-const D={tarih:"",sure:"",mekan:"",sozcu:"",sunucular:"",muzik:"Yusuf Ali (Duygusal Fon) & Kapanış (Survivor Konsey)",kostum:""};
+const D={tarih:"",sure:"",mekan:"",sozcu:"",sunucular:"",muzik:"Ozan (Aşık Veysel Fonu) · Yusuf Ali (Duygusal Fon) · Kapanış (Survivor Konsey)",kostum:""};
 /* Aşağıdaki x metinleri DENEME amaçlı rastgele harflerdir: silip kendi şiirini yapıştır. */
 const P=[
 {n:1,r:"Ozan",t:"Dostlar Beni Hatırlasın",a:"Aşık Veysel Şatıroğlu",k:"p1",x:`Ben giderim adım kalır
@@ -904,30 +905,38 @@ const audioManager = (function() {
   const getAudioPath = (filename) => "audio/" + filename;
 
   const TRACKS = {
+    ozan: {
+      id: "ozan",
+      name: "Ozan · Aşık Veysel Fonu",
+      src: getAudioPath("asik-veysel-fon.mp3"),
+      altSrc: "/siir-dinletisi/audio/asik-veysel-fon.mp3",
+      targetVol: 0.35
+    },
     yusuf: {
       id: "yusuf",
       name: "Yusuf Ali · Duygusal Fon",
       src: getAudioPath("duygusal-siir-fon.mp3"),
       altSrc: "/siir-dinletisi/audio/duygusal-siir-fon.mp3",
-      targetVol: 0.70
+      targetVol: 0.35
     },
     closing: {
       id: "closing",
       name: "Kapanış · Survivor Konsey",
       src: getAudioPath("survivor-konsey.mp3"),
       altSrc: "/siir-dinletisi/audio/survivor-konsey.mp3",
-      targetVol: 0.85
+      targetVol: 1.00
     }
   };
 
+  let audioOzan = null;
   let audioYusuf = null;
   let audioClosing = null;
   let activeTrack = null;
   let isMuted = false;
   let masterVol = 0.75;
-  let toastTimer = null;
 
   // Bağımsız ses kısma/açma sayaçları (çakışmayı önler)
+  let fadeTimerOzan = null;
   let fadeTimerYusuf = null;
   let fadeTimerClosing = null;
   let isUnlocked = false;
@@ -938,6 +947,19 @@ const audioManager = (function() {
     const savedMute = localStorage.getItem("sd2_mute");
     if (savedMute === "1") isMuted = true;
   } catch(e) {}
+
+  function getAudio(type) {
+    if (type === "ozan") return audioOzan;
+    if (type === "yusuf") return audioYusuf;
+    if (type === "closing") return audioClosing;
+    return null;
+  }
+
+  function clearFadeTimer(type) {
+    if (type === "ozan") { clearInterval(fadeTimerOzan); fadeTimerOzan = null; }
+    else if (type === "yusuf") { clearInterval(fadeTimerYusuf); fadeTimerYusuf = null; }
+    else if (type === "closing") { clearInterval(fadeTimerClosing); fadeTimerClosing = null; }
+  }
 
   function createAudio(trackInfo) {
     const a = new Audio();
@@ -956,6 +978,7 @@ const audioManager = (function() {
   }
 
   function initAudio() {
+    if (!audioOzan) audioOzan = createAudio(TRACKS.ozan);
     if (!audioYusuf) audioYusuf = createAudio(TRACKS.yusuf);
     if (!audioClosing) audioClosing = createAudio(TRACKS.closing);
   }
@@ -971,16 +994,10 @@ const audioManager = (function() {
   window.addEventListener("keydown", unlock, { passive: true });
 
   function fadeAudio(trackType, targetVolume, durationMs, onDone) {
-    const audio = trackType === "yusuf" ? audioYusuf : audioClosing;
+    const audio = getAudio(trackType);
     if (!audio) return;
 
-    if (trackType === "yusuf") {
-      clearInterval(fadeTimerYusuf);
-      fadeTimerYusuf = null;
-    } else {
-      clearInterval(fadeTimerClosing);
-      fadeTimerClosing = null;
-    }
+    clearFadeTimer(trackType);
 
     if (durationMs <= 0) {
       audio.volume = Math.max(0, Math.min(1, targetVolume));
@@ -991,29 +1008,31 @@ const audioManager = (function() {
     const stepTime = 30;
     const steps = Math.max(1, Math.floor(durationMs / stepTime));
     const startVolume = audio.volume;
-    const stepDelta = (targetVolume - startVolume) / steps;
+    const totalDiff = targetVolume - startVolume;
     let stepCount = 0;
 
     const timer = setInterval(() => {
       stepCount++;
-      let nextVol = startVolume + stepDelta * stepCount;
-      if (stepCount >= steps || (stepDelta > 0 && nextVol >= targetVolume) || (stepDelta < 0 && nextVol <= targetVolume)) {
+      const progress = Math.min(1, stepCount / steps);
+      // Quadratic ease-in for gentle, gradual whisper-to-target swell; ease-out for fading out
+      const easedProgress = totalDiff > 0 
+        ? progress * progress
+        : 1 - Math.pow(1 - progress, 2);
+
+      const nextVol = startVolume + totalDiff * easedProgress;
+
+      if (progress >= 1) {
         audio.volume = Math.max(0, Math.min(1, targetVolume));
-        if (trackType === "yusuf") {
-          clearInterval(fadeTimerYusuf);
-          fadeTimerYusuf = null;
-        } else {
-          clearInterval(fadeTimerClosing);
-          fadeTimerClosing = null;
-        }
+        clearFadeTimer(trackType);
         if (onDone) onDone();
       } else {
         audio.volume = Math.max(0, Math.min(1, nextVol));
       }
     }, stepTime);
 
-    if (trackType === "yusuf") fadeTimerYusuf = timer;
-    else fadeTimerClosing = timer;
+    if (trackType === "ozan") fadeTimerOzan = timer;
+    else if (trackType === "yusuf") fadeTimerYusuf = timer;
+    else if (trackType === "closing") fadeTimerClosing = timer;
   }
 
   function updateUI(playing, title, trackType) {
@@ -1031,7 +1050,7 @@ const audioManager = (function() {
 
     if (!hud) return;
 
-    hud.classList.remove("track-yusuf", "track-closing");
+    hud.classList.remove("track-ozan", "track-yusuf", "track-closing");
     if (trackType) hud.classList.add("track-" + trackType);
 
     if (playing) {
@@ -1048,17 +1067,23 @@ const audioManager = (function() {
     const track = TRACKS[type];
     if (!track) return;
 
-    const currentAudio = type === "yusuf" ? audioYusuf : audioClosing;
+    const currentAudio = getAudio(type);
+    if (!currentAudio) return;
 
     // EĞER BU ŞARKI ZATEN AKTİF VE ÇALIYORSA: KESİNTİ YAPMA, SESİ SIFIRLAMA, DEVAM ETSİN!
-    if (activeTrack === type && currentAudio && !currentAudio.paused) {
+    if (activeTrack === type && !currentAudio.paused) {
       return;
     }
 
-    // KAPANIŞ BAŞLARKEN: Yusuf Ali'nin müziğini ANINDA kesin olarak kes ve sıfırla!
+    // Diğer çalan tüm şarkıları anında kesin olarak kes (çakışmayı önler)
     if (type === "closing") {
+      stopOzan(true);
       stopYusufAli(true);
     } else if (type === "yusuf") {
+      stopOzan(true);
+      stopClosing(true);
+    } else if (type === "ozan") {
+      stopYusufAli(true);
       stopClosing(true);
     }
 
@@ -1071,16 +1096,40 @@ const audioManager = (function() {
 
     if (p !== undefined) {
       p.then(() => {
-        fadeAudio(type, destVol, 1600);
+        // Yumuşak, kademeli ve zarif akustik artış (2.6 saniye, fısıltıdan başlayıp 0.35'e)
+        fadeAudio(type, destVol, 2600);
       }).catch(e => {
         console.warn("Otomatik oynatma bekliyor:", e);
       });
     }
   }
 
+  function stopOzan(instant = false) {
+    clearFadeTimer("ozan");
+    if (!audioOzan) return;
+
+    if (instant) {
+      audioOzan.pause();
+      audioOzan.currentTime = 0;
+      audioOzan.volume = 0;
+      if (activeTrack === "ozan") {
+        activeTrack = null;
+        updateUI(false, "");
+      }
+    } else if (!audioOzan.paused) {
+      fadeAudio("ozan", 0, 700, () => {
+        audioOzan.pause();
+        audioOzan.currentTime = 0;
+        if (activeTrack === "ozan") {
+          activeTrack = null;
+          updateUI(false, "");
+        }
+      });
+    }
+  }
+
   function stopYusufAli(instant = false) {
-    clearInterval(fadeTimerYusuf);
-    fadeTimerYusuf = null;
+    clearFadeTimer("yusuf");
     if (!audioYusuf) return;
 
     if (instant) {
@@ -1104,8 +1153,7 @@ const audioManager = (function() {
   }
 
   function stopClosing(instant = false) {
-    clearInterval(fadeTimerClosing);
-    fadeTimerClosing = null;
+    clearFadeTimer("closing");
     if (!audioClosing) return;
 
     if (instant) {
@@ -1129,6 +1177,7 @@ const audioManager = (function() {
   }
 
   function stopAll(instant = false) {
+    stopOzan(instant);
     stopYusufAli(instant);
     stopClosing(instant);
     activeTrack = null;
@@ -1139,14 +1188,13 @@ const audioManager = (function() {
     isMuted = !isMuted;
     try { localStorage.setItem("sd2_mute", isMuted ? "1" : "0"); } catch(e) {}
     if (isMuted) {
+      if (audioOzan) audioOzan.volume = 0;
       if (audioYusuf) audioYusuf.volume = 0;
       if (audioClosing) audioClosing.volume = 0;
     } else {
-      if (activeTrack === "yusuf" && audioYusuf) {
-        audioYusuf.volume = Math.min(1, TRACKS.yusuf.targetVol * (masterVol / 0.75));
-      }
-      if (activeTrack === "closing" && audioClosing) {
-        audioClosing.volume = Math.min(1, TRACKS.closing.targetVol * (masterVol / 0.75));
+      if (activeTrack && TRACKS[activeTrack]) {
+        const aud = getAudio(activeTrack);
+        if (aud) aud.volume = Math.min(1, TRACKS[activeTrack].targetVol * (masterVol / 0.75));
       }
     }
     updateUI(activeTrack !== null, activeTrack ? TRACKS[activeTrack].name : "", activeTrack);
@@ -1155,13 +1203,9 @@ const audioManager = (function() {
   function setVolume(v) {
     masterVol = Math.max(0, Math.min(1, parseFloat(v)));
     try { localStorage.setItem("sd2_vol", String(masterVol)); } catch(e) {}
-    if (!isMuted) {
-      if (activeTrack === "yusuf" && audioYusuf) {
-        audioYusuf.volume = Math.min(1, TRACKS.yusuf.targetVol * (masterVol / 0.75));
-      }
-      if (activeTrack === "closing" && audioClosing) {
-        audioClosing.volume = Math.min(1, TRACKS.closing.targetVol * (masterVol / 0.75));
-      }
+    if (!isMuted && activeTrack && TRACKS[activeTrack]) {
+      const aud = getAudio(activeTrack);
+      if (aud) aud.volume = Math.min(1, TRACKS[activeTrack].targetVol * (masterVol / 0.75));
     }
   }
 
@@ -1171,12 +1215,14 @@ const audioManager = (function() {
         playTrack("closing");
       } else if (cp && cp.r === "Yusuf Ali") {
         playTrack("yusuf");
+      } else if (cp && cp.r === "Ozan") {
+        playTrack("ozan");
       } else {
-        playTrack("yusuf");
+        playTrack("ozan");
       }
       return;
     }
-    const currentAudio = activeTrack === "yusuf" ? audioYusuf : audioClosing;
+    const currentAudio = getAudio(activeTrack);
     if (currentAudio) {
       if (currentAudio.paused) {
         currentAudio.play().then(() => {
@@ -1195,9 +1241,16 @@ const audioManager = (function() {
 
   function onPoemChanged(poem, index) {
     const isYusuf = (poem && poem.r === "Yusuf Ali") || index === 4;
+    const isOzan = (poem && poem.r === "Ozan") || index === 0;
+
     if (isYusuf) {
+      stopOzan(true);
       playTrack("yusuf");
+    } else if (isOzan) {
+      stopYusufAli(true);
+      playTrack("ozan");
     } else {
+      stopOzan(false);
       stopYusufAli(false);
     }
   }
@@ -1228,6 +1281,8 @@ const audioManager = (function() {
     init: initAudio,
     bindUI,
     onPoemChanged,
+    playOzan: () => playTrack("ozan"),
+    stopOzan,
     playYusufAli: () => playTrack("yusuf"),
     stopYusufAli,
     playClosing: () => playTrack("closing"),
@@ -1313,7 +1368,7 @@ function switchTo(i){const rd=$("#rd");if(low){ci=i;cp=P[i];draw();return}rd.cla
 let fon=0,mvd=0,ftm=0;const fin=$("#fin");
 function fxToggle(on){
  if(!on){if(fon){fon=0;clearTimeout(ftm);fin.classList.remove("on","ke","skip");audioManager.stopClosing(false)}return}
- if(fon)return;fon=1;audioManager.stopYusufAli(true);audioManager.playClosing();
+ if(fon)return;fon=1;audioManager.stopYusufAli(true);audioManager.stopOzan(true);audioManager.playClosing();
  fin.style.setProperty("--finbg",getComputedStyle($(".hbg")).backgroundImage);
  const dust=low?"":Array.from({length:26},()=>`<i class="fy" style="--x:${Math.random()*100}vw;--s:${2+Math.random()*4|0}px;--d:${10+Math.random()*12|0}s;--l:-${Math.random()*16|0}s;--dx:${(Math.random()-.5)*14|0}vw"></i>`).join("")+`<i class="ss" style="top:14%;right:26%"></i><i class="ss" style="top:30%;right:6%;animation-delay:3.5s"></i>`;
  const roll=`<div class="k-h">Okuyanlar</div>`+P.map(p=>`<div class="k-i"><small>${String(p.n).padStart(2,"0")} · Okuyan</small><b>${esc(p.r)}</b><span>“${esc(p.t)}”</span><em>${esc(p.a)}</em></div>`).join("")+`<div class="k-h k-f">Türk Dili ve Edebiyatı · Performans görevi</div>`;
@@ -1371,11 +1426,14 @@ function go(i){
  const isFin=S[ix].classList.contains("fin");
  if(isFin){
   audioManager.stopYusufAli(true);
+  audioManager.stopOzan(true);
   fxToggle(true);
  } else {
   fxToggle(false);
   if(cp&&cp.r==="Yusuf Ali"&&ro){
    audioManager.playYusufAli();
+  } else if(cp&&cp.r==="Ozan"&&ro){
+   audioManager.playOzan();
   }
  }
  if(ix==S.length-1&&S.length>1)burst(isFin?40:16);
